@@ -24,13 +24,15 @@ const CaiDat = () => {
                 <Text style={{ fontSize: 18, fontWeight: "500",marginLeft:80,color:'#2196F3' }}>Chỉnh sữa</Text>
                 </TouchableOpacity>
             </View>
+            <View style={{ flex:1,
+                alignItems:"center",
+                justifyContent:"center",}}>
             <View style={{
+               
+                width:"86%",
                 backgroundColor: "#ffffff",
                 borderRadius: 12,
                 marginTop: 20,
-                marginLeft: 25,
-                marginRight: 25,
-                width: 345,
                 height: 300,
             }}>
                 <FlatList
@@ -66,16 +68,19 @@ const CaiDat = () => {
                         </View>
                     )}>
                 </FlatList>
-
+                </View>
             </View>
             <Text style={{ fontSize: 15, fontWeight: "500", marginLeft: 25, marginTop: 25 }}>Cài đặt số điện thoại</Text>
+            <View style={{ 
+                flex:1,
+                alignItems:"center",
+                justifyContent:"center"
+                }}>
             <View style={{
                 backgroundColor: "#ffffff",
                 borderRadius: 12,
                 marginTop: 12,
-                marginLeft: 25,
-                marginRight: 25,
-                width: 345,
+                width: "86%",
             }}>
                 <Text style={{ fontSize: 14, marginLeft: 15, marginTop: 15 }}>Số điện thoại khẩn cấp:</Text>
                 <FlatList
@@ -98,13 +103,20 @@ const CaiDat = () => {
                     </TouchableOpacity>
                 </View>
             </View>
+            </View>
+
+            <View style={{ 
+                flex:1,
+                alignItems:"center",
+                justifyContent:"center"
+                }}>
             <View style={{
                 backgroundColor: "#ffffff",
                 borderRadius: 12,
                 marginTop: 20,
                 marginLeft: 25,
                 marginRight: 25,
-                width: 345,
+                width: "86%",
             }}>
                 <Text style={{ fontSize: 14, marginLeft: 15, marginTop: 15 }}>Số điện thoại nhận cuộc gọi:</Text>
                 <FlatList
@@ -127,13 +139,20 @@ const CaiDat = () => {
                     </TouchableOpacity>
                 </View>
             </View>
+            </View>
+
+            <View style={{ 
+                flex:1,
+                alignItems:"center",
+                justifyContent:"center"
+                }}>
             <View style={{
                 backgroundColor: "#ffffff",
                 borderRadius: 12,
                 marginTop: 20,
                 marginLeft: 25,
                 marginRight: 25,
-                width: 345,
+                width: "86%",
             }}>
                 <Text style={{ fontSize: 14, marginLeft: 15, marginTop: 15 }}>Số điện thoại gửi tin nhắn:</Text>
                 <FlatList
@@ -155,8 +174,9 @@ const CaiDat = () => {
                     </TouchableOpacity>
                 </View>
             </View>
+            </View>
             <Text style={{ fontSize: 15, fontWeight: "500", marginLeft: 25, marginTop: 25 }}>Cài đặt ngưỡng cảnh báo</Text>
-            <View style={{ flexDirection: "row", width: 400, height: 40, margin: 10, alignItems: "center" }}>
+            <View style={{ flexDirection: "row", width: "100%", height: 40, margin: 10, alignItems: "center" }}>
                 <Text style={{
                     fontSize: 14,
                     marginLeft: 15,
@@ -173,7 +193,7 @@ const CaiDat = () => {
                 }}>1500</TextInput>
 
             </View>
-            <View style={{ flexDirection: "row", width: 400, height: 40, margin: 10, alignItems: "center" }}>
+            <View style={{ flexDirection: "row", width: "100%", height: 40, margin: 10, alignItems: "center" }}>
                 <Text style={{
                     fontSize: 14,
                     marginLeft: 15,
@@ -190,7 +210,7 @@ const CaiDat = () => {
                 }}>1500</TextInput>
 
             </View>
-            <View style={{ flexDirection: "row", width: 400, height: 40, margin: 10, alignItems: "center" }}>
+            <View style={{ flexDirection: "row", width: "100%", height: 40, margin: 10, alignItems: "center" }}>
                 <Text style={{
                     fontSize: 14,
                     marginLeft: 15,
@@ -207,7 +227,7 @@ const CaiDat = () => {
                 }}>70</TextInput>
 
             </View>
-            <View style={{ flexDirection: "row", width: 400, height: 40, margin: 10, alignItems: "center" }}>
+            <View style={{ flexDirection: "row", width: "100%", height: 40, margin: 10, alignItems: "center" }}>
                 <Text style={{
                     fontSize: 14,
                     marginLeft: 15,
@@ -224,7 +244,7 @@ const CaiDat = () => {
                 }}>70</TextInput>
 
             </View>
-            <View style={{ flexDirection: "row", width: 400, height: 40, margin: 10, alignItems: "center" }}>
+            <View style={{ flexDirection: "row", width: "100%", height: 40, margin: 10, alignItems: "center" }}>
                 <Text style={{
                     fontSize: 14,
                     marginLeft: 15,

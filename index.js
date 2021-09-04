@@ -28,4 +28,4 @@ class Main extends Component {
         return mainScreen
     }
 }
-AppRegistry.registerComponent(appName, () => ThongTinTB);
+AppRegistry.registerComponent(appName, () => CaiDat);
