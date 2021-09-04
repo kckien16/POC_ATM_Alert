@@ -5,9 +5,10 @@
 import {AppRegistry} from 'react-native';
 import App from './App';
 import CaiDat from './screens/CaiDat';
+import ThongTinTB from './screens/ThongTinThietBi';
 
-import Splash from './screens/Splash'
-import Login from './screens/Login';
+// import Splash from './screens/Splash'
+// import Login from './screens/Login';
 import {name as appName} from './app.json';
 
 class Main extends Component {
@@ -27,4 +28,4 @@ class Main extends Component {
         return mainScreen
     }
 }
-AppRegistry.registerComponent(appName, () => Main);
+AppRegistry.registerComponent(appName, () => ThongTinTB);

@@ -2,29 +2,15 @@ import React from 'react'
 import { FlatList, ScrollView, SectionList, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
 import FontAwesome from 'react-native-vector-icons/FontAwesome'
 
-
-const DATA = [
-    {
-        imei: '4456456455675',
-        sim: '0369756908',
-        loaiThietBi: 'Thiết bị cảnh báo dành cho ATM',
-        tenThietBi: 'ATM - 123124234234',
-        diaChi: 'Âu Cơ, P.8, Q.Tân Bình, TP.HCM',
-        ngayKH: '16/09/2019'
-    },
-];
-
-const SDT_KC = [
-    {
-        SDT: '0904025252'
-    },
-   
-
-];
-
+import {TT, ThongTin} from "../model/ThongTinTB"
+import {SDT, SDT_KC} from "../model/SDT_KC"
+import {Nhan, SDT_Nhan} from "../model/SDT_Nhan"
+import {Gui, SDT_GuiTN} from "../model/SDT_GuiTN"
 
 
 const CaiDat = () => {
+
+    
 
     return (
         <ScrollView style={{ backgroundColor: "#F0FFF0", width: "100%", height: "100%" }}>
@@ -48,7 +34,7 @@ const CaiDat = () => {
                 height: 300,
             }}>
                 <FlatList
-                    data={DATA}
+                    data={ThongTin}
                     renderItem={({ item }) => (
                         <View >
                             <View style={{ flexDirection: "row", margin: 20 }}>
@@ -63,11 +49,11 @@ const CaiDat = () => {
                             </View>
                             <View style={{ flexDirection: "row", marginLeft: 20, marginBottom: 20 }}>
                                 <Text style={{ fontSize: 16 }}>Loại thiết bị:</Text>
-                                <Text style={{ fontSize: 16, right: "-130%", width: 180, fontWeight: "200" }}>{item.loaiThietBi}</Text>
+                                <Text style={{ fontSize: 16, right: "-130%", width: 180, fontWeight: "200" }}>{item.loaiTB}</Text>
                             </View>
                             <View style={{ flexDirection: "row", marginLeft: 20, marginBottom: 20 }}>
                                 <Text style={{ fontSize: 16 }}>Tên thiết bị:</Text>
-                                <Text style={{ fontSize: 16, right: "-270%", width: 180, fontWeight: "200" }}>{item.tenThietBi}</Text>
+                                <Text style={{ fontSize: 16, right: "-270%", width: 180, fontWeight: "200" }}>{item.tenTB}</Text>
                             </View>
                             <View style={{ flexDirection: "row", marginLeft: 20, marginBottom: 20 }}>
                                 <Text style={{ fontSize: 16 }}>Địa chỉ lắp đặt:</Text>
@@ -99,7 +85,7 @@ const CaiDat = () => {
                             <TouchableOpacity style={{ marginLeft: 15 }}>
                                 
                             </TouchableOpacity>
-                            <Text style={{ fontSize: 16, marginLeft: 10 }}>{item.SDT}</Text>
+                            <Text style={{ fontSize: 16, marginLeft: 10 }}>{item.sdt}</Text>
                         </View>
                     )}
                 >
@@ -122,13 +108,13 @@ const CaiDat = () => {
             }}>
                 <Text style={{ fontSize: 14, marginLeft: 15, marginTop: 15 }}>Số điện thoại nhận cuộc gọi:</Text>
                 <FlatList
-                    data={SDT_KC}
+                    data={SDT_Nhan}
                     renderItem={({ item }) => (
                         <View style={{ flexDirection: "row", alignItems: "center", marginTop: 10 }}>
                             <TouchableOpacity style={{ marginLeft: 15 }}>
                                
                             </TouchableOpacity>
-                            <Text style={{ fontSize: 16, marginLeft: 10 }}>{item.SDT}</Text>
+                            <Text style={{ fontSize: 16, marginLeft: 10 }}>{item.sdt}</Text>
                         </View>
                     )}
                 >
@@ -151,13 +137,13 @@ const CaiDat = () => {
             }}>
                 <Text style={{ fontSize: 14, marginLeft: 15, marginTop: 15 }}>Số điện thoại gửi tin nhắn:</Text>
                 <FlatList
-                    data={SDT_KC}
+                    data={SDT_GuiTN}
                     renderItem={({ item }) => (
                         <View style={{ flexDirection: "row", alignItems: "center", marginTop: 10 }}>
                             <TouchableOpacity style={{ marginLeft: 15 }}>
                               
                             </TouchableOpacity>
-                            <Text style={{ fontSize: 16, marginLeft: 10 }}>{item.SDT}</Text>
+                            <Text style={{ fontSize: 16, marginLeft: 10 }}>{item.sdt}</Text>
                         </View>
                     )}
                 >
@@ -175,15 +161,15 @@ const CaiDat = () => {
                     fontSize: 14,
                     marginLeft: 15,
                 }}>Ngưỡng cảnh báo rung:</Text>
-                <TextInput style={{
-                   
+                <TextInput editable={false} selectTextOnFocus={false} style={{
                     width: 100,
                     height: 40,
                     backgroundColor: "#ffffff",
                     borderRadius: 8,
                     right: "-230%",
                     textAlign: "right",
-                    paddingRight: 20
+                    paddingRight: 20,
+                    fontWeight:"bold"
                 }}>1500</TextInput>
 
             </View>
@@ -192,14 +178,15 @@ const CaiDat = () => {
                     fontSize: 14,
                     marginLeft: 15,
                 }}>Ngưỡng cảnh báo rò điện (dòng):</Text>
-                <TextInput style={{
+                <TextInput editable={false} selectTextOnFocus={false} style={{
                     width: 100,
                     height: 40,
                     backgroundColor: "#ffffff",
                     borderRadius: 8,
                     right: "-75%",
                     textAlign: "right",
-                    paddingRight: 20
+                    paddingRight: 20,
+                    fontWeight:"bold"
                 }}>1500</TextInput>
 
             </View>
@@ -208,14 +195,15 @@ const CaiDat = () => {
                     fontSize: 14,
                     marginLeft: 15,
                 }}>Ngưỡng cảnh báo khói (mật độ):</Text>
-                <TextInput style={{
+                <TextInput editable={false} selectTextOnFocus={false} style={{
                     width: 100,
                     height: 40,
                     backgroundColor: "#ffffff",
                     borderRadius: 8,
                     right: "-83%",
                     textAlign: "right",
-                    paddingRight: 20
+                    paddingRight: 20,
+                    fontWeight:"bold"
                 }}>70</TextInput>
 
             </View>
@@ -224,14 +212,15 @@ const CaiDat = () => {
                     fontSize: 14,
                     marginLeft: 15,
                 }}>Ngưỡng cảnh báo nhiệt độ (độ C):</Text>
-                <TextInput style={{
+                <TextInput editable={false} selectTextOnFocus={false} style={{
                     width: 100,
                     height: 40,
                     backgroundColor: "#ffffff",
                     borderRadius: 8,
                     right: "-55%",
                     textAlign: "right",
-                    paddingRight: 20
+                    paddingRight: 20,
+                    fontWeight:"bold"
                 }}>70</TextInput>
 
             </View>
@@ -240,26 +229,17 @@ const CaiDat = () => {
                     fontSize: 14,
                     marginLeft: 15,
                 }}>Cảnh báo PIN (%):</Text>
-                <TextInput style={{
+                <TextInput editable={false} selectTextOnFocus={false} style={{
                     width: 100,
                     height: 40,
                     backgroundColor: "#ffffff",
                     borderRadius: 8,
                     right: "-305%",
                     textAlign: "right",
-                    paddingRight: 20
+                    paddingRight: 20,
+                    fontWeight:"bold"
                 }}>10</TextInput>
             </View>
-            <TouchableOpacity style={{
-                width: 352,
-                height: 40, backgroundColor: "#3399FF",
-                borderRadius: 5,
-                margin: 20,
-                alignItems: "center",
-                justifyContent: "center"
-            }}>
-                <Text style={{ fontSize: 18, color: "#FFFFFF", fontWeight: "600" }}>Lưu</Text>
-            </TouchableOpacity>
         </ScrollView>
     )
 }
