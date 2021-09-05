@@ -13,22 +13,25 @@ const CaiDat = ({navigation}) => {
     
 
     return (
-        <ScrollView style={{ backgroundColor: "#F0FFF0", width: "100%", height: "100%" }}>
-            <View style={{ backgroundColor: "#ffff", height: 60, flexDirection: "row", alignItems: "center" }}>
-                <TouchableOpacity 
-                onPress={() => navigation.goBack()}
-                style={{ height: 30, width: 30, justifyContent: "center", marginLeft: 30 }}>
-                    <FontAwesome name="angle-left" size={30} color="#1e88e5" />
-                </TouchableOpacity>
-                <Text style={{ fontSize: 18, fontWeight: "500" }}>Thông tin thiết bị</Text>
-                <TouchableOpacity onPress={()=>navigation.navigate("CaiDat")}>
-             
-                <Text style={{ fontSize: 18, fontWeight: "500",marginLeft:80,color:'#2196F3' }}>Chỉnh sữa</Text>
-                </TouchableOpacity>
+        <View>
+            <View>
+                <View style={{ backgroundColor: "#ffff", height: 60, flexDirection: "row", alignItems: "center" }}>
+                    <TouchableOpacity 
+                    onPress={() => navigation.goBack()}
+                    style={{ height: 30, width: 30, justifyContent: "center", marginLeft: 30 }}>
+                        <FontAwesome name="angle-left" size={30} color="#1e88e5" />
+                    </TouchableOpacity>
+                    <Text style={{ fontSize: 18, fontWeight: "500" }}>Thông tin thiết bị</Text>
+                    <View style={{flex:1, alignItems:"flex-end"}}>
+                    <TouchableOpacity onPress={()=>navigation.navigate("CaiDat")}>
+                
+                    <Text style={{fontSize: 18, fontWeight: "500",marginRight:20,color:'#2196F3' }}>Chỉnh sữa</Text>
+                    </TouchableOpacity>
+                    </View>
+                </View>
             </View>
-            <View style={{ flex:1,
-                alignItems:"center",
-                justifyContent:"center",}}>
+        <ScrollView style={{ backgroundColor: "#F0F8FF", width: "100%", height: "100%" }}>
+            
             <View style={{
                 flex:1,
                 alignItems:'center',
@@ -76,7 +79,6 @@ const CaiDat = ({navigation}) => {
                     )}>
                 </FlatList>
                 </View>
-                </View>
             </View>
             <Text style={{ fontSize: 15, fontWeight: "500", marginLeft: 25, marginTop: 25 }}>Cài đặt số điện thoại</Text>
             <View style={{ 
@@ -103,7 +105,6 @@ const CaiDat = ({navigation}) => {
                     )}
                 >
                 </FlatList>
-                <Text style={{ fontWeight: "200", paddingLeft: 15, paddingRight: 15, height: 25 }}>_____________________________________________________________</Text>
                 <View style={{ marginBottom: 10 }}>
                     <TouchableOpacity style={{ marginLeft: 15, flexDirection: "row" }}>
                         
@@ -139,7 +140,6 @@ const CaiDat = ({navigation}) => {
                     )}
                 >
                 </FlatList>
-                <Text style={{ fontWeight: "200", paddingLeft: 15, paddingRight: 15, height: 25 }}>_________________________________________________________</Text>
                 <View style={{ marginBottom: 10 }}>
                     <TouchableOpacity style={{ marginLeft: 15, flexDirection: "row" }}>
                      
@@ -175,7 +175,6 @@ const CaiDat = ({navigation}) => {
                     )}
                 >
                 </FlatList>
-                <Text style={{ fontWeight: "200", paddingLeft: 15, paddingRight: 15, height: 25 }}>_____________________________________________________________</Text>
                 <View style={{ marginBottom: 10 }}>
                     <TouchableOpacity style={{ marginLeft: 15, flexDirection: "row" }}>
                         
@@ -269,6 +268,7 @@ const CaiDat = ({navigation}) => {
                 }}>10</TextInput>
             </View>
         </ScrollView>
+        </View>
     )
 }
 

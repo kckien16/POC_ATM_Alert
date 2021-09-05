@@ -13,7 +13,7 @@ const lookup  = ({navigation}) => {
   const [Loai, setLoai] = useState('Thiết bị ATM');
 
   return (
-    <SafeAreaView style={{flex: 1, backgroundColor: '#e8f1f2'}}>
+    <SafeAreaView style={{flex: 1, backgroundColor: '#F0F8FF'}}>
       <View style={{alignItems:'center', marginTop: 200}}>
         <Text>Hoặc</Text>
       </View>

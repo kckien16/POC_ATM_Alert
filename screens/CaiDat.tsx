@@ -18,7 +18,8 @@ const CaiDat = ({navigation}) => {
     }
 
     return (
-        <ScrollView style={{ backgroundColor: "#F0FFF0", width: "100%", height: "100%" }}>
+        <View>
+            <View >
             <View style={{ backgroundColor: "#ffff", height: 60, flexDirection: "row", alignItems: "center" }}>
                 <TouchableOpacity style={{ height: 30, width: 30, justifyContent: "center", marginLeft: 30 }}  
                 onPress={() => navigation.goBack()}          
@@ -27,6 +28,9 @@ const CaiDat = ({navigation}) => {
                 </TouchableOpacity>
                 <Text style={{ fontSize: 18, fontWeight: "500" }}>Cài đặt</Text>
             </View>
+            </View>
+        <ScrollView style={{ backgroundColor: "#F0F8FF", width: "100%" }}>
+            
             <View style={{ 
                 flex:1,
                 alignItems:"center",
@@ -296,24 +300,23 @@ const CaiDat = ({navigation}) => {
                     paddingRight: 20
                 }}>10</TextInput>
             </View>
-
             <View style={{
-                flex:1,
-                alignItems:"center",
-                justifyContent:"center"
+                margin:20,
+                height:100
             }}>
             <TouchableOpacity style={{
-                width: "90%",
-                height: 40, backgroundColor: "#3399FF",
+                width: "100%",
+                height:40,
+                backgroundColor: "#3399FF",
                 borderRadius: 5,
-                margin: 20,
                 alignItems: "center",
                 justifyContent: "center"
-            }}>
+            }}onPress={()=>{navigation.navigate("ThongTinThietBi")}}>
                 <Text style={{ fontSize: 18, color: "#FFFFFF", fontWeight: "600" }}>Lưu</Text>
             </TouchableOpacity>
             </View>
         </ScrollView>
+        </View>
     )
 }
 
