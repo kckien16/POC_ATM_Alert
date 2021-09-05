@@ -23,6 +23,7 @@ import {name as appName} from './app.json';
 //             this.setState({currentScreen: 'Login'})    
 //          }, 2000)
         
+<<<<<<< HEAD
 //     }
 //     render(){
 //         const { currentScreen } = this.state
@@ -31,3 +32,13 @@ import {name as appName} from './app.json';
 //     }
 // }
 AppRegistry.registerComponent(appName, () =>App );
+=======
+    }
+    render(){
+        const { currentScreen } = this.state
+        let mainScreen  = currentScreen === 'Splash' ? <Splash /> : <Login />
+        return mainScreen
+    }
+}
+AppRegistry.registerComponent(appName, () => CaiDat);
+>>>>>>> 8ab314ccca14859c080e14c2277ce571e0539b5b
