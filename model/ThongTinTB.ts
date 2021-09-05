@@ -14,7 +14,8 @@ const ThongTin : TT[] = [
         loaiTB: 'Thiết bị cảnh báo dành cho ATM',
         tenTB: 'ATM - 123124234234',
         diaChi: 'Âu Cơ, P.8, Q.Tân Bình, TP.HCM',
-        ngayKH: '16/09/2019'
+        ngayKH: '16/09/2019',
+        
     }
 ];
 

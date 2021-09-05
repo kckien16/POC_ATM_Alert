@@ -1,69 +1,88 @@
-import React from 'react';
-import {Text,View, StyleSheet, TextInput, TouchableOpacity, Image, ColorValue, StatusBar, SafeAreaView} from 'react-native';
+import React,{useState} from 'react';
+import { Text, View, StyleSheet, TextInput, TouchableOpacity, Image, ColorValue, StatusBar, SafeAreaView,ToastAndroid } from 'react-native';
+import {StackActions, useNavigation} from '@react-navigation/native';
 
-const Login =() => {
-  return(
-    <SafeAreaView style = {styles.container}>
-    
-      <View style = {{flexDirection: 'row',padding:10}}>
-      <Image style = {{width: 40, height: 40}}
-      source ={require('screens\vietnam.png')}>
-        </Image>
-        
-        <View style = {{
-          flex:2,
-          padding:7,
-          alignItems:'flex-end',
-         }}>
-           <View style={{ width: 70, 
-            height: 32, 
-            borderColor: '#2190CD', 
-            borderWidth: 2,  
+
+const Login = () => {
+  const [email, setemail] = useState();
+  const [pass, setpass] = useState();
+  const navigation = useNavigation();
+
+  const checkLogin = (email:string , pass: string) => {
+    if (email == '1' && pass == '1') {
+      navigation.navigate("Lookup");
+      ToastAndroid.show('Login success', ToastAndroid.SHORT);
+    } else {
+      ToastAndroid.show('Xem lai email or pass', ToastAndroid.SHORT);
+    }
+  };
+  return (
+    <SafeAreaView style={styles.container}>
+
+      <View style={{ flexDirection: 'row', padding: 10 }}>
+        <Image style={{ width: 40, height: 40 }}
+          source={require('../screens/vietnam.png')} />
+
+        <View style={{
+          flex: 2,
+          padding: 7,
+          alignItems: 'flex-end',
+        }}>
+          <View style={{
+            width: 70,
+            height: 32,
+            borderColor: '#2190CD',
+            borderWidth: 2,
             flexDirection: 'row',
-            justifyContent:'center' ,
-            }}>
-        <Image style = {{width:27, height:27}}
-      source ={require('screens\vietnam.png')} />
-       
-        <Text style = {{color: 'blue', alignSelf: 'center', fontWeight:'bold',fontSize:12}}> VNM </Text>
-        </View>
-        </View>
-        </View>
+            justifyContent: 'center',
+          }}>
+            <Image style={{ width: 27, height: 27 }}
+             source={require('../screens/vietnam.png')} 
+              />
 
-      <Text style = {styles.text}>
-        Đăng nhập
+            <Text style={{ color: 'blue', alignSelf: 'center', fontWeight: 'bold', fontSize: 12 }}> VNM </Text>
+          </View>
+        </View>
+      </View>
+      <Text style={styles.text}>
+        Login
       </Text>
-      <TextInput style = {styles.textIput}
-        placeholder = '       Email đăng nhập'
+      <TextInput style={styles.textIput}
+      value={email}
+        placeholder='       Email đăng nhập'
+        onChangeText={text => setemail(text)}
       >
       </TextInput>
-      
-      <TextInput style = {styles.textIput}
-        placeholder = '       Mật khẩu'
-        keyboardType = 'numeric'
+
+      <TextInput style={styles.textIput}
+      value={pass}
+        placeholder='Mật khẩu'
+        keyboardType='numeric'
         returnKeyType='next'
-        secureTextEntry= {true}
         autoFocus={true}
+        onChangeText={text => setpass(text)}
       >
       </TextInput>
 
       <TouchableOpacity>
-        <Text style = {styles.textForgot}>Quên mật khẩu</Text>
+        <Text style={styles.textForgot}>Quên mật khẩu</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity style = {styles.buttonLogin}>
-        <Text style = {styles.buttonLoginText}>ĐĂNG NHẬP</Text>
+      <TouchableOpacity style={styles.buttonLogin} 
+     onPress={() => checkLogin(email , pass)}>
+      
+        <Text style={styles.buttonLoginText}>ĐĂNG NHẬP</Text>
       </TouchableOpacity>
     </SafeAreaView>
   )
 };
 
 const styles = StyleSheet.create({
-  container:{
+  container: {
     flex: 1,
     backgroundColor: '#EAF5FA',
   },
-  
+
   text: {
     fontSize: 25,
     fontWeight: 'bold',

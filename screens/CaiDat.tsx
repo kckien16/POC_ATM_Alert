@@ -1,14 +1,14 @@
-import React, { useState, useEffect,FC } from 'react'
-import { FlatList, ScrollView, SectionList, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
-import FontAwesome from 'react-native-vector-icons/FontAwesome'
-import {TT, ThongTin} from "../model/ThongTinTB"
-import {SDT, SDT_KC} from "../model/SDT_KC"
-import {Nhan, SDT_Nhan} from "../model/SDT_Nhan"
-import {Gui, SDT_GuiTN} from "../model/SDT_GuiTN"
+import React, { useState, useEffect,FC } from 'react';
+import { FlatList, ScrollView, SectionList, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import {TT, ThongTin} from "../model/ThongTinTB";
+import {SDT, SDT_KC} from "../model/SDT_KC";
+import {Nhan, SDT_Nhan} from "../model/SDT_Nhan";
+import {Gui, SDT_GuiTN} from "../model/SDT_GuiTN";
 
 
 
-const CaiDat = () => {
+const CaiDat = ({navigation}) => {
     const [sdt, setSdt] = useState<SDT[] | null>(null);
     const[inputShown, setInputShown] = useState<Boolean>(false);
     const[newSdt,setNewSDT] = useState<SDT | null>(null);
@@ -20,8 +20,9 @@ const CaiDat = () => {
     return (
         <ScrollView style={{ backgroundColor: "#F0FFF0", width: "100%", height: "100%" }}>
             <View style={{ backgroundColor: "#ffff", height: 60, flexDirection: "row", alignItems: "center" }}>
-                <TouchableOpacity style={{ height: 30, width: 30, justifyContent: "center", marginLeft: 30 }}            
-                >
+                <TouchableOpacity style={{ height: 30, width: 30, justifyContent: "center", marginLeft: 30 }}  
+                onPress={() => navigation.goBack()}          
+                > 
                     <FontAwesome name="angle-left" size={30} color="#1e88e5" />
                 </TouchableOpacity>
                 <Text style={{ fontSize: 18, fontWeight: "500" }}>Cài đặt</Text>

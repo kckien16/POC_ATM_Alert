@@ -8,29 +8,35 @@ import {Nhan, SDT_Nhan} from "../model/SDT_Nhan"
 import {Gui, SDT_GuiTN} from "../model/SDT_GuiTN"
 
 
-const CaiDat = () => {
+const CaiDat = ({navigation}) => {
 
     
 
     return (
         <ScrollView style={{ backgroundColor: "#F0FFF0", width: "100%", height: "100%" }}>
             <View style={{ backgroundColor: "#ffff", height: 60, flexDirection: "row", alignItems: "center" }}>
-                <TouchableOpacity style={{ height: 30, width: 30, justifyContent: "center", marginLeft: 30 }}>
+                <TouchableOpacity 
+                onPress={() => navigation.goBack()}
+                style={{ height: 30, width: 30, justifyContent: "center", marginLeft: 30 }}>
                     <FontAwesome name="angle-left" size={30} color="#1e88e5" />
                 </TouchableOpacity>
                 <Text style={{ fontSize: 18, fontWeight: "500" }}>Thông tin thiết bị</Text>
-                <TouchableOpacity>
-
+                <TouchableOpacity onPress={()=>navigation.navigate("CaiDat")}>
+             
                 <Text style={{ fontSize: 18, fontWeight: "500",marginLeft:80,color:'#2196F3' }}>Chỉnh sữa</Text>
                 </TouchableOpacity>
             </View>
             <View style={{
-                backgroundColor: "#ffffff",
+                flex:1,
+                alignItems:'center',
+                justifyContent:'center',
+            }}>
+            <View style={{
+                
+                backgroundColor: "#ffff",
                 borderRadius: 12,
-                marginTop: 20,
-                marginLeft: 25,
-                marginRight: 25,
-                width: 345,
+                marginTop: 20,               
+                width: '90%',
                 height: 300,
             }}>
                 <FlatList
@@ -66,7 +72,7 @@ const CaiDat = () => {
                         </View>
                     )}>
                 </FlatList>
-
+                </View>
             </View>
             <Text style={{ fontSize: 15, fontWeight: "500", marginLeft: 25, marginTop: 25 }}>Cài đặt số điện thoại</Text>
             <View style={{
