@@ -5,7 +5,8 @@ import Login from './screens/Login';
 import CaiDat from './screens//CaiDat';
 import Lookup from './screens/Lookup';
 import Device from './screens/Device';
-import ThongTinThietBi from './screens/ThongTinThietBi'
+import ThongTinThietBi from './screens/ThongTinThietBi';
+import traCuuTB from './screens/traCuuTB';
 
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
@@ -22,6 +23,7 @@ const App =()=>{
            <Stack.Screen name ="ThongTinThietBi" component={ThongTinThietBi}  />
   
            <Stack.Screen name ="CaiDat" component={CaiDat}  />
+           <Stack.Screen name ="traCuuTB" component={traCuuTB}  />
   
   
         </Stack.Navigator>

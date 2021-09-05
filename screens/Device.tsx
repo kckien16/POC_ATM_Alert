@@ -108,77 +108,78 @@ const Device = ({ route, navigation }) => {
                             source={require('../images/thermometer.png')} />
                         <Text style={{ fontSize: 16, marginLeft: 10 }}>Nhiệt ( >36.5):</Text>
 
-                        <Text style={{ fontSize: 16, right: "-500%", fontWeight: "200" }}>Cao</Text>
+                        <Text style={{ fontSize: 16, right: "-550%", fontWeight: "200" }}>Cao</Text>
 
                     </View>
                     <View style={{ flexDirection: "row", margin: 10 }}>
                         <Image style={{ width: 26, height: 26 }}
                             source={require('../images/mobile-phone.png')} />
                         <Text style={{ fontSize: 16, marginLeft: 10 }}>Rung ( >1700):</Text>
-                        <Text style={{ fontSize: 16, right: "-500%", width: 180, fontWeight: "200" }}>Bình Thường</Text>
+                        
+                        <Text style={{ fontSize: 16, right: "-70%", width: 150, fontWeight: "200", textAlign:"right" }}>Bình Thường</Text>
 
                     </View>
                     <View style={{ flexDirection: "row", margin: 10 }}>
                         <Image style={{ width: 26, height: 26 }}
                             source={require('../images/border.png')} />
                         <Text style={{ fontSize: 16, marginLeft: 10 }}>Cửa trên máy ATM:</Text>
-                        <Text style={{ fontSize: 16, right: "-420%", width: 180, fontWeight: "200" }}>Cao</Text>
+                        <Text style={{ fontSize: 16, right: "-400%", width: 180, fontWeight: "200" }}>Cao</Text>
 
                     </View>
                     <View style={{ flexDirection: "row", margin: 10 }}>
                         <Image style={{ width: 26, height: 26 }}
                             source={require('../images/door.png')} />
                         <Text style={{ fontSize: 16, marginLeft: 10 }}>Cửa két máy ATM>36.5):</Text>
-                        <Text style={{ fontSize: 16, right: "-230%", width: 180, fontWeight: "200" }}>Cao</Text>
+                        <Text style={{ fontSize: 16, right: "-250%", width: 180, fontWeight: "200" }}>Cao</Text>
 
                     </View>
                     <View style={{ flexDirection: "row", margin: 10 }}>
                         <Image style={{ width: 26, height: 26 }}
                             source={require('../images/windows.png')} />
                         <Text style={{ fontSize: 16, marginLeft: 10 }}>Cửa ngoài máy ATM>36.5):</Text>
-                        <Text style={{ fontSize: 16, right: "-230%", width: 180, fontWeight: "200" }}>Cao</Text>
+                        <Text style={{ fontSize: 16, right: "-175%", width: 180, fontWeight: "200" }}>Cao</Text>
 
                     </View>
                     <View style={{ flexDirection: "row", margin: 10 }}>
                         <Image style={{ width: 26, height: 26 }}
                             source={require('../images/paste.png')} />
                         <Text style={{ fontSize: 16, marginLeft: 10 }}>Dự phòng :</Text>
-                        <Text style={{ fontSize: 16, right: "-600%", width: 180, fontWeight: "200" }}>Cao</Text>
+                        <Text style={{ fontSize: 16, right: "-620%", width: 180, fontWeight: "200" }}>Cao</Text>
 
                     </View>
                     <View style={{ flexDirection: "row", margin: 10 }}>
                         <Image style={{ width: 26, height: 26 }}
                             source={require('../images/move.png')} />
                         <Text style={{ fontSize: 16, marginLeft: 10 }}>Dịch chuyển:</Text>
-                        <Text style={{ fontSize: 16, right: "-580%", width: 180, fontWeight: "200" }}>Cao</Text>
+                        <Text style={{ fontSize: 16, right: "-570%", width: 180, fontWeight: "200" }}>Cao</Text>
 
                     </View>
                     <View style={{ flexDirection: "row", margin: 10 }}>
                         <Image style={{ width: 26, height: 26 }}
                             source={require('../images/power-plug.png')} />
                         <Text style={{ fontSize: 16, marginLeft: 10 }}>Rò Điện:</Text>
-                        <Text style={{ fontSize: 16, right: "-670%", width: 180, fontWeight: "200" }}>Cao</Text>
+                        <Text style={{ fontSize: 16, right: "-682%", width: 180, fontWeight: "200" }}>Cao</Text>
 
                     </View>
                     <View style={{ flexDirection: "row", margin: 10 }}>
                         <Image style={{ width: 26, height: 26 }}
                             source={require('../images/carbon-dioxide.png')} />
                         <Text style={{ fontSize: 16, marginLeft: 10 }}>Khói:</Text>
-                        <Text style={{ fontSize: 16, right: "-750%", width: 180, fontWeight: "200" }}>Cao</Text>
+                        <Text style={{ fontSize: 16, right: "-770%", width: 180, fontWeight: "200" }}>Cao</Text>
 
                     </View>
                     <View style={{ flexDirection: "row", margin: 10 }}>
                         <Image style={{ width: 26, height: 26 }}
                             source={require('../images/power-plug.png')} />
                         <Text style={{ fontSize: 16, marginLeft: 10 }}>Pin dự phòng:</Text>
-                        <Text style={{ fontSize: 16, right: "-550%", width: 180, fontWeight: "200" }}>Cao</Text>
+                        <Text style={{ fontSize: 16, right: "-530%", width: 180, fontWeight: "200" }}>Cao</Text>
 
                     </View>
                     <View style={{ flexDirection: "row", margin: 10 }}>
                         <Image style={{ width: 26, height: 26 }}
                             source={require('../images/lightning.png')} />
                         <Text style={{ fontSize: 16, marginLeft: 10 }}>Điện áp nguồn AC:</Text>
-                        <Text style={{ fontSize: 16, right: "-450%", width: 180, fontWeight: "200" }}>Cao</Text>
+                        <Text style={{ fontSize: 16, right: "-405%", width: 180, fontWeight: "200" }}>Cao</Text>
 
                     </View>
                     <View style={{ flexDirection: "row", margin: 10 }}>
@@ -224,13 +225,14 @@ const Device = ({ route, navigation }) => {
                         backgroundColor: "#1e88e5",
                         borderRadius: 8,
                         justifyContent: "center",
-                    }}>
-                        <Text style={{ fontSize: 16, textAlign: "center", color:"#ffffff",fontWeight:"500" }}>Cập Nhật</Text>
+                    }}
+                    onPress={()=>navigation.navigate('traCuuTB')}
+                    >
+                        <Text style={{ fontSize: 16, textAlign: "center", color:"#ffffff",fontWeight:"500" }}>Cập Nhập</Text>
                     </TouchableOpacity>
                 </View>
 
-
-            </View>
+              </View> 
         )
     }
 

@@ -1,3 +1,4 @@
+import { NavigationContainer } from '@react-navigation/native';
 import React from 'react';
 import {Text,View, StyleSheet,
    TouchableOpacity, FlatList, } from 'react-native';
@@ -17,15 +18,16 @@ const DATA = [
 
 ]
 
-const traCuuTB = () => {
+const traCuuTB = ({navigation}) => {
   return(
     <View style = {styles.container}>
     <View style={{ backgroundColor: "#ffff", height: 60, flexDirection: "row", alignItems: "center" }}>
-    <TouchableOpacity style={{ height: 30, width: 30, justifyContent: "center", marginLeft: 30 }}>
-    </TouchableOpacity>
-    <TouchableOpacity style={{ height: 30, width: 30, justifyContent: "center", marginLeft: 30 }}>
-      <FontAwesome name="1f9a6" size={30} color="#1e88e5" />
-        </TouchableOpacity>
+   
+    <TouchableOpacity 
+    onPress={() => navigation.goBack()}
+    style={{ height: 30, width: 30, justifyContent: "center", marginLeft: 30 }}>
+    <FontAwesome name="angle-left" size={35} color="#1e88e5" />
+      </TouchableOpacity>
     <Text style={{ fontSize: 18, fontWeight: "500" }}>Tra cứu thiết bị</Text>
   </View>
 
@@ -118,7 +120,7 @@ const traCuuTB = () => {
 
 <View style = {{marginTop: 100}}>
   <TouchableOpacity style = {styles.buttonLogin}>
-        <Text style = {styles.buttonLoginText}>ĐĂNG NHẬP</Text>
+        <Text style = {styles.buttonLoginText}>Kích hoạt</Text>
   </TouchableOpacity>
   </View>
 </View>

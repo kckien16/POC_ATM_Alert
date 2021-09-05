@@ -21,7 +21,7 @@ const Login = () => {
 
       <View style={{ flexDirection: 'row', padding: 10 }}>
         <Image style={{ width: 40, height: 40 }}
-          source={require('../screens/vietnam.png')} />
+          source={require('../images/vietnam.png')} />
 
         <View style={{
           flex: 2,
@@ -37,7 +37,7 @@ const Login = () => {
             justifyContent: 'center',
           }}>
             <Image style={{ width: 27, height: 27 }}
-             source={require('../screens/vietnam.png')} 
+             source={require('../images/vietnam.png')} 
               />
 
             <Text style={{ color: 'blue', alignSelf: 'center', fontWeight: 'bold', fontSize: 12 }}> VNM </Text>
@@ -49,7 +49,7 @@ const Login = () => {
       </Text>
       <TextInput style={styles.textIput}
       value={email}
-        placeholder='       Email đăng nhập'
+        placeholder='Email đăng nhập'
         onChangeText={text => setemail(text)}
       >
       </TextInput>

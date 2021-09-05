@@ -6,7 +6,7 @@ const Splash =()=>{
     <SafeAreaView style = {styles.container}>
         <View style={{alignSelf:'center',justifyContent:'center',flex:2}}>
         <Image style={{width:60, height:60}}
-     source ={require('../screens/vietnam.png')}/>  
+     source ={require('../images/vietnam.png')}/>  
         </View>
      <View style = {{alignItems: 'center',flexDirection:'column-reverse',flex:1}}>
      <Text>Version 1.0.0.2</Text>

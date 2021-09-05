@@ -51,7 +51,7 @@ const CaiDat = ({navigation}) => {
                         <View >
                             <View style={{ flexDirection: "row", margin: 20 }}>
                                 <Text style={{ fontSize: 16 }}>IMEI:</Text>
-                                <Text style={{ fontSize: 16, right: "-500%", width: 180, fontWeight: "200" }}>{item.imei}</Text>
+                                <Text style={{ fontSize: 16, right: "-500%", width: 180, fontWeight: "200",  }}>{item.imei}</Text>
 
                             </View>
                             <View style={{ flexDirection: "row", marginLeft: 20, marginBottom: 20 }}>
@@ -97,20 +97,11 @@ const CaiDat = ({navigation}) => {
                     data={SDT_KC}
                     renderItem={({ item }) => (
                         <View style={{ flexDirection: "row", alignItems: "center", marginTop: 10 }}>
-                            <TouchableOpacity style={{ marginLeft: 15 }}>
-                                
-                            </TouchableOpacity>
-                            <Text style={{ fontSize: 16, marginLeft: 10 }}>{item.sdt}</Text>
+                            <Text style={{ fontSize: 16, marginLeft: 15}}>{item.sdt}</Text>
                         </View>
                     )}
                 >
                 </FlatList>
-                <View style={{ marginBottom: 10 }}>
-                    <TouchableOpacity style={{ marginLeft: 15, flexDirection: "row" }}>
-                        
-                        
-                    </TouchableOpacity>
-                </View>
             </View>
             </View>
 
@@ -132,20 +123,11 @@ const CaiDat = ({navigation}) => {
                     data={SDT_Nhan}
                     renderItem={({ item }) => (
                         <View style={{ flexDirection: "row", alignItems: "center", marginTop: 10 }}>
-                            <TouchableOpacity style={{ marginLeft: 15 }}>
-                               
-                            </TouchableOpacity>
-                            <Text style={{ fontSize: 16, marginLeft: 10 }}>{item.sdt}</Text>
+                            <Text style={{ fontSize: 16, marginLeft: 15 }}>{item.sdt}</Text>
                         </View>
                     )}
                 >
                 </FlatList>
-                <View style={{ marginBottom: 10 }}>
-                    <TouchableOpacity style={{ marginLeft: 15, flexDirection: "row" }}>
-                     
-                        
-                    </TouchableOpacity>
-                </View>
             </View>
             </View>
 
@@ -167,19 +149,12 @@ const CaiDat = ({navigation}) => {
                     data={SDT_GuiTN}
                     renderItem={({ item }) => (
                         <View style={{ flexDirection: "row", alignItems: "center", marginTop: 10 }}>
-                            <TouchableOpacity style={{ marginLeft: 15 }}>
-                              
-                            </TouchableOpacity>
-                            <Text style={{ fontSize: 16, marginLeft: 10 }}>{item.sdt}</Text>
+                            <Text style={{ fontSize: 16, marginLeft: 15 }}>{item.sdt}</Text>
                         </View>
                     )}
                 >
                 </FlatList>
-                <View style={{ marginBottom: 10 }}>
-                    <TouchableOpacity style={{ marginLeft: 15, flexDirection: "row" }}>
-                        
-                    </TouchableOpacity>
-                </View>
+                
             </View>
             </View>
             <Text style={{ fontSize: 15, fontWeight: "500", marginLeft: 25, marginTop: 25 }}>Cài đặt ngưỡng cảnh báo</Text>
