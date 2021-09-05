@@ -193,12 +193,35 @@ const Device = ({ route, navigation }) => {
 
     function update() {
         return (
-            <View style={{ flex: 1, flexDirection: 'row', padding: 50, alignItems: 'center', justifyContent: 'center', backgroundColor: '##098cf7', }}>
-                <TouchableOpacity style={{ width: 100, height: 30, }}>
+           <View style={{flex: 1, flexDirection: 'row', justifyContent: 'center',padding:30}}>
+            <View style={{
+                    width: 180, 
+                    height: 70,}}>
+                 <TouchableOpacity 
+               
+                style={{ 
+                    width: 150, height: 50, 
+                    borderRadius: 10,
+                    alignItems: 'center', 
+                    justifyContent: 'center', 
+                    borderColor:'#FF0000',
+                    borderWidth: 1,
+                   
+                    }}>
+                    <Text style={{color:'#FF0000'}}>Tắt cảnh báo</Text>
+                </TouchableOpacity>
+                </View> 
+
+              <View style={{ width: 180, 
+                    height: 70,  }}>
+                <TouchableOpacity 
+                onPress={()=> navigation.navigate('traCuuTB')}
+                style={{ width: 150, height: 50,backgroundColor: '#098cf7',borderRadius: 10,alignItems: 'center', justifyContent: 'center',  }}>
                     <Text style={{}}>Cập Nhật</Text>
                 </TouchableOpacity>
-
-            </View>
+                
+              </View>
+              </View> 
         )
     }
 
