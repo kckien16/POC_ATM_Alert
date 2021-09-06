@@ -1,22 +1,15 @@
-import React, { useState, useEffect,FC } from 'react';
+import React, { useState } from 'react';
 import { FlatList, ScrollView, SectionList, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
-import {TT, ThongTin} from "../model/ThongTinTB";
-import {SDT, SDT_KC} from "../model/SDT_KC";
-import {Nhan, SDT_Nhan} from "../model/SDT_Nhan";
-import {Gui, SDT_GuiTN} from "../model/SDT_GuiTN";
-
+import {TT, ThongTin} from "../data/ThongTinTB";
+import {SDT, SDT_KC} from "../data/SDT_KC";
+import {Nhan, SDT_Nhan} from "../data/SDT_Nhan";
+import {Gui, SDT_GuiTN} from "../data/SDT_GuiTN";
 
 
 const CaiDat = ({navigation}) => {
-    const [sdt, setSdt] = useState<SDT[] | null>(null);
     const[inputShown, setInputShown] = useState<Boolean>(false);
-    const[newSdt,setNewSDT] = useState<SDT | null>(null);
-
-    const hanldeAdd = () =>{
-        if(newSdt !== null ) setSdt([...SDT_KC, newSdt]);
-    }
-
+    
     return (
         <View>
             <View >
@@ -110,8 +103,9 @@ const CaiDat = ({navigation}) => {
                     flexDirection: "row",
                     alignItems:"center",
                     display : inputShown == true ? "flex" : "none"}}>
+                       
                     <TouchableOpacity style={{ marginLeft: 15}}
-                    onPress={hanldeAdd}
+                    
                     >
                         <FontAwesome name="plus-circle" size={24} color="#00CCFF" />
                     </TouchableOpacity>
@@ -123,14 +117,8 @@ const CaiDat = ({navigation}) => {
                         borderRadius:8,
                         paddingLeft:10,
                         color:"#000000" }}
-                        onChangeText={(text)=>{
-                            if(newSdt !== null){
-                                setNewSDT({...newSdt,sdt: text});
-                            }else{
-                                setNewSDT({id: Date.now(), sdt: text});
-                            }
-                        }}
-                        ></TextInput>
+                        
+                        />
                 </View>
                 <View style={{ marginBottom: 10, 
                     display: inputShown == false ? "flex" : "none"}}>

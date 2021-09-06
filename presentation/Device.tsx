@@ -2,10 +2,8 @@ import { NavigationContainer } from '@react-navigation/native';
 import React, { useState, FC } from 'react';
 import { View, Text, SafeAreaView, TouchableOpacity, Modal, Image, TextInput, FlatList, ScrollView, StatusBar } from 'react-native';
 import FontAwesome from 'react-native-vector-icons/FontAwesome'
-import { TT, ThongTin } from "../model/ThongTinTB";
-import { SDT, SDT_KC } from "../model/SDT_KC";
-import { Nhan, SDT_Nhan } from "../model/SDT_Nhan";
-import { Gui, SDT_GuiTN } from "../model/SDT_GuiTN";
+import { TT, ThongTin } from "../data/ThongTinTB";
+
 
 const Device = ({ route, navigation }) => {
     const { IMEI, Loai } = route.params;

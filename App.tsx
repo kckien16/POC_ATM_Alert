@@ -1,12 +1,12 @@
 import 'react-native-gesture-handler';
 import React from 'react';
 
-import Login from './screens/Login';
-import CaiDat from './screens//CaiDat';
-import Lookup from './screens/Lookup';
-import Device from './screens/Device';
-import ThongTinThietBi from './screens/ThongTinThietBi';
-import traCuuTB from './screens/traCuuTB';
+import Login from './presentation/Login';
+import CaiDat from './presentation/Setting';
+import Lookup from './presentation/Lookup';
+import Device from './presentation/Device';
+import ThongTinThietBi from './presentation/DeviceInformation';
+import traCuuTB from './presentation/DeviceLookup';
 
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
