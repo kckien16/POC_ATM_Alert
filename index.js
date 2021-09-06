@@ -4,12 +4,6 @@
  import React, { Component } from 'react';
 import {AppRegistry} from 'react-native';
 import App from './App';
-import CaiDat from './presentation/Setting';
-import ThongTinTB from './presentation/DeviceInformation.tsx';
-
-
-
-import Login from './presentation/Login';
 import {name as appName} from './app.json';
 
 // class Main extends Component {
