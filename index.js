@@ -4,7 +4,11 @@
  import React, { Component } from 'react';
 import {AppRegistry} from 'react-native';
 import App from './App';
+<<<<<<< HEAD
 // import Splash from './presentation/SplashActivity';
+=======
+
+>>>>>>> 79aae23567d7436fc5429d37973a03c5e555870a
 import {name as appName} from './app.json';
 
 // class Main extends Component {
