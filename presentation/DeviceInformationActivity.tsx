@@ -27,7 +27,7 @@ import WarningItem from '../components/atm/WarningItem';
 
 
 const CaiDat = ({navigation}) => {
-  const [inputShown, setInputShown] = useState<Boolean>(false);
+
 
   return (
     <View>

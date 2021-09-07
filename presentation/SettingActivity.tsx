@@ -148,11 +148,14 @@ const CaiDat = ({navigation}) => {
           />
         </View>
         <View style={styles.viewBtnSave}>
-          <Button
-            onPress={() => { //button
+          <Button>
+            <TouchableOpacity  onPress={() => { //button
               navigation.navigate('ThongTinThietBi');
             }}>
+           
+
             <Text style={styles.titleSave}>Lưu</Text>
+            </TouchableOpacity>
           </Button> 
         </View>
       </ScrollView>

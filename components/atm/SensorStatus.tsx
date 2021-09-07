@@ -3,10 +3,10 @@ import {Image, StyleSheet, Text, View} from 'react-native';
 
 const SensorStatus = props => {
   return (
-    <View style={{marginTop:20}}>
+    <View style={{paddingTop:20}} >
       <View style={styles.viewItem}>
         <View style={{flex: 1,flexDirection:'row'}}>
-         <Image style={{ width: 26, height: 26,  }}
+         <Image style={{ width: 26, height: 26,marginRight:10  }}
          source={require('../../images//thermometer.png')} />
           <Text style={styles.titles}>Nhiet(>36.5):</Text>
         </View>
@@ -16,7 +16,7 @@ const SensorStatus = props => {
       </View>
       <View style={styles.viewItem}>
         <View style={{flex: 1,flexDirection:'row'}}>
-        <Image style={{ width: 26, height: 26 }}
+        <Image style={{ width: 26, height: 26 ,marginRight:10}}
             source={require('../../images/mobile-phone.png')} />
           <Text style={styles.titles}>Rung(>1700)</Text>
         </View>
@@ -26,7 +26,7 @@ const SensorStatus = props => {
       </View>
       <View style={styles.viewItem}>
         <View style={{flex: 1,flexDirection:'row'}}>
-        <Image style={{ width: 26, height: 26 }}
+        <Image style={{ width: 26, height: 26,marginRight:10 }}
             source={require('../../images/border.png')} />
           <Text style={styles.titles}>Cửa trên máy ATM:</Text>
         </View>
@@ -36,7 +36,7 @@ const SensorStatus = props => {
       </View>
       <View style={styles.viewItem}>
         <View style={{flex: 1,flexDirection:'row'}}>
-        <Image style={{ width: 26, height: 26 }}
+        <Image style={{ width: 26, height: 26 ,marginRight:10}}
            source={require('../../images/door.png')} />
           <Text style={styles.titles}>Cửa két máy ATM>36.5)</Text>
         </View>
@@ -46,7 +46,7 @@ const SensorStatus = props => {
       </View>
       <View style={styles.viewItem}>
         <View style={{flex: 1,flexDirection:'row'}}>
-        <Image style={{ width: 26, height: 26 }}
+        <Image style={{ width: 26, height: 26,marginRight:10 }}
               source={require('../../images/windows.png')} />
           <Text style={styles.titles}>Cửa ngoài máy ATM>36.5):</Text>
         </View>
@@ -56,7 +56,7 @@ const SensorStatus = props => {
       </View>
       <View style={styles.viewItem}>
         <View style={{flex: 1,flexDirection:'row'}}>
-        <Image style={{ width: 26, height: 26 }}
+        <Image style={{ width: 26, height: 26,marginRight:10 }}
            source={require('../../images/paste.png')} />
           <Text style={styles.titles}>Dự phòng:</Text>
         </View>
@@ -66,7 +66,7 @@ const SensorStatus = props => {
       </View>
       <View style={styles.viewItem}>
         <View style={{flex: 1,flexDirection:'row'}}>
-        <Image style={{ width: 26, height: 26 }}
+        <Image style={{ width: 26, height: 26 ,marginRight:10}}
           source={require('../../images/move.png')} />
           <Text style={styles.titles}>Dịch chuyển</Text>
         </View>
@@ -77,7 +77,7 @@ const SensorStatus = props => {
 
       <View style={styles.viewItem}>
         <View style={{flex: 1,flexDirection:'row'}}>
-        <Image style={{ width: 26, height: 26 }}
+        <Image style={{ width: 26, height: 26,marginRight:10 }}
             source={require('../../images/power-plug.png')} />
           <Text style={styles.titles}>Rò Điện:</Text>
         </View>
@@ -88,7 +88,7 @@ const SensorStatus = props => {
 
       <View style={styles.viewItem}>
         <View style={{flex: 1,flexDirection:'row'}}>
-        <Image style={{ width: 26, height: 26 }}
+        <Image style={{ width: 26, height: 26,marginRight:10 }}
            source={require('../../images/carbon-dioxide.png')} />
           <Text style={styles.titles}>Khói:</Text>
         </View>
@@ -99,7 +99,7 @@ const SensorStatus = props => {
 
       <View style={styles.viewItem}>
         <View style={{flex: 1,flexDirection:'row'}}>
-        <Image style={{ width: 26, height: 26 }}
+        <Image style={{ width: 26, height: 26,marginRight:10 }}
              source={require('../../images/power-plug.png')} />
           <Text style={styles.titles}>Pin dự phòng:</Text>
         </View>
@@ -110,7 +110,7 @@ const SensorStatus = props => {
 
       <View style={styles.viewItem}>
         <View style={{flex: 1,flexDirection:'row'}}>
-        <Image style={{ width: 26, height: 26 }}
+        <Image style={{ width: 26, height: 26,marginRight:10}}
             source={require('../../images/lightning.png')} />
           <Text style={styles.titles}>Điện áp nguồn AC:</Text>
         </View>
@@ -121,7 +121,7 @@ const SensorStatus = props => {
 
       <View style={styles.viewItem}>
         <View style={{flex: 1,flexDirection:'row'}}>
-        <Image style={{ width: 26, height: 26 }}
+        <Image style={{ width: 26, height: 26 ,marginRight:10}}
             source={require('../../images/sun.png')} />
           <Text style={styles.titles}>Báo hiệu:</Text>
         </View>
@@ -152,6 +152,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     marginLeft: 20,
     marginBottom: 20,
-    width:"100%"
+    width:"100%",
   },
 });
