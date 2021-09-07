@@ -39,7 +39,7 @@ const CaiDat = ({navigation}) => {
             <FontAwesome name="angle-left" size={30} color={Colors.primary} />
           </TouchableOpacity>
           <Text style={styles.textToolBar}>Thông tin thiết bị</Text>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={()=>navigation.navigate("CaiDat")}>
           <Text style={styles.textRight}>Chỉnh sữa</Text>
           </TouchableOpacity>
         </ToolBar>

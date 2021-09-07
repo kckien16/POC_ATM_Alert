@@ -20,6 +20,14 @@ const InformationItem = props => {
           <Text style={styles.title}>{props.sim}</Text>
         </View>
       </View>
+      {/* <View style={styles.viewItem}>
+        <View style={{flex: 1}}>
+          <Text style={styles.titles}>Tình trạng thiết bị</Text>
+        </View>
+        <View style={{flex: 2}}>
+          <Text style={styles.title}>{props.tinhTrang}</Text>
+        </View>
+      </View> */}
       <View style={styles.viewItem}>
         <View style={{flex: 1}}>
           <Text style={styles.titles}>Loại thiết bị</Text>
@@ -52,6 +60,15 @@ const InformationItem = props => {
           <Text style={styles.title}>{props.ngayKH}</Text>
         </View>
       </View>
+
+      {/* <View style={styles.viewItem}>
+        <View style={{flex: 1}}>
+          <Text style={styles.titles}>Kết nối nguồn</Text>
+        </View>
+        <View style={{flex: 2}}>
+          <Text style={styles.title}>{props.ketnoi}</Text>
+        </View>
+      </View> */}
     </View>
   );
 };
