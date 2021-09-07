@@ -2,6 +2,11 @@ import React,{useState} from 'react';
 import { Text, View, StyleSheet, TextInput, TouchableOpacity, Image, ColorValue, StatusBar, SafeAreaView,ToastAndroid } from 'react-native';
 import {StackActions, useNavigation} from '@react-navigation/native';
 
+import Card from '../components/UI/Card';
+import Button from '../components/UI/Button';
+import Colors from '../constants/Colors';
+import Input from '../components/UI/Input';
+
 
 const Login = () => {
   const [email, setemail] = useState();
@@ -18,61 +23,55 @@ const Login = () => {
   };
   return (
     <SafeAreaView style={styles.container}>
-
-      <View style={{ flexDirection: 'row', padding: 10 }}>
-        <Image style={{ width: 40, height: 40 }}
-          source={require('../images/vietnam.png')} />
+      <View style={styles.logocontainer}>
+        <Image style={styles.Logo}
+          source={require('../images/youtube.png')} />
 
         <View style={{
           flex: 2,
           padding: 7,
           alignItems: 'flex-end',
         }}>
-          <View style={{
-            width: 70,
-            height: 32,
-            borderColor: '#2190CD',
-            borderWidth: 2,
-            flexDirection: 'row',
-            justifyContent: 'center',
-          }}>
-            <Image style={{ width: 27, height: 27 }}
-             source={require('../images/vietnam.png')} 
-              />
-
-            <Text style={{ color: 'blue', alignSelf: 'center', fontWeight: 'bold', fontSize: 12 }}> VNM </Text>
+          <View style={styles.LanguageVN}>
+            <Image style={styles.imageVN}
+             source={require('../images/vietnam.png')} />
+            <Text style={styles.TextVN}> VNM </Text>
           </View>
         </View>
       </View>
       <Text style={styles.text}>
-        Login
+        Đăng nhập
       </Text>
-      <TextInput style={styles.textIput}
+      <Input>
+      <TextInput 
       value={email}
-        placeholder='Email đăng nhập'
-        onChangeText={text => setemail(text)}
-      >
+        placeholder='  Email đăng nhập'
+        onChangeText={text => setemail(text)}>
       </TextInput>
+      </Input>
 
-      <TextInput style={styles.textIput}
+      <Input>
+      <TextInput 
       value={pass}
-        placeholder='Mật khẩu'
+        placeholder='  Mật khẩu'
         keyboardType='numeric'
         returnKeyType='next'
         autoFocus={true}
-        onChangeText={text => setpass(text)}
-      >
+        onChangeText={text => setpass(text)}>
       </TextInput>
+      </Input>
 
       <TouchableOpacity>
         <Text style={styles.textForgot}>Quên mật khẩu</Text>
       </TouchableOpacity>
-
-      <TouchableOpacity style={styles.buttonLogin} 
+       
+       
+     <TouchableOpacity style={styles.buttonLogin} 
      onPress={() => checkLogin(email , pass)}>
-      
-        <Text style={styles.buttonLoginText}>ĐĂNG NHẬP</Text>
+
+        <Text style={styles.buttonLoginText}>Đăng nhập</Text>
       </TouchableOpacity>
+     
     </SafeAreaView>
   )
 };
@@ -87,30 +86,53 @@ const styles = StyleSheet.create({
     fontSize: 25,
     fontWeight: 'bold',
     textAlign: 'center',
-    paddingTop: 180,
+    paddingTop:100,
+    paddingBottom:40,
+  },
+  logocontainer:{
+    flexDirection: 'row',
+     padding: 10 ,
+  },
+  Logo:{
+   width:40,
+   height:40,
+  },
+  imageVN:{
+  width:25,
+  height:25,
+  },
+  TextVN:{
+     color: 'blue', 
+     alignSelf: 'center', 
+     fontWeight: 'bold', 
+     fontSize: 10 ,
+  },
+  LanguageVN:{
+  
+      width: 68,
+      height: 30,
+      borderColor: '#2190CD',
+      borderWidth: 0.6,
+      flexDirection: 'row',
+      justifyContent: 'center',
+    
   },
   buttonLogin: {
     backgroundColor: '#4493e2',
-    height: 45,
-    marginTop: 15,
+    height: 40,
+    marginTop: 60,
     borderRadius: 10,
     justifyContent: 'center',
     alignItems: 'center',
-    width: 310,
+    width: 340,
     alignSelf: 'center',
-    //marginTop: 50,
+  
   },
   buttonLoginText: {
-    color: '#f4f6f7',
+    color:'#FFFF',
     fontWeight: 'bold',
   },
-  textIput: {
-    marginTop: 30,
-    backgroundColor: '#f4f6f7',
-    borderRadius: 10,
-    alignSelf: 'center',
-    width: 330,
-  },
+
   textForgot: {
     color: '#0a83fc',
     textAlign: 'right',

@@ -149,11 +149,11 @@ const CaiDat = ({navigation}) => {
         </View>
         <View style={styles.viewBtnSave}>
           <Button
-            onPress={() => {
+            onPress={() => { //button
               navigation.navigate('ThongTinThietBi');
             }}>
             <Text style={styles.titleSave}>Lưu</Text>
-          </Button>
+          </Button> 
         </View>
       </ScrollView>
     </View>

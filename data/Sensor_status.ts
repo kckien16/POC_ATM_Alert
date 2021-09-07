@@ -1,34 +1,4 @@
 
-
-// interface status{
-
-//     nhiet:string,
-//     rung:string,
-//     cuatrenATM:string,
-//     cuangoaiATM:string,
-//     cuaketATM:string,
-//     duPhong:string,
-//     dichChuyen:string,
-//     roDien:string,
-//     khoi:string,
-//     pinDuPhong:string,
-//     dienAp:string,
-//     baoHieu:string,
-// }
-
-// const Sensor : status [] =[
-//     {    
-    
-//         nhiet: ,
-//         rung : 'Binh thuong'
-//     }
-
- 
-
-// ];
-
-// export {status , Sensor}; 
-
 interface status{
     nhiet:string,
     rung:string,

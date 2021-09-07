@@ -6,7 +6,7 @@ const SensorStatus = props => {
     <View style={{marginTop:20}}>
       <View style={styles.viewItem}>
         <View style={{flex: 1,flexDirection:'row'}}>
-         <Image style={{ width: 26, height: 26 }}
+         <Image style={{ width: 26, height: 26,  }}
          source={require('../../images//thermometer.png')} />
           <Text style={styles.titles}>Nhiet(>36.5):</Text>
         </View>
@@ -143,9 +143,10 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 16,
-    width: 180,
+
     fontWeight: '300',
-    marginLeft:"15%"
+    marginLeft:"30%",
+    
   },
   viewItem: {
     flexDirection: 'row',
