@@ -2,9 +2,7 @@ import React,{useState} from 'react';
 import { Text, View, StyleSheet, TextInput, TouchableOpacity, Image, ColorValue, StatusBar, SafeAreaView,ToastAndroid } from 'react-native';
 import {StackActions, useNavigation} from '@react-navigation/native';
 
-import Card from '../components/UI/Card';
-import Button from '../components/UI/Button';
-import Colors from '../constants/Colors';
+
 import Input from '../components/UI/Input';
 
 
@@ -38,10 +36,12 @@ const Login = () => {
             <Text style={styles.TextVN}> VNM </Text>
           </View>
         </View>
+
       </View>
       <Text style={styles.text}>
         Đăng nhập
       </Text>
+
       <Input>
       <TextInput 
       value={email}
@@ -65,10 +65,8 @@ const Login = () => {
         <Text style={styles.textForgot}>Quên mật khẩu</Text>
       </TouchableOpacity>
        
-       
      <TouchableOpacity style={styles.buttonLogin} 
      onPress={() => checkLogin(email , pass)}>
-
         <Text style={styles.buttonLoginText}>Đăng nhập</Text>
       </TouchableOpacity>
      
@@ -81,7 +79,6 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#EAF5FA',
   },
-
   text: {
     fontSize: 25,
     fontWeight: 'bold',
@@ -115,7 +112,6 @@ const styles = StyleSheet.create({
       borderWidth: 0.6,
       flexDirection: 'row',
       justifyContent: 'center',
-    
   },
   buttonLogin: {
     backgroundColor: '#4493e2',
@@ -126,7 +122,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     width: 340,
     alignSelf: 'center',
-  
   },
   buttonLoginText: {
     color:'#FFFF',
