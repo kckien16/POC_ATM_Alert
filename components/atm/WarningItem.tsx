@@ -1,5 +1,6 @@
 import React from 'react';
 import {StyleSheet, Text, View, TextInput} from 'react-native';
+import Colors from '../../constants/Colors';
 
 const WarningItem = props => {
   return (
@@ -55,7 +56,9 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     width: '100%',
-    marginTop:15
+    marginTop:15,
+   
+
   },
   viewTitle: {
     flex: 2,
@@ -63,9 +66,11 @@ const styles = StyleSheet.create({
   },
   viewInput: {
     flex: 1,
+    
   },
   titles: {
     fontSize: 14,
+    fontWeight:'bold'
   },
   input: {
     width: 100,

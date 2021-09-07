@@ -1,3 +1,5 @@
+
+
 interface TT{
     imei: number,
     sim: string,
@@ -18,5 +20,6 @@ const ThongTin : TT[] = [
         
     }
 ];
+
 
 export {TT , ThongTin}; 

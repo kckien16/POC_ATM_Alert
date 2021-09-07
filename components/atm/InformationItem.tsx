@@ -61,12 +61,13 @@ export default InformationItem;
 const styles = StyleSheet.create({
   titles: {
     fontSize: 16,
+    fontWeight:'bold'
     
   },
   title: {
     fontSize: 16,
     width: 180,
-    fontWeight: '200',
+    fontWeight: '300',
     marginLeft:"15%"
   },
   viewItem: {
