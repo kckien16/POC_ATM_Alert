@@ -72,9 +72,7 @@ const CaiDat = ({navigation}) => {
                 <EmergencyNumberItem phone_emergency={item.sdt} />
               )}
             />
-            <Text style={styles.br}>
-              
-            </Text>
+            
             
           </Card>
         </View>
@@ -86,9 +84,7 @@ const CaiDat = ({navigation}) => {
               data={SDT_Nhan}
               renderItem={({item}) => <Receiving phone_receiving={item.sdt} />}
             />
-            <Text style={styles.br}>
-              
-            </Text>
+          
            
           </Card>
         </View>
@@ -100,8 +96,7 @@ const CaiDat = ({navigation}) => {
               data={SDT_GuiTN}
               renderItem={({item}) => <Send phone_send={item.sdt} />}
             />
-            <Text style={styles.br}>
-            </Text>
+           
             
           </Card>
         </View>

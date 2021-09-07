@@ -3,16 +3,9 @@
  */
  import React, { Component } from 'react';
 import {AppRegistry} from 'react-native';
-import App from './App';
-<<<<<<< HEAD
-import Splash from './presentation/SplashActivity';
-=======
-<<<<<<< HEAD
-// import Splash from './presentation/SplashActivity';
-=======
+import App from './App'
 
->>>>>>> 79aae23567d7436fc5429d37973a03c5e555870a
->>>>>>> fde2d9c8354e53cdd0984774c4b321fc32210111
+
 import {name as appName} from './app.json';
 
 // class Main extends Component {
@@ -32,4 +25,4 @@ import {name as appName} from './app.json';
 //         return mainScreen
 //     }
 // }
-AppRegistry.registerComponent(appName, () =>App );
+AppRegistry.registerComponent(appName, () => App );
