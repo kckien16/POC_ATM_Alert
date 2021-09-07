@@ -24,10 +24,10 @@ import Colors from '../constants/Colors';
 import Receiving from '../components/atm/ReceivingPhoneNumber';
 import Send from '../components/atm/SendPhoneNumberItem';
 import WarningItem from '../components/atm/WarningItem';
-import Button from '../components/UI/Button';
+
 
 const CaiDat = ({navigation}) => {
-  const [inputShown, setInputShown] = useState<Boolean>(false);
+
 
   return (
     <View>
