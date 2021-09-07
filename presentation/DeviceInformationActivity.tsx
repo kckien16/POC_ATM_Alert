@@ -24,10 +24,10 @@ import Colors from '../constants/Colors';
 import Receiving from '../components/atm/ReceivingPhoneNumber';
 import Send from '../components/atm/SendPhoneNumberItem';
 import WarningItem from '../components/atm/WarningItem';
-import Button from '../components/UI/Button';
+
 
 const CaiDat = ({navigation}) => {
-  const [inputShown, setInputShown] = useState<Boolean>(false);
+
 
   return (
     <View>
@@ -75,9 +75,7 @@ const CaiDat = ({navigation}) => {
             <Text style={styles.br}>
               
             </Text>
-            <View style={styles.btnAddView}>
-             
-            </View>
+            
           </Card>
         </View>
 
@@ -91,9 +89,7 @@ const CaiDat = ({navigation}) => {
             <Text style={styles.br}>
               
             </Text>
-            <View style={styles.btnAddView}>
-            
-            </View>
+           
           </Card>
         </View>
 
@@ -106,9 +102,7 @@ const CaiDat = ({navigation}) => {
             />
             <Text style={styles.br}>
             </Text>
-            <View style={styles.btnAddView}>
-              
-            </View>
+            
           </Card>
         </View>
         <Text style={styles.titles}>Cài đặt ngưỡng cảnh báo</Text>
@@ -150,6 +144,7 @@ const styles = StyleSheet.create({
   textToolBar: {
     fontSize: 18,
     fontWeight: 'bold',
+  
   },
   textRight:{
     fontSize: 18,
