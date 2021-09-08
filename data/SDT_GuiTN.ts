@@ -4,7 +4,7 @@ interface Gui{
 
 const SDT_GuiTN : Gui[] = [
     {
-        sdt: '22222222222',
+        sdt: '0339575631',
         
     }
 ];

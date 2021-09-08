@@ -1,8 +1,8 @@
 import React from 'react'
-import { StyleSheet, View } from 'react-native'
+import { StyleSheet, View, TouchableOpacity } from 'react-native';
 
 const Button = props => {
-    return <View style={{ ...styles.button, ...props.style }}>{props.children}</View>;
+    return <TouchableOpacity style={{ ...styles.button, ...props.style }}>{props.children}</TouchableOpacity>;
 }
 
 const styles = StyleSheet.create({
