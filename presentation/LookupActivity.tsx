@@ -6,6 +6,7 @@ import {
   TouchableOpacity,
   View,
   Text,
+  StyleSheet,
 } from 'react-native';
 
 import Input from '../components/UI/Input';
@@ -15,60 +16,27 @@ const lookup  = ({navigation}) => {
   const [Loai, setLoai] = useState('Thiết bị ATM');
 
   return (
-    <SafeAreaView style={{flex: 1, backgroundColor: '#F0F8FF'}}>
+    <SafeAreaView style={styles.container}>
       <View style={{alignItems:'center', marginTop: 200}}>
         <Text>Hoặc</Text>
       </View>
-      <View
-        style={{
-          borderTopLeftRadius: 30,
-          borderTopRightRadius: 30,
-          paddingVertical: 30,
-          paddingHorizontal: 20,
-        }}
+      <View 
+        style={styles.inputIMEI}
         >
         <TextInput
-          style={{
-          
-            marginTop: 35,
-            borderWidth: 1,
-            width: '100%',
-            height: 50,
-            borderRadius: 10,
-            borderColor: '#ffff',
-            backgroundColor: '#ffff',
-            color: '#202d2c',
-          }}
+          style={styles.textIMEI}
           placeholder="Nhập IMEI/Seri number"
           value={IMEI}
           onChangeText={value => setIMEI(value)}></TextInput>
         <TextInput
-          style={{
-            padding: 10,
-            marginTop: 35,
-            borderWidth: 1,
-            width: '100%',
-            height: 50,
-            borderRadius: 10,
-            borderColor: '#ffff',
-            backgroundColor: '#ffff',
-            color: '#202d2c',
-          }}
+          style={styles.textloaiTB}
           placeholder="Loại thiết bị"
           value={Loai}
           onChangeText={value => setLoai(value)}></TextInput>
       </View>
       
       <TouchableOpacity 
-      style={{
-        width:'90%',
-        backgroundColor:'#098cf7',
-        height:50,
-       borderRadius:20,
-       alignItems:'center',
-       marginLeft:20,
-       justifyContent:'center'
-      }}
+      style={styles.inputTC}
         onPress={() => {
           navigation.navigate('Device', {
             IMEI: IMEI,
@@ -83,13 +51,50 @@ const lookup  = ({navigation}) => {
   );
 };
 export default lookup;
-// import React from 'react';
-// import { Text,View } from 'react-native';
-// const Lookup=()=> {
-//     return(
-//         <View>
-//             <Text>Thai</Text>
-//         </View>
-//     )
-// }
-// export default Lookup;
+
+const styles = StyleSheet.create({
+
+  container:{
+    flex: 1,
+     backgroundColor: '#F0F8FF'
+
+  },
+  inputIMEI:{
+    borderTopLeftRadius: 30,
+    borderTopRightRadius: 30,
+    paddingVertical: 30,
+    paddingHorizontal: 20,
+  },
+  textIMEI:{
+          
+    marginTop: 35,
+    borderWidth: 1,
+    width: '100%',
+    height: 50,
+    borderRadius: 10,
+    borderColor: '#ffff',
+    backgroundColor: '#ffff',
+    color: '#202d2c',
+  },
+  textloaiTB:{
+    padding: 10,
+    marginTop: 35,
+    borderWidth: 1,
+    width: '100%',
+    height: 50,
+    borderRadius: 10,
+    borderColor: '#ffff',
+    backgroundColor: '#ffff',
+    color: '#202d2c',
+  },
+  inputTC:{
+    width:'90%',
+    backgroundColor:'#098cf7',
+    height:50,
+   borderRadius:20,
+   alignItems:'center',
+   marginLeft:20,
+   justifyContent:'center'
+  }
+
+})
