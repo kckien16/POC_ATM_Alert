@@ -3,14 +3,13 @@
  */
  import React, { Component } from 'react';
 import {AppRegistry} from 'react-native';
-<<<<<<< HEAD
 import App from './App';
 // import Splash from './presentation/SplashActivity';
-=======
-import App from './App'
 
 
->>>>>>> da801b9c82beefa860c104725a3554b8ca9c9eed
+
+
+
 import {name as appName} from './app.json';
 
 // class Main extends Component {
