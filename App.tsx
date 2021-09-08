@@ -1,6 +1,6 @@
 import 'react-native-gesture-handler';
 import React from 'react';
-
+import 'react-native-gesture-handler';
 import Login from './presentation/LoginActivity';
 import CaiDat from './presentation/SettingActivity';
 import Lookup from './presentation/LookupActivity';

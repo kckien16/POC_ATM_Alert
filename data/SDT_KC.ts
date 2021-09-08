@@ -6,7 +6,7 @@ interface SDT{
 const SDT_KC : SDT[] = [
     {
         id:1,
-        sdt: '00000000000', 
+        sdt: '0339575631', 
     },
     
 ];
