@@ -8,6 +8,8 @@ import {
   Text,
 } from 'react-native';
 
+import Input from '../components/UI/Input';
+
 const lookup  = ({navigation}) => {
   const [IMEI, setIMEI] = useState('498142699');
   const [Loai, setLoai] = useState('Thiết bị ATM');
@@ -23,7 +25,8 @@ const lookup  = ({navigation}) => {
           borderTopRightRadius: 30,
           paddingVertical: 30,
           paddingHorizontal: 20,
-        }}>
+        }}
+        >
         <TextInput
           style={{
           
