@@ -12,6 +12,7 @@ import {
 import Input from '../components/UI/Input';
 import QRCodeScanner from 'react-native-qrcode-scanner';
 import { RNCamera } from 'react-native-camera';
+import { useTranslation } from 'react-i18next';
 
 
 const lookup  = ({navigation}) => {
@@ -21,6 +22,7 @@ const lookup  = ({navigation}) => {
     );
   };
 
+  const{t,i18n} = useTranslation();
 
   const [IMEI, setIMEI] = useState('498142699');
   const [Loai, setLoai] = useState('Thiết bị ATM');
@@ -73,7 +75,7 @@ const lookup  = ({navigation}) => {
         }}>
         <Text 
         style={{
-        }}>Tra Cứu</Text>
+        }}>{t("login")}</Text>
       </TouchableOpacity>
     </SafeAreaView>
   );

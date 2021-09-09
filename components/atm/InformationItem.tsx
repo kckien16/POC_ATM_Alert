@@ -3,72 +3,55 @@ import {StyleSheet, Text, View} from 'react-native';
 
 const InformationItem = props => {
   return (
-    <View style={{marginTop:20}}>
+    <View >
       <View style={styles.viewItem}>
-        <View style={{flex: 1}}>
+        <View style={{flex: 2}}>
           <Text style={styles.titles}>IMEI:</Text>
         </View>
-        <View style={{flex: 2}}>
+        <View style={{flex: 3}}>
           <Text style={styles.title}>{props.imei}</Text>
         </View>
       </View>
       <View style={styles.viewItem}>
-        <View style={{flex: 1}}>
+        <View style={{flex: 2}}>
           <Text style={styles.titles}>SIM</Text>
         </View>
-        <View style={{flex: 2}}>
+        <View style={{flex: 3}}>
           <Text style={styles.title}>{props.sim}</Text>
         </View>
       </View>
-      {/* <View style={styles.viewItem}>
-        <View style={{flex: 1}}>
-          <Text style={styles.titles}>Tình trạng thiết bị</Text>
-        </View>
-        <View style={{flex: 2}}>
-          <Text style={styles.title}>{props.tinhTrang}</Text>
-        </View>
-      </View> */}
       <View style={styles.viewItem}>
-        <View style={{flex: 1}}>
+        <View style={{flex: 2}}>
           <Text style={styles.titles}>Loại thiết bị</Text>
         </View>
-        <View style={{flex: 2}}>
+        <View style={{flex: 3}}>
           <Text style={styles.title}>{props.loaiTB}</Text>
         </View>
       </View>
       <View style={styles.viewItem}>
-        <View style={{flex: 1}}>
+        <View style={{flex: 2}}>
           <Text style={styles.titles}>Tên thiết bị</Text>
         </View>
-        <View style={{flex: 2}}>
+        <View style={{flex: 3}}>
           <Text style={styles.title}>{props.tenTB}</Text>
         </View>
       </View>
       <View style={styles.viewItem}>
-        <View style={{flex: 1}}>
+        <View style={{flex: 2}}>
           <Text style={styles.titles}>Địa chỉ</Text>
         </View>
-        <View style={{flex: 2}}>
+        <View style={{flex: 3}}>
           <Text style={styles.title}>{props.diaChi}</Text>
         </View>
       </View>
       <View style={styles.viewItem}>
-        <View style={{flex: 1}}>
-          <Text style={styles.titles}>Ngay kích hoạt</Text>
-        </View>
         <View style={{flex: 2}}>
+          <Text style={styles.titles}>Ngày kích hoạt</Text>
+        </View>
+        <View style={{flex: 3}}>
           <Text style={styles.title}>{props.ngayKH}</Text>
         </View>
       </View>
-      
-      {/* <View style={styles.viewItem}>
-        <View style={{flex: 1}}>
-          <Text style={styles.titles}>Kết nối nguồn</Text>
-        </View>
-        <View style={{flex: 2}}>
-          <Text style={styles.title}>{props.ketnoi}</Text>
-        </View>
-      </View> */}
     </View>
   );
 };
@@ -85,11 +68,10 @@ const styles = StyleSheet.create({
     fontSize: 16,
     width: 180,
     fontWeight: '300',
-    marginLeft:"15%"
+    marginLeft:"14%"
   },
   viewItem: {
     flexDirection: 'row',
-    marginLeft: 20,
     marginBottom: 20,
     width:"100%"
   },
