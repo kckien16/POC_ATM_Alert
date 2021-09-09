@@ -905,6 +905,10 @@
     "jest-resolve" "^26.6.2"
     "jest-util" "^26.6.2"
     "jest-worker" "^26.6.2"
+<<<<<<< HEAD
+=======
+    "node-notifier" "^8.0.0"
+>>>>>>> 072e3ec2929107f8f6ef486a6813b31785f6966d
     "slash" "^3.0.0"
     "source-map" "^0.6.0"
     "string-length" "^4.0.1"
@@ -2827,6 +2831,10 @@
     "estraverse" "^5.2.0"
     "esutils" "^2.0.2"
     "optionator" "^0.8.1"
+<<<<<<< HEAD
+=======
+    "source-map" "~0.6.1"
+>>>>>>> 072e3ec2929107f8f6ef486a6813b31785f6966d
   optionalDependencies:
     "source-map" "~0.6.1"
 
@@ -3298,6 +3306,14 @@
   "resolved" "https://registry.npmjs.org/fs.realpath/-/fs.realpath-1.0.0.tgz"
   "version" "1.0.0"
 
+<<<<<<< HEAD
+=======
+"fsevents@^2.1.2":
+  "integrity" "sha512-xiqMQR4xAeHTuB9uWm+fFRcIOgKBMiOBP+eXiyT7jsgVCq1bkVygt00oASowB7EdtpOHaaPgKt812P9ab+DDKA=="
+  "resolved" "https://registry.npmjs.org/fsevents/-/fsevents-2.3.2.tgz"
+  "version" "2.3.2"
+
+>>>>>>> 072e3ec2929107f8f6ef486a6813b31785f6966d
 "function-bind@^1.1.1":
   "integrity" "sha512-yIovAzMX49sF8Yl58fSCWJ5svSLuaibPxXQJFLmBObTuCr0Mf1KiPopGM9NiFjiYBCbfaa2Fh6breQ6ANVTI0A=="
   "resolved" "https://registry.npmjs.org/function-bind/-/function-bind-1.1.1.tgz"
@@ -4112,6 +4128,10 @@
     "@types/node" "*"
     "anymatch" "^3.0.3"
     "fb-watchman" "^2.0.0"
+<<<<<<< HEAD
+=======
+    "fsevents" "^2.1.2"
+>>>>>>> 072e3ec2929107f8f6ef486a6813b31785f6966d
     "graceful-fs" "^4.2.4"
     "jest-regex-util" "^26.0.0"
     "jest-serializer" "^26.6.2"

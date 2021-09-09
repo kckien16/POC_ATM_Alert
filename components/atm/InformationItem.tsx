@@ -85,7 +85,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     width: 180,
     fontWeight: '300',
-    marginLeft:"15%"
+    marginLeft:"14%"
   },
   viewItem: {
     flexDirection: 'row',
