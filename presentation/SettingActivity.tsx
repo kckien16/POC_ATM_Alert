@@ -25,9 +25,12 @@ import Receiving from '../components/atm/ReceivingPhoneNumber';
 import Send from '../components/atm/SendPhoneNumberItem';
 import WarningItem from '../components/atm/WarningItem';
 import Button from '../components/UI/Button';
+import { useTranslation } from 'react-i18next';
+
+
 
 const CaiDat = ({navigation}) => {
-  const [inputShown, setInputShown] = useState<Boolean>(false);
+  const{t,i18n}=useTranslation()
 
   return (
     <View>
@@ -38,7 +41,7 @@ const CaiDat = ({navigation}) => {
             onPress={() => navigation.goBack()}>
             <FontAwesome name="angle-left" size={30} color={Colors.primary} />
           </TouchableOpacity>
-          <Text style={styles.textToolBar}>Cài đặt</Text>
+          <Text style={styles.textToolBar}>{t('setting')}</Text>
         </ToolBar>
       </View>
       <ScrollView style={styles.scrollView}>

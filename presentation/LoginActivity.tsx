@@ -1,17 +1,25 @@
 import React,{useState} from 'react';
-import { Text, View, StyleSheet, TextInput, TouchableOpacity, Image, ColorValue, StatusBar, SafeAreaView,ToastAndroid } from 'react-native';
+import { Text, View, StyleSheet, TextInput, TouchableOpacity, Image, ColorValue, StatusBar, SafeAreaView,ToastAndroid, Alert } from 'react-native';
 import {StackActions, useNavigation} from '@react-navigation/native';
+import SwitchSelector from 'react-native-switch-selector'
 
 import Card from '../components/UI/Card';
 import Button from '../components/UI/Button';
 import Colors from '../constants/Colors';
 import Input from '../components/UI/Input';
+import { useTranslation } from 'react-i18next';
 
+const options = [
+  {label: 'English', value: 'en'},
+  {label: 'VietNamese', value: 'vn'},
+]
 
 const Login = () => {
   const [email, setemail] = useState();
   const [pass, setpass] = useState();
   const navigation = useNavigation();
+
+  const{t,i18n} = useTranslation();
 
   const checkLogin = (email:string , pass: string) => {
     if (email == '1' && pass == '1') {
@@ -33,14 +41,22 @@ const Login = () => {
           alignItems: 'flex-end',
         }}>
           <View style={styles.LanguageVN}>
+            <TouchableOpacity>
+              <SwitchSelector options={options}
+              hasPadding
+              initial={0}
+              onPress={(e)=>{
+                i18n.changeLanguage(e);
+              }}/>
             <Image style={styles.imageVN}
              source={require('../images/vietnam.png')} />
             <Text style={styles.TextVN}> VNM </Text>
+            </TouchableOpacity>
           </View>
         </View>
       </View>
       <Text style={styles.text}>
-        Đăng nhập
+       {t("login")}
       </Text>
       <Input>
       <TextInput 
