@@ -27,6 +27,8 @@ import WarningItem from '../components/atm/WarningItem';
 import Button from '../components/UI/Button';
 import { useTranslation } from 'react-i18next';
 
+import FONTS  from '../constants/Fonts';
+
 
 
 const CaiDat = ({navigation}) => {
@@ -34,12 +36,12 @@ const CaiDat = ({navigation}) => {
 
   return (
     <View>
-      <View>
+      <View >
         <ToolBar>
           <TouchableOpacity
             style={styles.back}
             onPress={() => navigation.goBack()}>
-            <FontAwesome name="angle-left" size={30} color={Colors.primary} />
+            <FontAwesome name="angle-left" size={32} color={Colors.primary} />
           </TouchableOpacity>
           <Text style={styles.textToolBar}>{t('setting')}</Text>
         </ToolBar>
@@ -62,50 +64,26 @@ const CaiDat = ({navigation}) => {
             />
           </Card>
         </View>
-        <Text style={styles.titles}>Cài đặt số điện thoại</Text>
-        <View style={styles.view}>
-          <Card>
-            <Text style={styles.title}>Số điện thoại khẩn cấp:</Text>
-            <FlatList
-              data={SDT_KC}
-              renderItem={({item}) => (
-                <EmergencyNumberItem phone_emergency={item.sdt} />
-              )}
-            />
-            <Text style={styles.br}>
-              _____________________________________________________________
-            </Text>
-            <View style={styles.btnAddView}>
-              <TouchableOpacity style={styles.btnAdd}>
-                <FontAwesome
-                  name="plus-circle"
-                  size={24}
-                  color={Colors.primary}
-                />
-                <Text style={styles.titleBtn}>Thêm số khẩn cấp</Text>
-              </TouchableOpacity>
-            </View>
-          </Card>
-        </View>
+        <Text style={styles.titles}>{t("set-up-phone-number")}</Text>
 
         <View style={styles.view}>
           <Card>
-            <Text style={styles.title}>Số điện thoại nhận cuộc gọi:</Text>
+            <Text style={styles.title}>{t("emergency-number")}</Text>
             <FlatList
               data={SDT_Nhan}
               renderItem={({item}) => <Receiving phone_receiving={item.sdt} />}
             />
             <Text style={styles.br}>
-              _____________________________________________________________
+              ________________________________________________
             </Text>
             <View style={styles.btnAddView}>
               <TouchableOpacity style={styles.btnAdd}>
                 <FontAwesome
                   name="plus-circle"
-                  size={24}
+                  size={20}
                   color={Colors.primary}
                 />
-                <Text style={styles.titleBtn}>Thêm số điện thoại nhận</Text>
+                <Text style={styles.titleBtn}>{t("add-an-emergency-phone-number")}</Text>
               </TouchableOpacity>
             </View>
           </Card>
@@ -113,29 +91,51 @@ const CaiDat = ({navigation}) => {
 
         <View style={styles.view}>
           <Card>
-            <Text style={styles.title}>Số điện thoại gửi tin nhắn:</Text>
+            <Text style={styles.title}>{t("phone-number-to-receive-calls")}</Text>
             <FlatList
-              data={SDT_GuiTN}
-              renderItem={({item}) => <Send phone_send={item.sdt} />}
+              data={SDT_Nhan}
+              renderItem={({item}) => <Receiving phone_receiving={item.sdt} />}
             />
             <Text style={styles.br}>
-              _____________________________________________________________
+              ________________________________________________
             </Text>
             <View style={styles.btnAddView}>
               <TouchableOpacity style={styles.btnAdd}>
                 <FontAwesome
                   name="plus-circle"
-                  size={24}
+                  size={20}
                   color={Colors.primary}
                 />
-                <Text style={styles.titleBtn}>
-                  Thêm số điện thoại gửi tin nhắn
-                </Text>
+                <Text style={styles.titleBtn}>{t("add-phone-number-to-receive-calls")}</Text>
               </TouchableOpacity>
             </View>
           </Card>
         </View>
-        <Text style={styles.titles}>Cài đặt ngưỡng cảnh báo</Text>
+
+        <View style={styles.view}>
+          <Card>
+            <Text style={styles.title}>{t("phone-number-to-send-the-message")}</Text>
+            <FlatList
+              data={SDT_Nhan}
+              renderItem={({item}) => <Receiving phone_receiving={item.sdt} />}
+            />
+            <Text style={styles.br}>
+              ________________________________________________
+            </Text>
+            <View style={styles.btnAddView}>
+              <TouchableOpacity style={styles.btnAdd}>
+                <FontAwesome
+                  name="plus-circle"
+                  size={20}
+                  color={Colors.primary}
+                />
+                <Text style={styles.titleBtn}>{t("add-phone-number-to-send-messages")}</Text>
+              </TouchableOpacity>
+            </View>
+          </Card>
+        </View>
+
+        <Text style={styles.titles}>{t("alarm-threshold-setting")}</Text>
         <View style={{flex: 1}}>
           <FlatList
             data={Warnings}
@@ -155,9 +155,7 @@ const CaiDat = ({navigation}) => {
             <TouchableOpacity  onPress={() => { //button
               navigation.navigate('ThongTinThietBi');
             }}>
-           
-
-            <Text style={styles.titleSave}>Lưu</Text>
+            <Text style={styles.titleSave}>{t("save")}</Text>
             </TouchableOpacity>
           </Button> 
         </View>
@@ -170,63 +168,68 @@ export default CaiDat;
 
 const styles = StyleSheet.create({
   back: {
-    height: 30,
-    width: 30,
-    justifyContent: 'center',
-    marginLeft: 30,
+    height:32,
+    marginTop:18,
+    marginLeft:26
   },
   textToolBar: {
-    fontSize: 18,
-    fontWeight: '500',
+    width:64,
+    height:30,
+    marginTop:25,
+    marginLeft:10,
+    marginBottom:12,
+    alignItems:"center",
   },
   scrollView: {
-    backgroundColor: Colors.background,
+    backgroundColor: "#EAF5FA",
     width: '100%',
   },
   view: {
-    flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+    marginTop:20
+  },
+  viewPhone:{
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop:12,
   },
   titles: {
-    fontSize: 15,
-    fontWeight: '500',
-    marginLeft: 25,
-    marginTop: 25,
+    height:20,
+    marginTop:32,
+    marginLeft:26,
+    ...FONTS.h2
   },
   title: {
-    fontSize: 14,
-    marginLeft: 15,
-    marginTop: 15,
+    ...FONTS.h4
   },
   br: {
-    fontWeight: '200',
-    paddingLeft: 15,
-    paddingRight: 15,
-    height: 25,
+    opacity:0.3,
+    width:"100%",
   },
   btnAddView: {
+    marginLeft:2,
     marginBottom: 10,
     flexDirection: 'row',
     alignItems: 'center',
   },
   titleBtn: {
-    fontSize: 14,
     marginLeft: 10,
     marginTop: 2,
-    color: Colors.blue,
+    ...FONTS.h5
   },
   btnAdd: {
-    marginLeft: 15,
     flexDirection: 'row',
+    marginTop:10
   },
   viewBtnSave: {
-    margin: 20,
+    marginTop: 24,
+    marginLeft:20,
+    marginRight:20,
+    marginBottom:30,
     height: 100,
   },
   titleSave: {
-    fontSize: 18,
-    color: '#FFFFFF',
-    fontWeight: '600',
+    ...FONTS.h1
   },
 });

@@ -8,16 +8,18 @@ import Device from './presentation/DeviceActivity';
 import ThongTinThietBi from './presentation/DeviceInformationActivity';
 import traCuuTB from './presentation/DeviceLookupActivity';
 
-import {NavigationContainer} from '@react-navigation/native';
+import {DefaultTheme, NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
-
+const font = {
+  ...DefaultTheme
+}
 
 const Stack = createNativeStackNavigator();
 const App =()=>{
   return(
     <NavigationContainer>
-         <Stack.Navigator initialRouteName="Login" screenOptions={{headerShown: false}}>
+         <Stack.Navigator initialRouteName="CaiDat" screenOptions={{headerShown: false}}>
          
            <Stack.Screen name ="Login" component={Login}  />
            <Stack.Screen name ="Lookup" component={Lookup}  />

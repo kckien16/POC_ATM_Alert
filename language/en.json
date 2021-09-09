@@ -45,7 +45,7 @@
     "smoke-alarm-threshold": "Smoke alarm threshold (density)",
     "temperature-warning-threshold": "Temperature warning threshold (degrees Celsius)",
     "battery-warning": "Battery warning (%)",
-    "save ": "Save",
+    "save ": "Save"
     }
     
 }

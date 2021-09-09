@@ -23,7 +23,8 @@ const styles = StyleSheet.create({
         marginTop: 10,
     },
     btnDel:{
-        marginLeft: 15
+      marginLeft:2,
+      marginTop:2,
     },
     title:{
         fontSize: 16, 

@@ -1,13 +1,17 @@
 import React from 'react';
 import {StyleSheet, Text, View, TextInput} from 'react-native';
 import Colors from '../../constants/Colors';
+import { useTranslation } from 'react-i18next';
+
+import FONTS  from '../../constants/Fonts';
 
 const WarningItem = props => {
+  const{t,i18n}=useTranslation()
   return (
-    <View>
+    <View style={{flex:1,width:"95%"}}>
       <View style={styles.viewItem}>
         <View style={styles.viewTitle}>
-          <Text style={styles.titles}>Ngưỡng cảnh báo rung:</Text>
+          <Text style={styles.titles}>{t("vibration-warning-threshold")}</Text>
         </View>
         <View style={styles.viewInput}>
           <TextInput style={styles.input}>{props.rung}</TextInput>
@@ -15,7 +19,7 @@ const WarningItem = props => {
       </View>
       <View style={styles.viewItem}>
         <View style={styles.viewTitle}>
-          <Text style={styles.titles}>Ngưỡng cảnh báo rò điện (dòng):</Text>
+          <Text style={styles.titles}>{t("leakage-alarm-threshold")}</Text>
         </View>
         <View style={styles.viewInput}>
           <TextInput style={styles.input}>{props.roDien}</TextInput>
@@ -23,7 +27,7 @@ const WarningItem = props => {
       </View>
       <View style={styles.viewItem}>
         <View style={styles.viewTitle}>
-          <Text style={styles.titles}>Ngưỡng cảnh báo khói (mật độ):</Text>
+          <Text style={styles.titles}>{t("smoke-alarm-threshold")}</Text>
         </View>
         <View style={styles.viewInput}>
           <TextInput style={styles.input}>{props.khoi}</TextInput>
@@ -31,7 +35,7 @@ const WarningItem = props => {
       </View>
       <View style={styles.viewItem}>
         <View style={styles.viewTitle}>
-          <Text style={styles.titles}>Ngưỡng cảnh báo nhiệt độ (độ C):</Text>
+          <Text style={styles.titles}>{t("temperature-warning-threshold")}</Text>
         </View>
         <View style={styles.viewInput}>
           <TextInput style={styles.input}>{props.nhietDo}</TextInput>
@@ -39,7 +43,7 @@ const WarningItem = props => {
       </View>
       <View style={styles.viewItem}>
         <View style={styles.viewTitle}>
-          <Text style={styles.titles}>Cảnh báo PIN (%):</Text>
+          <Text style={styles.titles}>{t("battery-warning")}</Text>
         </View>
         <View style={styles.viewInput}>
           <TextInput style={styles.input}>{props.pin}</TextInput>
@@ -57,27 +61,28 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     width: '100%',
     marginTop:15,
-   
-
+  
   },
   viewTitle: {
-    flex: 2,
+    flex: 1,
     marginLeft: 25,
   },
   viewInput: {
     flex: 1,
+    alignItems:"flex-end"
     
   },
   titles: {
-    fontSize: 14,
-    fontWeight:'bold'
+    ...FONTS.h6
   },
   input: {
-    width: 100,
-    height: 40,
+    width: 116,
+    height: 44,
     backgroundColor: '#ffffff',
     borderRadius: 8,
     textAlign: 'right',
-    paddingRight: 20,
+    paddingRight:16,
+    
+    ...FONTS.h6
   },
 });

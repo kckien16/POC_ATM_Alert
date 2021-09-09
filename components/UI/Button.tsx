@@ -7,9 +7,9 @@ const Button = props => {
 
 const styles = StyleSheet.create({
     button: {
-        height: 40,
-        backgroundColor: "#3399FF",
-        borderRadius: 5,
+        height: 44,
+        backgroundColor: "#2190CD",
+        borderRadius: 8,
         alignItems: "center",
         justifyContent: "center"
     }
