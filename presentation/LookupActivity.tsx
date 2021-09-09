@@ -10,16 +10,44 @@ import {
 } from 'react-native';
 
 import Input from '../components/UI/Input';
+import QRCodeScanner from 'react-native-qrcode-scanner';
+import { RNCamera } from 'react-native-camera';
+
 
 const lookup  = ({navigation}) => {
+  onSuccess = e => {
+    Linking.openURL(e.data).catch(err =>
+      Alert.alert('An error occured', err)
+    );
+  };
+
+
   const [IMEI, setIMEI] = useState('498142699');
   const [Loai, setLoai] = useState('Thiết bị ATM');
 
   return (
     <SafeAreaView style={styles.container}>
-      <View style={{alignItems:'center', marginTop: 200}}>
+    <QRCodeScanner
+        containerStyle={{marginBottom:'50%',backgroundColor:"#FFF"}}
+        onRead={this.onSuccess}
+        reactivate={true}
+        permissionDialogMessage="Need Pre"
+        reactivateTimeout={10}
+        showMarker={true}
+        markerStyle={{borderColor:"FFF",borderRadius:10}}
+     
+        bottomContent={
+          <TouchableOpacity style={styles.buttonTouchable}>
+            <Text style={styles.buttonText}>OK. Got it!</Text>
+          </TouchableOpacity>
+        }
+      />
+
+
+   
+      {/* <View style={{alignItems:'center', marginTop: 200}}>
         <Text>Hoặc</Text>
-      </View>
+      </View> */}
       <View 
         style={styles.inputIMEI}
         >
@@ -58,6 +86,25 @@ const styles = StyleSheet.create({
     flex: 1,
      backgroundColor: '#F0F8FF'
 
+  },
+  centerText: {
+    flex: 1,
+    fontSize: 18,
+    padding: 32,
+    color: '#777'
+  },
+  textBold: {
+    fontWeight: '500',
+    color: '#000'
+  },
+  buttonText: {
+    fontSize: 21,
+    color: 'rgb(0,122,255)',
+    marginTop:20,
+
+  },
+  buttonTouchable: {
+    padding: 16
   },
   inputIMEI:{
     borderTopLeftRadius: 30,
