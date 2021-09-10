@@ -47,12 +47,9 @@ const Information = ({navigation}) => {
           <TouchableOpacity
            onPress={() => navigation.navigate('CaiDat')}
           >
-          <Text style={styles.textRToolBar}>{t('edit')}
-          
-          
-          
-          </Text>
-
+            <View >
+          <Text style={styles.textRToolBar}>{t('edit')}</Text>
+          </View>
           </TouchableOpacity>
         </ToolBar>
       </View>
@@ -146,21 +143,17 @@ const styles = StyleSheet.create({
     marginLeft:26
   },
   textToolBar: {
-    fontSize:16,
     marginTop:25,
     marginLeft:10,
     marginBottom:12,
     alignItems:"center",
-    fontWeight:'bold'
+    ...FONTS.h2
   },
   textRToolBar:{
     marginTop:25,
-    marginLeft:120,
+    marginLeft:130,
     marginBottom:12,
-    color: Colors.blue,
-    fontSize:16,
-    fontWeight:'500'
-    
+    ...FONTS.h7,
   },
   scrollView: {
     backgroundColor: Colors.background,

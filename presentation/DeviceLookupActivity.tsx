@@ -15,7 +15,7 @@ const traCuuTB = ({ navigation }) => {
         <TouchableOpacity
           onPress={() => navigation.goBack()}
           style={styles.toolBar}>
-          <FontAwesome name="angle-left" size={35} color={Colors.blue} />
+          <FontAwesome name="angle-left" size={32} color={Colors.blue} />
         </TouchableOpacity>
         <Text style= {styles.title}>Tra cứu thiết bị</Text>
       </ToolBar>

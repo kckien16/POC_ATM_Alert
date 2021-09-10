@@ -179,6 +179,7 @@ const styles = StyleSheet.create({
     marginLeft:10,
     marginBottom:12,
     alignItems:"center",
+    ...FONTS.h2
   },
   scrollView: {
     backgroundColor: Colors.background,
