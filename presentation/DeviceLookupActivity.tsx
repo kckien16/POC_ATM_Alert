@@ -11,11 +11,11 @@ const traCuuTB = ({ navigation }) => {
   const { t, i18n } = useTranslation()
   return (
     <View style={styles.container}>
-      <ToolBar>
+      <ToolBar style={styles.Toolbar}>
         <TouchableOpacity
           onPress={() => navigation.goBack()}
-          style={styles.toolBar}>
-          <FontAwesome name="angle-left" size={35} color={Colors.blue}/>
+         >
+          <FontAwesome name="angle-left" size={30} color={Colors.blue}/>
         </TouchableOpacity>
         <Text style= {styles.title}>Tra cứu thiết bị</Text>
       </ToolBar>
@@ -87,9 +87,12 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 18,
-    fontWeight: "500",
-    marginTop: 20,
-    marginLeft: 20
+    fontWeight: "600",
+    marginLeft: 15
+  },
+  Toolbar:{
+   
+   alignItems:'center',
   },
   toolBar: {
     height: 30,
