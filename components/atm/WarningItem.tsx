@@ -73,7 +73,9 @@ const styles = StyleSheet.create({
     
   },
   titles: {
-    ...FONTS.h6
+    fontWeight:'400',
+    color:'#091F3A'
+    
   },
   input: {
     width: 116,
