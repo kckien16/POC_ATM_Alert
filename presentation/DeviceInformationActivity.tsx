@@ -43,11 +43,11 @@ const Information = ({navigation}) => {
             onPress={() => navigation.goBack()}>
             <FontAwesome name="angle-left" size={32} color={Colors.blue} />
           </TouchableOpacity>
-          <Text style={styles.textToolBar}>{t('information')}</Text>
+          <Text style={styles.textToolBar}>{t('device-information')}</Text>
           <TouchableOpacity
            onPress={() => navigation.navigate('CaiDat')}
           >
-          <Text style={styles.textRToolBar}>{t('repair')}
+          <Text style={styles.textRToolBar}>{t('edit')}
           
           
           
@@ -151,13 +151,15 @@ const styles = StyleSheet.create({
     marginLeft:10,
     marginBottom:12,
     alignItems:"center",
+    fontWeight:'bold'
   },
   textRToolBar:{
     marginTop:25,
-    marginLeft:190,
+    marginLeft:120,
     marginBottom:12,
     color: Colors.blue,
     fontSize:16,
+    fontWeight:'500'
     
   },
   scrollView: {
