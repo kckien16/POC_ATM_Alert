@@ -7,11 +7,11 @@ const Card = props => {
 
 const styles = StyleSheet.create({
     card: {
-        backgroundColor: "#FFFFFF",
-        borderRadius: 12,
-        marginTop: 20,
-        width: "90%",
-        padding:20,
+        width:"89%",
+        padding:16,
+        backgroundColor:"#FFFFFF",
+        borderRadius:12,
+        marginBottom:0
     }
 })
 

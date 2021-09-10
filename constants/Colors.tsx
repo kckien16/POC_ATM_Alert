@@ -1,10 +1,15 @@
 export default {
     white: '#FFFFFF',
-    primary: '#00CCFF',
-    red: '#FF3333',
-    blue:"#3399FF",
+    // primary: '#2190CD',
+    red: '#FF5B5B',
+    blue:"#2190CD",
     whitee: '#EAF5FA',
     black:'#000000',
+
     background:'#F0F8FF',
     blutext: '#1085C5',
+    background1:'#E3F5FF',
+    grey:'#ACBCD1',
+
+
 };
