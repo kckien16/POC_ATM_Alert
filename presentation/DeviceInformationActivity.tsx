@@ -174,7 +174,10 @@ const styles = StyleSheet.create({
     height:20,
     marginTop:32,
     marginLeft:26,
-    ...FONTS.h2
+    fontWeight:'bold',
+    color:'#091F3A'
+
+    
   },
  
   br: {

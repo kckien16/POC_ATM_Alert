@@ -11,11 +11,16 @@ const traCuuTB = ({ navigation }) => {
   const { t, i18n } = useTranslation()
   return (
     <View style={styles.container}>
-      <ToolBar>
+      <ToolBar style={styles.Toolbar}>
         <TouchableOpacity
           onPress={() => navigation.goBack()}
+<<<<<<< HEAD
           style={styles.toolBar}>
           <FontAwesome name="angle-left" size={32} color={Colors.blue} />
+=======
+         >
+          <FontAwesome name="angle-left" size={30} color={Colors.blue}/>
+>>>>>>> a068bb9740456f5a6015e147c059e6d033a707a5
         </TouchableOpacity>
         <Text style= {styles.title}>Tra cứu thiết bị</Text>
       </ToolBar>
@@ -47,7 +52,7 @@ const traCuuTB = ({ navigation }) => {
         </FlatList>
       </Card>
       <Text style={styles.textFrame2}>Số Sim:</Text>
-      <Card>
+      <Card style = {styles.card}>
         <FlatList
           data={ThongTin}
           renderItem={({ item }) => (
@@ -58,7 +63,7 @@ const traCuuTB = ({ navigation }) => {
         </FlatList>
       </Card>
       <Text style={styles.textFrame2}>Địa chỉ lắp đặt:</Text>
-      <Card>
+      <Card style = {styles.card}>
         <FlatList
           data={ThongTin}
           renderItem={({ item }) => (
@@ -82,17 +87,21 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.background
   },
   card: {
-    alignSelf: 'center'
+    alignSelf: 'center',
+    marginTop: 20
   },
   title: {
     fontSize: 18,
-    fontWeight: "500" 
+    fontWeight: "600",
+    marginLeft: 15
+  },
+  Toolbar:{
+   
+   alignItems:'center',
   },
   toolBar: {
     height: 30,
     width: 30, 
-    justifyContent: "center", 
-  
     marginLeft: 30
   },
   flexDirection: {
