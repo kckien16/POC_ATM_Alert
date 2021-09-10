@@ -6,6 +6,7 @@ import SwitchSelector from 'react-native-switch-selector'
 
 import Input from '../components/UI/Input';
 import { useTranslation } from 'react-i18next';
+import Colors from '../constants/Colors';
 
 const options = [
   {label: 'English', value: 'en'},
@@ -46,9 +47,11 @@ const Login = () => {
               onPress={(e)=>{
                 i18n.changeLanguage(e);
               }}/>
+              <View style={styles.VNorEN}>
             <Image style={styles.imageVN}
-             source={require('../images/vietnam.png')} />
+             source={require('../images/vietnam.jpg')} />
             <Text style={styles.TextVN}> VNM </Text>
+            </View>
             </TouchableOpacity>
           </View>
         </View>
@@ -57,11 +60,10 @@ const Login = () => {
       <Text style={styles.text}>
        {t("login")}
       </Text>
-
       <Input>
       <TextInput 
       value={email}
-        placeholder='  Email đăng nhập'
+        placeholder={t("Email đăng nhập")}
         onChangeText={text => setemail(text)}>
       </TextInput>
       </Input>
@@ -69,7 +71,7 @@ const Login = () => {
       <Input>
       <TextInput 
       value={pass}
-        placeholder='  Mật khẩu'
+        placeholder={t("Mật khẩu")}
         keyboardType='numeric'
         returnKeyType='next'
         autoFocus={true}
@@ -93,7 +95,7 @@ const Login = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#EAF5FA',
+    backgroundColor: Colors.background,
   },
   text: {
     fontSize: 25,
@@ -107,36 +109,43 @@ const styles = StyleSheet.create({
      padding: 10 ,
   },
   Logo:{
-   width:40,
-   height:40,
+   width:38,
+   height:38,
   },
   imageVN:{
-  width:25,
-  height:25,
+  width:16,
+  height:16,
   },
   TextVN:{
-     color: 'blue', 
-     alignSelf: 'center', 
-     fontWeight: 'bold', 
-     fontSize: 10 ,
+     color: Colors.blutext,
+     fontWeight: 'normal', 
+     fontSize: 12 ,
+     fontStyle: 'normal'
+  },
+  VNorEN:{
+    flexDirection: 'row',
+      alignSelf: 'center',
+
   },
   LanguageVN:{
-  
-      width: 68,
-      height: 30,
+    position:'absolute',
+      width: 78,
+      height: 34,
+      justifyContent:'center',
+      opacity:0.8,
       borderColor: '#2190CD',
-      borderWidth: 0.6,
-      flexDirection: 'row',
-      justifyContent: 'center',
+      borderWidth: 1,
+      borderRadius:4,
   },
   buttonLogin: {
-    backgroundColor: '#4493e2',
-    height: 40,
+    backgroundColor: '#2190CD',
+    width: 362,
+    height: 44,
     marginTop: 60,
     borderRadius: 10,
     justifyContent: 'center',
     alignItems: 'center',
-    width: 340,
+
     alignSelf: 'center',
   },
   buttonLoginText: {

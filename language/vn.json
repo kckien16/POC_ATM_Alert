@@ -1,6 +1,7 @@
 {
     "translation":{
         "login": "Đăng nhập",
+        "Login email": "Email đăng nhập",
         "email": "Email",
         "password": "Mật khẩu",
         "forgot-password": "Quên mật khẩu",

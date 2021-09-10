@@ -5,5 +5,6 @@ export default {
     blue:"#3399FF",
     whitee: '#EAF5FA',
     black:'#000000',
-    background:'#F0F8FF'
+    background:'#F0F8FF',
+    blutext: '#1085C5',
 };

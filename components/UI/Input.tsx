@@ -11,8 +11,8 @@ const styles = StyleSheet.create({
         backgroundColor: '#FFFF',
         borderRadius:10,
         alignSelf: 'center',
-        height: 40,
-        width: 340,
+        height: 44,
+        width: 362,
     }
 })
 
