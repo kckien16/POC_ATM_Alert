@@ -24,33 +24,45 @@ import Colors from '../constants/Colors';
 import Receiving from '../components/atm/ReceivingPhoneNumber';
 import Send from '../components/atm/SendPhoneNumberItem';
 import WarningItem from '../components/atm/WarningItem';
+import Button from '../components/UI/Button';
+import { useTranslation } from 'react-i18next';
+
+import FONTS  from '../constants/Fonts';
 
 
-const CaiDat = ({navigation}) => {
 
+const Information = ({navigation}) => {
+  const{t,i18n}=useTranslation()
 
   return (
     <View>
-      <View>
+      <View >
         <ToolBar>
           <TouchableOpacity
             style={styles.back}
             onPress={() => navigation.goBack()}>
-            <FontAwesome name="angle-left" size={30} color={Colors.primary} />
+            <FontAwesome name="angle-left" size={32} color={Colors.blue} />
           </TouchableOpacity>
-          <Text style={styles.textToolBar}>Thông tin thiết bị</Text>
-          <TouchableOpacity onPress={()=>navigation.navigate("CaiDat")}>
-          <Text style={styles.textRight}>Chỉnh sữa</Text>
+          <Text style={styles.textToolBar}>{t('information')}</Text>
+          <TouchableOpacity
+           onPress={() => navigation.navigate('CaiDat')}
+          >
+          <Text style={styles.textRToolBar}>{t('repair')}
+          
+          
+          
+          </Text>
+
           </TouchableOpacity>
         </ToolBar>
       </View>
       <ScrollView style={styles.scrollView}>
         <View style={styles.view}>
-          <Card >
+          <Card>
             <FlatList
               data={ThongTin}
               renderItem={({item}) => (
-                <InformationItem 
+                <InformationItem
                   imei={item.imei}
                   sim={item.sim}
                   loaiTB={item.loaiTB}
@@ -62,45 +74,47 @@ const CaiDat = ({navigation}) => {
             />
           </Card>
         </View>
-        <Text style={styles.titles}>Cài đặt số điện thoại</Text>
-        <View style={styles.view}>
-          <Card>
-            <Text style={styles.title}>Số điện thoại khẩn cấp:</Text>
-            <FlatList
-              data={SDT_KC}
-              renderItem={({item}) => (
-                <EmergencyNumberItem phone_emergency={item.sdt} />
-              )}
-            />
-            
-            
-          </Card>
-        </View>
+        <Text style={styles.titles}>{t("set-up-phone-number")}</Text>
 
         <View style={styles.view}>
           <Card>
-            <Text style={styles.title}>Số điện thoại nhận cuộc gọi:</Text>
+            <Text >{t("emergency-number")}</Text>
             <FlatList
               data={SDT_Nhan}
               renderItem={({item}) => <Receiving phone_receiving={item.sdt} />}
             />
-          
+            <Text style={styles.br}>
+              ________________________________________________
+            </Text>
+            
            
           </Card>
         </View>
 
         <View style={styles.view}>
           <Card>
-            <Text style={styles.title}>Số điện thoại gửi tin nhắn:</Text>
+            <Text >{t("phone-number-to-receive-calls")}</Text>
             <FlatList
-              data={SDT_GuiTN}
-              renderItem={({item}) => <Send phone_send={item.sdt} />}
+              data={SDT_Nhan}
+              renderItem={({item}) => <Receiving phone_receiving={item.sdt} />}
             />
-           
             
           </Card>
         </View>
-        <Text style={styles.titles}>Cài đặt ngưỡng cảnh báo</Text>
+
+        <View style={styles.view}>
+          <Card>
+            <Text >{t("phone-number-to-send-the-message")}</Text>
+            <FlatList
+              data={SDT_Nhan}
+              renderItem={({item}) => <Receiving phone_receiving={item.sdt} />}
+            />
+            
+            
+          </Card>
+        </View>
+
+        <Text style={styles.titles}>{t("alarm-threshold-setting")}</Text>
         <View style={{flex: 1}}>
           <FlatList
             data={Warnings}
@@ -116,90 +130,85 @@ const CaiDat = ({navigation}) => {
           />
         </View>
         <View style={styles.viewBtnSave}>
-          
+        
         </View>
       </ScrollView>
     </View>
   );
 };
 
-export default CaiDat;
+export default Information;
 
 const styles = StyleSheet.create({
-   
   back: {
-    height: 30,
-    width: 30,
-    justifyContent: 'center',
-    marginLeft: 30,
+    height:32,
+    marginTop:18,
+    marginLeft:26
+  },
+  textToolBar: {
+    fontSize:16,
+    marginTop:25,
+    marginLeft:10,
+    marginBottom:12,
+    alignItems:"center",
+  },
+  textRToolBar:{
+    marginTop:25,
+    marginLeft:190,
+    marginBottom:12,
+    color: Colors.blue,
+    fontSize:16,
     
   },
- 
-
-  textToolBar: {
-    fontSize: 18,
-    fontWeight: 'bold',
-  
-  },
-  textRight:{
-    fontSize: 18,
-    fontWeight: '500',
-    marginLeft:80,
-    color: Colors.blue
-
-},
   scrollView: {
     backgroundColor: Colors.background,
     width: '100%',
-    
   },
   view: {
-    flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    fontWeight:'bold'
-    
+    marginTop:20,
+   
+  },
+  viewPhone:{
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop:12,
   },
   titles: {
-    fontSize: 15,
-    fontWeight: 'bold',
-    marginLeft: 25,
-    marginTop: 25,
+    height:20,
+    marginTop:32,
+    marginLeft:26,
+    ...FONTS.h2
   },
-  title: {
-    fontSize: 14,
-    marginLeft: 15,
-    marginTop: 15,
-    
-  },
+ 
   br: {
-    fontWeight: '200',
-    paddingLeft: 15,
-    paddingRight: 15,
-    height: 25,
+    opacity:0.3,
+    width:"100%",
   },
   btnAddView: {
+    marginLeft:2,
     marginBottom: 10,
     flexDirection: 'row',
     alignItems: 'center',
   },
   titleBtn: {
-    fontSize: 14,
     marginLeft: 10,
     marginTop: 2,
-    color: Colors.blue,
+    ...FONTS.h5
   },
   btnAdd: {
-    marginLeft: 15,
     flexDirection: 'row',
+    marginTop:10
   },
   viewBtnSave: {
-    margin: 20,
+    marginTop: 24,
+    marginLeft:20,
+    marginRight:20,
+    marginBottom:30,
     height: 100,
   },
   titleSave: {
-    fontSize: 18,
-    color: '#FFFFFF',
-    fontWeight: '600',
+    ...FONTS.h1
   },
 });

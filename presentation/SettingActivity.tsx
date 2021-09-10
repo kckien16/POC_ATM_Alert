@@ -41,7 +41,7 @@ const CaiDat = ({navigation}) => {
           <TouchableOpacity
             style={styles.back}
             onPress={() => navigation.goBack()}>
-            <FontAwesome name="angle-left" size={32} color={Colors.primary} />
+            <FontAwesome name="angle-left" size={32} color={Colors.blue} />
           </TouchableOpacity>
           <Text style={styles.textToolBar}>{t('setting')}</Text>
         </ToolBar>
@@ -81,7 +81,7 @@ const CaiDat = ({navigation}) => {
                 <FontAwesome
                   name="plus-circle"
                   size={20}
-                  color={Colors.primary}
+                  color={Colors.blue}
                 />
                 <Text style={styles.titleBtn}>{t("add-an-emergency-phone-number")}</Text>
               </TouchableOpacity>
@@ -104,7 +104,7 @@ const CaiDat = ({navigation}) => {
                 <FontAwesome
                   name="plus-circle"
                   size={20}
-                  color={Colors.primary}
+                  color={Colors.blue}
                 />
                 <Text style={styles.titleBtn}>{t("add-phone-number-to-receive-calls")}</Text>
               </TouchableOpacity>
@@ -127,7 +127,7 @@ const CaiDat = ({navigation}) => {
                 <FontAwesome
                   name="plus-circle"
                   size={20}
-                  color={Colors.primary}
+                  color={Colors.blue}
                 />
                 <Text style={styles.titleBtn}>{t("add-phone-number-to-send-messages")}</Text>
               </TouchableOpacity>
@@ -181,7 +181,7 @@ const styles = StyleSheet.create({
     alignItems:"center",
   },
   scrollView: {
-    backgroundColor: "#EAF5FA",
+    backgroundColor: Colors.background,
     width: '100%',
   },
   view: {

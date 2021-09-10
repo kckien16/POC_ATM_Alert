@@ -13,7 +13,7 @@ import Input from '../components/UI/Input';
 import QRCodeScanner from 'react-native-qrcode-scanner';
 import { RNCamera } from 'react-native-camera';
 import { useTranslation } from 'react-i18next';
-
+import Colors from '../constants/Colors';
 
 const lookup  = ({navigation}) => {
   onSuccess = e => {
@@ -24,12 +24,12 @@ const lookup  = ({navigation}) => {
 
   const{t,i18n} = useTranslation();
 
-  const [IMEI, setIMEI] = useState('498142699');
-  const [Loai, setLoai] = useState('Thiết bị ATM');
+  const [IMEI, setIMEI] = useState();
+  const [Loai, setLoai] = useState();
 
   return (
     <SafeAreaView style={styles.container}>
-    <QRCodeScanner
+    {/* <QRCodeScanner
         containerStyle={{marginBottom:'50%',backgroundColor:"#FFF"}}
         onRead={this.onSuccess}
         reactivate={true}
@@ -43,13 +43,13 @@ const lookup  = ({navigation}) => {
             <Text style={styles.buttonText}>OK. Got it!</Text>
           </TouchableOpacity>
         }
-      />
+      /> */}
 
 
    
-      {/* <View style={{alignItems:'center', marginTop: 200}}>
+      <View style={{alignItems:'center', marginTop: 200}}>
         <Text>Hoặc</Text>
-      </View> */}
+      </View>
       <View 
         style={styles.inputIMEI}
         >
@@ -75,7 +75,7 @@ const lookup  = ({navigation}) => {
         }}>
         <Text 
         style={{
-        }}>{t("login")}</Text>
+        }}>{t("device")}</Text>
       </TouchableOpacity>
     </SafeAreaView>
   );
@@ -86,7 +86,7 @@ const styles = StyleSheet.create({
 
   container:{
     flex: 1,
-     backgroundColor: '#F0F8FF'
+     backgroundColor: Colors.background
 
   },
   centerText: {
@@ -97,11 +97,11 @@ const styles = StyleSheet.create({
   },
   textBold: {
     fontWeight: '500',
-    color: '#000'
+    color: Colors.black
   },
   buttonText: {
     fontSize: 21,
-    color: 'rgb(0,122,255)',
+    // color: 'rgb(0,122,255)',
     marginTop:20,
 
   },
@@ -113,6 +113,7 @@ const styles = StyleSheet.create({
     borderTopRightRadius: 30,
     paddingVertical: 30,
     paddingHorizontal: 20,
+    backgroundColor: Colors.background,
   },
   textIMEI:{
           
@@ -121,9 +122,9 @@ const styles = StyleSheet.create({
     width: '100%',
     height: 50,
     borderRadius: 10,
-    borderColor: '#ffff',
-    backgroundColor: '#ffff',
-    color: '#202d2c',
+    borderColor: Colors.white,
+    backgroundColor: Colors.white,
+    color: Colors.grey
   },
   textloaiTB:{
     padding: 10,
@@ -132,13 +133,13 @@ const styles = StyleSheet.create({
     width: '100%',
     height: 50,
     borderRadius: 10,
-    borderColor: '#ffff',
-    backgroundColor: '#ffff',
-    color: '#202d2c',
+    borderColor: Colors.white,
+    backgroundColor: Colors.white,
+    color: Colors.grey
   },
   inputTC:{
     width:'90%',
-    backgroundColor:'#098cf7',
+    backgroundColor:Colors.blue,
     height:50,
    borderRadius:20,
    alignItems:'center',

@@ -19,7 +19,7 @@ const Stack = createNativeStackNavigator();
 const App =()=>{
   return(
     <NavigationContainer>
-         <Stack.Navigator initialRouteName="CaiDat" screenOptions={{headerShown: false}}>
+         <Stack.Navigator initialRouteName="Login" screenOptions={{headerShown: false}}>
          
            <Stack.Screen name ="Login" component={Login}  />
            <Stack.Screen name ="Lookup" component={Lookup}  />

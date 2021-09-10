@@ -5,14 +5,17 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome'
 import Card from '../components/UI/Card';
 import ToolBar from '../components/UI/ToolBar';
 import { ThongTin } from '../data/ThongTinTB';
+import { useTranslation } from 'react-i18next';
+import Colors from '../constants/Colors';
 const traCuuTB = ({ navigation }) => {
+  const { t, i18n } = useTranslation()
   return (
     <View style={styles.container}>
       <ToolBar>
         <TouchableOpacity
           onPress={() => navigation.goBack()}
           style={styles.toolBar}>
-          <FontAwesome name="angle-left" size={35} color="#1e88e5" />
+          <FontAwesome name="angle-left" size={35} color={Colors.blue} />
         </TouchableOpacity>
         <Text style= {styles.title}>Tra cứu thiết bị</Text>
       </ToolBar>
@@ -76,7 +79,7 @@ const traCuuTB = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#EAF5FA',
+    backgroundColor: Colors.background
   },
   card: {
     alignSelf: 'center'
@@ -89,6 +92,7 @@ const styles = StyleSheet.create({
     height: 30,
     width: 30, 
     justifyContent: "center", 
+  
     marginLeft: 30
   },
   flexDirection: {
@@ -103,14 +107,14 @@ const styles = StyleSheet.create({
     right: "-500%",
     width: 180,
     fontWeight: "200",
-    fontFamily: '#EAF5FA'
+    fontFamily: Colors.whitee,
   },
   textContentLTB: {
     fontSize: 16,
     right: "-130%",
     width: 180,
     fontWeight: "200",
-    fontFamily: '#EAF5FA'
+    fontFamily: Colors.whitee,
   },
   textFrame2: {
     fontSize: 16,
@@ -123,7 +127,7 @@ const styles = StyleSheet.create({
     marginLeft: 20,
   },
   buttonLogin: {
-    backgroundColor: '#4493e2',
+    backgroundColor: Colors.blue,
     height: 45,
     marginTop: 80,
     borderRadius: 10,
@@ -133,7 +137,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
   },
   buttonLoginText: {
-    color: '#f4f6f7',
+    color: Colors.white,
     fontWeight: 'bold',
   },
 });
