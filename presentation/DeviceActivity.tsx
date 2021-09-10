@@ -97,7 +97,7 @@ const Device = ({ navigation }) => {
               style={styles.inputwarning}>
               <Text
                 style={styles.textwarning}>
-                Cảnh báo
+               {t('warning')}
               </Text>
             </TouchableOpacity>
           </View>
@@ -108,7 +108,7 @@ const Device = ({ navigation }) => {
               onPress={() => navigation.navigate('traCuuTB')}>
               <Text
                 style={styles.textupdate}>
-                Cập Nhập
+               {t('update')}
               </Text>
             </TouchableOpacity>
           </View>
