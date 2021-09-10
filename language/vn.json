@@ -1,13 +1,13 @@
 {
     "translation":{
         "login": "Đăng nhập",
-        "email": "Email",
+        "email": "Tên đăng nhập",
         "password": "Mật khẩu",
         "forgot-password": "Quên mật khẩu",
         "signup": "Đăng nhập",
         "device": "Tra cứu",
         "setting": "Cài đặt",
-        "device-lookup ": "Tra cứu thiết bị",
+        "device-lookup": "Tra cứu thiết bị",
         "atm-information": "Thông tin ATM",
         "imei": "IMEI",
         "sim": "SIM",

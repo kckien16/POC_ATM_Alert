@@ -36,7 +36,7 @@ const CaiDat = ({navigation}) => {
           <TouchableOpacity
             style={styles.back}
             onPress={() => navigation.goBack()}>
-            <FontAwesome name="angle-left" size={30} color={Colors.primary} />
+            <FontAwesome name="angle-left" size={30} color={Colors.blue} />
           </TouchableOpacity>
           <Text style={styles.textToolBar}>Thông tin thiết bị</Text>
           <TouchableOpacity onPress={()=>navigation.navigate("CaiDat")}>
@@ -199,7 +199,7 @@ const styles = StyleSheet.create({
   },
   titleSave: {
     fontSize: 18,
-    color: '#FFFFFF',
+    color: Colors.white,
     fontWeight: '600',
   },
 });
