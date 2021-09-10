@@ -5,7 +5,7 @@ export default {
     blue:"#2190CD",
     whitee: '#EAF5FA',
     black:'#000000',
-    background:'#D5D9E3',
+    background:'#E3F5FF',
     grey:'#ACBCD1',
 
 };
