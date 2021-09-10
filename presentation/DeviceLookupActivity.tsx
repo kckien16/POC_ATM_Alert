@@ -15,7 +15,7 @@ const traCuuTB = ({ navigation }) => {
         <TouchableOpacity
           onPress={() => navigation.goBack()}
           style={styles.toolBar}>
-          <FontAwesome name="angle-left" size={35} color={Colors.blue} />
+          <FontAwesome name="angle-left" size={35} color={Colors.blue}/>
         </TouchableOpacity>
         <Text style= {styles.title}>Tra cứu thiết bị</Text>
       </ToolBar>
@@ -47,7 +47,7 @@ const traCuuTB = ({ navigation }) => {
         </FlatList>
       </Card>
       <Text style={styles.textFrame2}>Số Sim:</Text>
-      <Card>
+      <Card style = {styles.card}>
         <FlatList
           data={ThongTin}
           renderItem={({ item }) => (
@@ -58,7 +58,7 @@ const traCuuTB = ({ navigation }) => {
         </FlatList>
       </Card>
       <Text style={styles.textFrame2}>Địa chỉ lắp đặt:</Text>
-      <Card>
+      <Card style = {styles.card}>
         <FlatList
           data={ThongTin}
           renderItem={({ item }) => (
@@ -82,17 +82,18 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.background
   },
   card: {
-    alignSelf: 'center'
+    alignSelf: 'center',
+    marginTop: 20
   },
   title: {
     fontSize: 18,
-    fontWeight: "500" 
+    fontWeight: "500",
+    marginTop: 20,
+    marginLeft: 20
   },
   toolBar: {
     height: 30,
     width: 30, 
-    justifyContent: "center", 
-  
     marginLeft: 30
   },
   flexDirection: {
