@@ -151,7 +151,7 @@ const styles = StyleSheet.create({
     marginLeft:10,
     marginBottom:12,
     alignItems:"center",
-    fontWeight:'bold'
+    fontWeight:'500'
   },
   textRToolBar:{
     marginTop:25,
@@ -184,7 +184,6 @@ const styles = StyleSheet.create({
     fontWeight:'bold',
     color:'#091F3A'
 
-    
   },
  
   br: {
@@ -197,15 +196,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
   },
-  titleBtn: {
-    marginLeft: 10,
-    marginTop: 2,
-    ...FONTS.h5
-  },
-  btnAdd: {
-    flexDirection: 'row',
-    marginTop:10
-  },
+
+
   viewBtnSave: {
     marginTop: 24,
     marginLeft:20,
@@ -213,7 +205,5 @@ const styles = StyleSheet.create({
     marginBottom:30,
     height: 100,
   },
-  titleSave: {
-    ...FONTS.h1
-  },
+  
 });
