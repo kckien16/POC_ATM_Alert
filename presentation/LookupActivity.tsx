@@ -29,7 +29,7 @@ const lookup  = ({navigation}) => {
 
   return (
     <SafeAreaView style={styles.container}>
-    {/* <QRCodeScanner
+    <QRCodeScanner
         containerStyle={{marginBottom:'50%',backgroundColor:"#FFF"}}
         onRead={this.onSuccess}
         reactivate={true}
@@ -38,12 +38,12 @@ const lookup  = ({navigation}) => {
         showMarker={true}
         markerStyle={{borderColor:"FFF",borderRadius:10}}
      
-        bottomContent={
-          <TouchableOpacity style={styles.buttonTouchable}>
-            <Text style={styles.buttonText}>OK. Got it!</Text>
-          </TouchableOpacity>
-        }
-      /> */}
+        // bottomContent={
+        //   <TouchableOpacity style={styles.buttonTouchable}>
+        //     <Text style={styles.buttonText}>OK. Got it!</Text>
+        //   </TouchableOpacity>
+        // }
+      />
 
 
    

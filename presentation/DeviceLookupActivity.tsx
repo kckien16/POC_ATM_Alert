@@ -7,6 +7,8 @@ import ToolBar from '../components/UI/ToolBar';
 import { ThongTin } from '../data/ThongTinTB';
 import { useTranslation } from 'react-i18next';
 import Colors from '../constants/Colors';
+
+
 const traCuuTB = ({ navigation }) => {
   const { t, i18n } = useTranslation()
   return (
@@ -17,7 +19,7 @@ const traCuuTB = ({ navigation }) => {
          >
           <FontAwesome name="angle-left" size={30} color={Colors.blue}/>
         </TouchableOpacity>
-        <Text style= {styles.title}>Tra cứu thiết bị</Text>
+        <Text style= {styles.title}>{t('device-lookup')}</Text>
       </ToolBar>
       <Card style = {styles.card}>
         <FlatList data={ThongTin}

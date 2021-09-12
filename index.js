@@ -11,6 +11,7 @@ import i18n from './language/i18n';
 
 
 
+
 import {name as appName} from './app.json';
 
 AppRegistry.registerComponent(appName, () => App );
