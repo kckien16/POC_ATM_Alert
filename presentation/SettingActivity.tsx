@@ -2,7 +2,6 @@ import React, {useState} from 'react';
 import {
   FlatList,
   ScrollView,
-  SectionList,
   StyleSheet,
   Text,
   TextInput,
@@ -24,19 +23,25 @@ import Colors from '../constants/Colors';
 import Receiving from '../components/atm/ReceivingPhoneNumber';
 import Send from '../components/atm/SendPhoneNumberItem';
 import WarningItem from '../components/atm/WarningItem';
-import Button from '../components/UI/Button';
-import { useTranslation } from 'react-i18next';
+import {useTranslation} from 'react-i18next';
 
-import FONTS  from '../constants/Fonts';
-
-
+import FONTS from '../constants/Fonts';
+import Input from '../components/UI/Input';
+import { Alert } from 'react-native';
 
 const CaiDat = ({navigation}) => {
-  const{t,i18n}=useTranslation()
+const [sdt, setSDT] = useState<SDT[]| null>(null);
+
+  const {t, i18n} = useTranslation();
+  const [newSdt, setNewSdt] = useState<SDT | null>(null);
+
+  const handleAdd = () => {
+    if  (newSdt !== null) {setSDT([...SDT_KC,newSdt]);}
+  }
 
   return (
     <View>
-      <View >
+      <View>
         <ToolBar>
           <TouchableOpacity
             style={styles.back}
@@ -64,11 +69,44 @@ const CaiDat = ({navigation}) => {
             />
           </Card>
         </View>
-        <Text style={styles.titles}>{t("set-up-phone-number")}</Text>
+        <Text style={styles.titles}>{t('set-up-phone-number')}</Text>
 
         <View style={styles.view}>
           <Card>
-            <Text style={styles.title}>{t("emergency-number")}</Text>
+            <Text style={styles.title}>{t('emergency-number')}</Text>
+            <FlatList
+              data={SDT_KC}
+              renderItem={({item}) => <Receiving phone_receiving={item.sdt} />}
+            />
+            <Text style={styles.br}>
+              ________________________________________________
+            </Text>
+            <View style={styles.btnAddView}>
+              <TouchableOpacity style={styles.btnAdd} onPress={()=>{handleAdd}}>
+                <FontAwesome name="plus-circle" size={20} color={Colors.blue} />
+                {/* <Text style={styles.titleBtn}>
+                  {t('add-an-emergency-phone-number')}
+                </Text> */}
+              </TouchableOpacity>
+              <TextInput style={{width:200,height:40,backgroundColor:Colors.grey}}
+              onChangeText={(text)=>{
+                if(newSdt !== null){
+                  setNewSdt({...newSdt,sdt:text});
+                }
+                // else{
+                //   setNewSdt({id:Date.now(), sdt:text});
+                // }
+              }}
+              ></TextInput>
+            </View>
+          </Card>
+        </View>
+
+        <View style={styles.view}>
+          <Card>
+            <Text style={styles.title}>
+              {t('phone-number-to-receive-calls')}
+            </Text>
             <FlatList
               data={SDT_Nhan}
               renderItem={({item}) => <Receiving phone_receiving={item.sdt} />}
@@ -78,12 +116,10 @@ const CaiDat = ({navigation}) => {
             </Text>
             <View style={styles.btnAddView}>
               <TouchableOpacity style={styles.btnAdd}>
-                <FontAwesome
-                  name="plus-circle"
-                  size={20}
-                  color={Colors.blue}
-                />
-                <Text style={styles.titleBtn}>{t("add-an-emergency-phone-number")}</Text>
+                <FontAwesome name="plus-circle" size={20} color={Colors.blue} />
+                <Text style={styles.titleBtn}>
+                  {t('add-phone-number-to-receive-calls')}
+                </Text>
               </TouchableOpacity>
             </View>
           </Card>
@@ -91,7 +127,9 @@ const CaiDat = ({navigation}) => {
 
         <View style={styles.view}>
           <Card>
-            <Text style={styles.title}>{t("phone-number-to-receive-calls")}</Text>
+            <Text style={styles.title}>
+              {t('phone-number-to-send-the-message')}
+            </Text>
             <FlatList
               data={SDT_Nhan}
               renderItem={({item}) => <Receiving phone_receiving={item.sdt} />}
@@ -101,41 +139,16 @@ const CaiDat = ({navigation}) => {
             </Text>
             <View style={styles.btnAddView}>
               <TouchableOpacity style={styles.btnAdd}>
-                <FontAwesome
-                  name="plus-circle"
-                  size={20}
-                  color={Colors.blue}
-                />
-                <Text style={styles.titleBtn}>{t("add-phone-number-to-receive-calls")}</Text>
+                <FontAwesome name="plus-circle" size={20} color={Colors.blue} />
+                <Text style={styles.titleBtn}>
+                  {t('add-phone-number-to-send-messages')}
+                </Text>
               </TouchableOpacity>
             </View>
           </Card>
         </View>
 
-        <View style={styles.view}>
-          <Card>
-            <Text style={styles.title}>{t("phone-number-to-send-the-message")}</Text>
-            <FlatList
-              data={SDT_Nhan}
-              renderItem={({item}) => <Receiving phone_receiving={item.sdt} />}
-            />
-            <Text style={styles.br}>
-              ________________________________________________
-            </Text>
-            <View style={styles.btnAddView}>
-              <TouchableOpacity style={styles.btnAdd}>
-                <FontAwesome
-                  name="plus-circle"
-                  size={20}
-                  color={Colors.blue}
-                />
-                <Text style={styles.titleBtn}>{t("add-phone-number-to-send-messages")}</Text>
-              </TouchableOpacity>
-            </View>
-          </Card>
-        </View>
-
-        <Text style={styles.titles}>{t("alarm-threshold-setting")}</Text>
+        <Text style={styles.titles}>{t('alarm-threshold-setting')}</Text>
         <View style={{flex: 1}}>
           <FlatList
             data={Warnings}
@@ -151,13 +164,13 @@ const CaiDat = ({navigation}) => {
           />
         </View>
         <View style={styles.viewBtnSave}>
-          <Button>
-            <TouchableOpacity  onPress={() => { //button
+          <TouchableOpacity
+            style={styles.btnSave}
+            onPress={() => {
               navigation.navigate('ThongTinThietBi');
             }}>
-            <Text style={styles.titleSave}>{t("save")}</Text>
-            </TouchableOpacity>
-          </Button> 
+            <Text style={styles.titleSave}>{t('save')}</Text>
+          </TouchableOpacity>
         </View>
       </ScrollView>
     </View>
@@ -168,18 +181,18 @@ export default CaiDat;
 
 const styles = StyleSheet.create({
   back: {
-    height:32,
-    marginTop:18,
-    marginLeft:26
+    height: 32,
+    marginTop: 18,
+    marginLeft: 26,
   },
   textToolBar: {
-    width:64,
-    height:30,
-    marginTop:25,
-    marginLeft:10,
-    marginBottom:12,
-    alignItems:"center",
-    ...FONTS.h2
+    width: 64,
+    height: 30,
+    marginTop: 25,
+    marginLeft: 10,
+    marginBottom: 12,
+    alignItems: 'center',
+    ...FONTS.h2,
   },
   scrollView: {
     backgroundColor: Colors.background,
@@ -188,28 +201,28 @@ const styles = StyleSheet.create({
   view: {
     alignItems: 'center',
     justifyContent: 'center',
-    marginTop:20
+    marginTop: 20,
   },
-  viewPhone:{
+  viewPhone: {
     alignItems: 'center',
     justifyContent: 'center',
-    marginTop:12,
+    marginTop: 12,
   },
   titles: {
-    height:20,
-    marginTop:32,
-    marginLeft:26,
-    ...FONTS.h2
+    height: 20,
+    marginTop: 32,
+    marginLeft: 26,
+    ...FONTS.h2,
   },
   title: {
-    ...FONTS.h4
+    ...FONTS.h4,
   },
   br: {
-    opacity:0.3,
-    width:"100%",
+    opacity: 0.3,
+    width: '100%',
   },
   btnAddView: {
-    marginLeft:2,
+    marginLeft: 2,
     marginBottom: 10,
     flexDirection: 'row',
     alignItems: 'center',
@@ -217,20 +230,27 @@ const styles = StyleSheet.create({
   titleBtn: {
     marginLeft: 10,
     marginTop: 2,
-    ...FONTS.h5
+    ...FONTS.h5,
   },
   btnAdd: {
     flexDirection: 'row',
-    marginTop:10
+    marginTop: 10,
   },
   viewBtnSave: {
     marginTop: 24,
-    marginLeft:20,
-    marginRight:20,
-    marginBottom:30,
+    marginLeft: 20,
+    marginRight: 20,
+    marginBottom: 30,
     height: 100,
   },
   titleSave: {
-    ...FONTS.h1
+    ...FONTS.h1,
+  },
+  btnSave: {
+    height: 44,
+    backgroundColor: '#2190CD',
+    borderRadius: 8,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 });
