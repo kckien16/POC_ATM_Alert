@@ -8,6 +8,7 @@ import {
   TextInput,
   TouchableOpacity,
   View,
+  Alert
 } from 'react-native';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import {TT, ThongTin} from '../data/ThongTinTB';
@@ -34,6 +35,9 @@ import FONTS  from '../constants/Fonts';
 const CaiDat = ({navigation}) => {
   const{t,i18n}=useTranslation()
 
+  const onDelete =() =>{
+    
+  }
   return (
     <View>
       <View >
@@ -77,7 +81,10 @@ const CaiDat = ({navigation}) => {
               ________________________________________________
             </Text>
             <View style={styles.btnAddView}>
-              <TouchableOpacity style={styles.btnAdd}>
+              <TouchableOpacity style={styles.btnAdd}
+              
+              
+              >
                 <FontAwesome
                   name="plus-circle"
                   size={20}
@@ -100,7 +107,8 @@ const CaiDat = ({navigation}) => {
               ________________________________________________
             </Text>
             <View style={styles.btnAddView}>
-              <TouchableOpacity style={styles.btnAdd}>
+              <TouchableOpacity style={styles.btnAdd}
+              onPress={() => Alert.alert('Thêm thành công')}>
                 <FontAwesome
                   name="plus-circle"
                   size={20}
@@ -179,6 +187,7 @@ const styles = StyleSheet.create({
     marginLeft:10,
     marginBottom:12,
     alignItems:"center",
+    ...FONTS.h2
   },
   scrollView: {
     backgroundColor: Colors.background,

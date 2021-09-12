@@ -50,7 +50,7 @@
         "smoke-alarm-threshold": "Ngưỡng cảnh báo khói(mật độ)",
         "temperature-warning-threshold": "Ngưỡng cảnh báo nhiệt độ (độ C)",
         "battery-warning": "Cảnh báo pin(%)",
-        "save ": "Lưu"
+        "save": "Lưu"
     }
     
 }
