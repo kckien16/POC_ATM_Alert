@@ -27,8 +27,6 @@ import {useTranslation} from 'react-i18next';
 
 import FONTS from '../constants/Fonts';
 import Input from '../components/UI/Input';
-import { Alert } from 'react-native';
-
 const CaiDat = ({navigation}) => {
 const [sdt, setSDT] = useState<SDT[]| null>(null);
 
@@ -39,6 +37,26 @@ const [sdt, setSDT] = useState<SDT[]| null>(null);
     if  (newSdt !== null) {setSDT([...SDT_KC,newSdt]);}
   }
 
+
+const ondelete =(item) => {
+  const data = sdt.filter(i => i.id !== item.id)
+  setSDT({data})
+  }
+const renderItem =({item}) =>{
+  return(
+   
+       <View
+      style={styles.container}>
+      <TouchableOpacity onPress={()=>{ondelete(item);}}
+      style={styles.btnDel}>
+        <FontAwesome name="minus-circle" size={20} color="#FF5B5B" />
+      </TouchableOpacity>
+      <Text style={styles.title}>{item.sdt}</Text>
+    </View>
+    
+
+  )
+}
   return (
     <View>
       <View>
@@ -78,9 +96,7 @@ const [sdt, setSDT] = useState<SDT[]| null>(null);
               data={SDT_KC}
               renderItem={({item}) => <Receiving phone_receiving={item.sdt} />}
             />
-            <Text style={styles.br}>
-              ________________________________________________
-            </Text>
+         
             <View style={styles.btnAddView}>
               <TouchableOpacity style={styles.btnAdd} onPress={()=>{handleAdd}}>
                 <FontAwesome name="plus-circle" size={20} color={Colors.blue} />
@@ -111,9 +127,7 @@ const [sdt, setSDT] = useState<SDT[]| null>(null);
               data={SDT_Nhan}
               renderItem={({item}) => <Receiving phone_receiving={item.sdt} />}
             />
-            <Text style={styles.br}>
-              ________________________________________________
-            </Text>
+           
             <View style={styles.btnAddView}>
               <TouchableOpacity style={styles.btnAdd}>
                 <FontAwesome name="plus-circle" size={20} color={Colors.blue} />
@@ -134,9 +148,7 @@ const [sdt, setSDT] = useState<SDT[]| null>(null);
               data={SDT_Nhan}
               renderItem={({item}) => <Receiving phone_receiving={item.sdt} />}
             />
-            <Text style={styles.br}>
-              ________________________________________________
-            </Text>
+         
             <View style={styles.btnAddView}>
               <TouchableOpacity style={styles.btnAdd}>
                 <FontAwesome name="plus-circle" size={20} color={Colors.blue} />
@@ -226,6 +238,7 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     flexDirection: 'row',
     alignItems: 'center',
+    marginTop:10,
   },
   titleBtn: {
     marginLeft: 10,
@@ -253,4 +266,21 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  container:{
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginTop: 10,
+    height:24
+    
+},
+btnDel:{
+  marginLeft:2,
+  marginTop:2,
+},
+title:{
+    ...FONTS.h3,
+    marginLeft: 10
+}
 });
+
+
