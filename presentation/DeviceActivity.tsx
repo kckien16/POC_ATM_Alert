@@ -16,13 +16,15 @@ import InformationItem from '../components/atm/InformationItem';
 import Colors from '../constants/Colors';
 import { useTranslation } from 'react-i18next';
 
+import FONTS  from '../constants/Fonts';
+
 const Device = ({ navigation }) => {
   const { t, i18n } = useTranslation()
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView>
         <ToolBar style={styles.Toolbar}>
-          <TouchableOpacity onPress={() => navigation.goBack()}>
+          <TouchableOpacity style={styles.btnBack} onPress={() => navigation.goBack()}>
             <FontAwesome name="angle-left" size={30} color={Colors.blue} />
           </TouchableOpacity>
           <Text style={styles.testlookup}>{t('device-lookup')}</Text>
@@ -128,10 +130,13 @@ const styles = StyleSheet.create({
    justifyContent:'center',
    alignItems:'center',
   },
+  btnBack:{
+    height:32,
+    marginLeft:26
+  },
   testlookup: {
-    fontSize: 18,
-    fontWeight: "600",
-    marginLeft: 15
+    marginLeft: 10,
+    ...FONTS.h2
   },
   information: {
     height: 60,

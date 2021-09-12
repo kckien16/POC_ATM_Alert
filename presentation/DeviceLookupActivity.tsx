@@ -16,8 +16,12 @@ const traCuuTB = ({ navigation }) => {
       <ToolBar style={styles.Toolbar}>
         <TouchableOpacity
           onPress={() => navigation.goBack()}
-         >
-          <FontAwesome name="angle-left" size={30} color={Colors.blue}/>
+          style={styles.toolBar}>
+          <FontAwesome name="angle-left" size={32} color={Colors.blue} />
+
+         
+          
+
         </TouchableOpacity>
         <Text style= {styles.title}>{t('device-lookup')}</Text>
       </ToolBar>
@@ -135,7 +139,7 @@ const styles = StyleSheet.create({
   buttonLogin: {
     backgroundColor: Colors.blue,
     height: 45,
-    marginTop: 80,
+    marginTop: 20,
     borderRadius: 10,
     justifyContent: 'center',
     alignItems: 'center',
@@ -143,6 +147,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
   },
   buttonLoginText: {
+    
     color: Colors.white,
     fontWeight: 'bold',
   },

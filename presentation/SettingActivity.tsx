@@ -9,6 +9,7 @@ import {
   TextInput,
   TouchableOpacity,
   View,
+  Alert
 } from 'react-native';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import {TT, ThongTin} from '../data/ThongTinTB';
@@ -37,6 +38,7 @@ const CaiDat = ({navigation}) => {
   
   const [sdt,setsdt] =useState(SDT_Nhan)
 
+<<<<<<< HEAD
 
 const ondelete =(item) => {
   const data = sdt.filter(i => i.id !== item.id)
@@ -57,6 +59,11 @@ const renderItem =({item}) =>{
 
   )
 }
+=======
+  const onDelete =() =>{
+    
+  }
+>>>>>>> 7ce82858bd4fb19f9e17eca2edb21bba7e29794a
   return (
     <View>
       <View >
@@ -100,7 +107,10 @@ const renderItem =({item}) =>{
             />
          
             <View style={styles.btnAddView}>
-              <TouchableOpacity style={styles.btnAdd}>
+              <TouchableOpacity style={styles.btnAdd}
+              
+              
+              >
                 <FontAwesome
                   name="plus-circle"
                   size={20}
@@ -121,7 +131,8 @@ const renderItem =({item}) =>{
             />
            
             <View style={styles.btnAddView}>
-              <TouchableOpacity style={styles.btnAdd}>
+              <TouchableOpacity style={styles.btnAdd}
+              onPress={() => Alert.alert('Thêm thành công')}>
                 <FontAwesome
                   name="plus-circle"
                   size={20}
@@ -198,6 +209,7 @@ const styles = StyleSheet.create({
     marginLeft:10,
     marginBottom:12,
     alignItems:"center",
+    ...FONTS.h2
   },
   scrollView: {
     backgroundColor: Colors.background,
