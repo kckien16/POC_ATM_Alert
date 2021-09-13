@@ -2,6 +2,7 @@ import React, {FC, useState} from 'react';
 import {StyleSheet, Text, View, TouchableOpacity, Alert} from 'react-native';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
+
 const Emergency = props => {
   return (
     <View>
@@ -40,3 +41,7 @@ const styles = StyleSheet.create({
     width: '100%',
   },
 });
+function e(e: any) {
+  throw new Error('Function not implemented.');
+}
+
