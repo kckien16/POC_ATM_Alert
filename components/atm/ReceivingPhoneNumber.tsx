@@ -5,13 +5,16 @@ import FONTS  from '../../constants/Fonts';
 
 const Receiving = props => {
   return (
-    <View
+    <View>
+      <View
       style={styles.container}>
       <TouchableOpacity style={styles.btnDel}>
-        <FontAwesome name="minus-circle" size={20} color="#FF5B5B" />
+        <FontAwesome name="minus-circle" size={24} color="#FF5B5B" />
       </TouchableOpacity>
       <Text style={styles.title}>{props.phone_receiving}</Text>
     </View>
+    </View>
+    
   );
 };
 
@@ -19,10 +22,13 @@ export default Receiving;
 
 const styles = StyleSheet.create({
     container:{
-        flexDirection: 'row',
-        alignItems: 'center',
-        marginTop: 10,
-        height:24
+      flexDirection: 'row',
+      alignItems: 'center',
+      marginTop:3,
+      borderBottomColor:"black",
+      borderBottomWidth: 0.2,
+      paddingBottom:8,
+      paddingTop:8
         
     },
     btnDel:{
@@ -32,5 +38,9 @@ const styles = StyleSheet.create({
     title:{
         ...FONTS.h3,
         marginLeft: 10
-    }
+    },
+    br: {
+      opacity: 0.1,
+      width: '100%',
+    },
 });

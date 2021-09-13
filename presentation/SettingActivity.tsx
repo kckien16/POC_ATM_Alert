@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {
   FlatList,
   ScrollView,
@@ -15,10 +15,12 @@ import {Nhan, SDT_Nhan} from '../data/SDT_Nhan';
 import {Gui, SDT_GuiTN} from '../data/SDT_GuiTN';
 import {Warning, Warnings} from '../data/Warning';
 
+import Dialog, { DialogContent } from 'react-native-popup-dialog';
+
 import Card from '../components/UI/Card';
 import ToolBar from '../components/UI/ToolBar';
 import InformationItem from '../components/atm/InformationItem';
-import EmergencyNumberItem from '../components/atm/EmergencyNumberItem';
+import Emergency from '../components/atm/EmergencyNumberItem';
 import Colors from '../constants/Colors';
 import Receiving from '../components/atm/ReceivingPhoneNumber';
 import Send from '../components/atm/SendPhoneNumberItem';
@@ -26,37 +28,71 @@ import WarningItem from '../components/atm/WarningItem';
 import {useTranslation} from 'react-i18next';
 
 import FONTS from '../constants/Fonts';
-import Input from '../components/UI/Input';
+import InputText from '../components/UI/InputText';
 const CaiDat = ({navigation}) => {
-const [sdt, setSDT] = useState<SDT[]| null>(null);
-
   const {t, i18n} = useTranslation();
-  const [newSdt, setNewSdt] = useState<SDT | null>(null);
 
-  const handleAdd = () => {
-    if  (newSdt !== null) {setSDT([...SDT_KC,newSdt]);}
-  }
+  const [sdt_kc, setSdtKC] = useState<SDT[] | null>(null);
+  const [sdt_nhan, setSdtNhan] = useState<Nhan[] | null>(null);
+  const [sdt_guiTN, setSdtGuiTN] = useState<Gui[] | null>(null);
 
+  const [newSdtKC, setNewSdtKC] = useState<SDT | null>(null);
+  const [newSdtNhan, setNewSdtNhan] = useState<Nhan | null>(null);
+  const [newSdtGuiTN, setNewSdtGuiTN] = useState<Gui | null>(null);
 
-const ondelete =(item) => {
-  const data = sdt.filter(i => i.id !== item.id)
-  setSDT({data})
-  }
-const renderItem =({item}) =>{
-  return(
-   
-       <View
-      style={styles.container}>
-      <TouchableOpacity onPress={()=>{ondelete(item);}}
-      style={styles.btnDel}>
-        <FontAwesome name="minus-circle" size={20} color="#FF5B5B" />
-      </TouchableOpacity>
-      <Text style={styles.title}>{item.sdt}</Text>
-    </View>
-    
+  const [inputShown, setInputShown] = useState<boolean>(false);
 
-  )
-}
+  useEffect(() => {
+    (() => {
+      setSdtKC(SDT_KC);
+    })();
+  }, []);
+  useEffect(() => {
+    (() => {
+      setSdtNhan(SDT_Nhan);
+    })();
+  }, []);
+  useEffect(() => {
+    (() => {
+      setSdtGuiTN(SDT_GuiTN);
+    })();
+  }, []);
+
+  const addPhoneE = () => {
+    if (newSdtKC !== null && sdt_kc !== null) setSdtKC([...sdt_kc, newSdtKC]);
+    else if (newSdtKC !== null && sdt_kc !== null) setSdtKC([newSdtKC]);
+  };
+
+  const addPhoneR = () => {
+    if (newSdtNhan !== null && sdt_nhan !== null)
+      setSdtNhan([...sdt_nhan, newSdtNhan]);
+    else if (newSdtNhan !== null && sdt_nhan !== null) setSdtNhan([newSdtNhan]);
+  };
+
+  const addPhoneS = () => {
+    if (newSdtGuiTN !== null && sdt_guiTN !== null)
+      setSdtGuiTN([...sdt_guiTN, newSdtGuiTN]);
+    else if (newSdtGuiTN !== null && sdt_guiTN !== null)
+      setSdtGuiTN([newSdtGuiTN]);
+  };
+  // const ondelete = item => {
+  //   const data = sdt_kc.filter(i => i.id !== item.id);
+  //   setSdtKC({data});
+  // };
+  // const renderItem = ({item}) => {
+  //   return (
+  //     <View style={styles.container}>
+  //       <TouchableOpacity
+  //         onPress={() => {
+  //           ondelete(item);
+  //         }}
+  //         style={styles.btnDel}>
+  //         <FontAwesome name="minus-circle" size={20} color="#FF5B5B" />
+  //       </TouchableOpacity>
+  //       <Text style={styles.title}>{item.sdt}</Text>
+  //     </View>
+  //   );
+  // };
   return (
     <View>
       <View>
@@ -93,27 +129,55 @@ const renderItem =({item}) =>{
           <Card>
             <Text style={styles.title}>{t('emergency-number')}</Text>
             <FlatList
-              data={SDT_KC}
-              renderItem={({item}) => <Receiving phone_receiving={item.sdt} />}
+              data={sdt_kc}
+              renderItem={({item}) => <Emergency phone_emergency={item.sdt} />}
             />
-         
+            
             <View style={styles.btnAddView}>
-              <TouchableOpacity style={styles.btnAdd} onPress={()=>{handleAdd}}>
-                <FontAwesome name="plus-circle" size={20} color={Colors.blue} />
-                {/* <Text style={styles.titleBtn}>
-                  {t('add-an-emergency-phone-number')}
-                </Text> */}
-              </TouchableOpacity>
-              <TextInput style={{width:200,height:40,backgroundColor:Colors.grey}}
-              onChangeText={(text)=>{
-                if(newSdt !== null){
-                  setNewSdt({...newSdt,sdt:text});
-                }
-                // else{
-                //   setNewSdt({id:Date.now(), sdt:text});
-                // }
-              }}
-              ></TextInput>
+              <View
+                style={{
+                  display: inputShown == false ? 'flex' : 'none',
+                  width: '100%',
+                }}>
+                <TouchableOpacity
+                  style={styles.btnAddShown}
+                  onPress={() => {
+                    setInputShown(true);
+                  }}>
+                  <FontAwesome
+                    name="plus-circle"
+                    size={24}
+                    color={Colors.blue}
+                  />
+                  <Text style={styles.titleBtn}>
+                    {t('add-an-emergency-phone-number')}
+                  </Text>
+                </TouchableOpacity>
+              </View>
+              <View
+                style={{
+                  display: inputShown == true ? 'flex' : 'none',
+                  width: '100%',
+                }}>
+                <View style={{alignItems: 'center', flexDirection: 'row'}}>
+                  <TouchableOpacity onPress={addPhoneE}>
+                    <FontAwesome
+                      name="plus-circle"
+                      size={24}
+                      color={Colors.blue}
+                    />
+                  </TouchableOpacity>
+                  <InputText
+                    onChangeText={text => {
+                      if (newSdtKC !== null) {
+                        setNewSdtKC({...newSdtKC, sdt: text});
+                      } else {
+                        setNewSdtKC({id: Date.now(), sdt: text});
+                      }
+                    }}
+                  />
+                </View>
+              </View>
             </View>
           </Card>
         </View>
@@ -124,17 +188,55 @@ const renderItem =({item}) =>{
               {t('phone-number-to-receive-calls')}
             </Text>
             <FlatList
-              data={SDT_Nhan}
+              data={sdt_nhan}
               renderItem={({item}) => <Receiving phone_receiving={item.sdt} />}
             />
-           
+
             <View style={styles.btnAddView}>
-              <TouchableOpacity style={styles.btnAdd}>
-                <FontAwesome name="plus-circle" size={20} color={Colors.blue} />
-                <Text style={styles.titleBtn}>
-                  {t('add-phone-number-to-receive-calls')}
-                </Text>
-              </TouchableOpacity>
+              <View
+                style={{
+                  display: inputShown == false ? 'flex' : 'none',
+                  width: '100%',
+                }}>
+                <TouchableOpacity
+                  style={styles.btnAddShown}
+                  onPress={() => {
+                    setInputShown(true);
+                  }}>
+                  <FontAwesome
+                    name="plus-circle"
+                    size={24}
+                    color={Colors.blue}
+                  />
+                  <Text style={styles.titleBtn}>
+                    {t('add-an-emergency-phone-number')}
+                  </Text>
+                </TouchableOpacity>
+              </View>
+              <View
+                style={{
+                  display: inputShown == true ? 'flex' : 'none',
+                  width: '100%',
+                }}>
+                <View style={{alignItems: 'center', flexDirection: 'row'}}>
+                  <TouchableOpacity onPress={addPhoneR}>
+                    <FontAwesome
+                      name="plus-circle"
+                      size={24}
+                      color={Colors.blue}
+                    />
+                  </TouchableOpacity>
+                  <InputText
+                    onChangeText={text => {
+                      if (newSdtNhan !== null) {
+                        setNewSdtNhan({...newSdtNhan, sdt: text});
+                      } else {
+                        setNewSdtNhan({id: Date.now(), sdt: text});
+                      }
+                    }}
+                  />
+                </View>
+              </View>
             </View>
           </Card>
         </View>
@@ -145,17 +247,54 @@ const renderItem =({item}) =>{
               {t('phone-number-to-send-the-message')}
             </Text>
             <FlatList
-              data={SDT_Nhan}
-              renderItem={({item}) => <Receiving phone_receiving={item.sdt} />}
+              data={sdt_guiTN}
+              renderItem={({item}) => <Send phone_send={item.sdt} />}
             />
-         
             <View style={styles.btnAddView}>
-              <TouchableOpacity style={styles.btnAdd}>
-                <FontAwesome name="plus-circle" size={20} color={Colors.blue} />
-                <Text style={styles.titleBtn}>
-                  {t('add-phone-number-to-send-messages')}
-                </Text>
-              </TouchableOpacity>
+              <View
+                style={{
+                  display: inputShown == false ? 'flex' : 'none',
+                  width: '100%',
+                }}>
+                <TouchableOpacity
+                  style={styles.btnAddShown}
+                  onPress={() => {
+                    setInputShown(true);
+                  }}>
+                  <FontAwesome
+                    name="plus-circle"
+                    size={24}
+                    color={Colors.blue}
+                  />
+                  <Text style={styles.titleBtn}>
+                    {t('add-an-emergency-phone-number')}
+                  </Text>
+                </TouchableOpacity>
+              </View>
+              <View
+                style={{
+                  display: inputShown == true ? 'flex' : 'none',
+                  width: '100%',
+                }}>
+                <View style={{alignItems: 'center', flexDirection: 'row'}}>
+                  <TouchableOpacity onPress={addPhoneS}>
+                    <FontAwesome
+                      name="plus-circle"
+                      size={24}
+                      color={Colors.blue}
+                    />
+                  </TouchableOpacity>
+                  <InputText
+                    onChangeText={text => {
+                      if (newSdtGuiTN !== null) {
+                        setNewSdtGuiTN({...newSdtGuiTN, sdt: text});
+                      } else {
+                        setNewSdtGuiTN({id: Date.now(), sdt: text});
+                      }
+                    }}
+                  />
+                </View>
+              </View>
             </View>
           </Card>
         </View>
@@ -229,16 +368,13 @@ const styles = StyleSheet.create({
   title: {
     ...FONTS.h4,
   },
-  br: {
-    opacity: 0.3,
-    width: '100%',
-  },
+  
   btnAddView: {
     marginLeft: 2,
     marginBottom: 10,
     flexDirection: 'row',
     alignItems: 'center',
-    marginTop:10,
+    marginTop: 10,
   },
   titleBtn: {
     marginLeft: 10,
@@ -247,7 +383,11 @@ const styles = StyleSheet.create({
   },
   btnAdd: {
     flexDirection: 'row',
-    marginTop: 10,
+    alignItems: 'center',
+  },
+  btnAddShown: {
+    flexDirection: 'row',
+    alignItems: 'center',
   },
   viewBtnSave: {
     marginTop: 24,
@@ -266,21 +406,18 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  container:{
+  container: {
     flexDirection: 'row',
     alignItems: 'center',
     marginTop: 10,
-    height:24
-    
-},
-btnDel:{
-  marginLeft:2,
-  marginTop:2,
-},
-title:{
+    height: 24,
+  },
+  btnDel: {
+    marginLeft: 2,
+    marginTop: 2,
+  },
+  title: {
+    marginLeft: 10,
     ...FONTS.h3,
-    marginLeft: 10
-}
+  },
 });
-
-
