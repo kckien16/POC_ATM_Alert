@@ -1,17 +1,21 @@
+
+  
 import React, { useState } from 'react';
 import { Text, View, StyleSheet, TextInput, TouchableOpacity, Image, ColorValue, StatusBar, SafeAreaView, ToastAndroid, Alert } from 'react-native';
 import { StackActions, useNavigation } from '@react-navigation/native';
 import SwitchSelector from 'react-native-switch-selector'
 
-
+import Card from '../components/UI/Card';
+import Button from '../components/UI/Button';
+import Colors from '../constants/Colors';
 import Input from '../components/UI/Input';
 import { useTranslation } from 'react-i18next';
-import Colors from '../constants/Colors';
+import DropDownPicker from 'react-native-dropdown-picker';
 
-const options = [
-  { label: 'English', value: 'en' },
-  { label: 'VietNamese', value: 'vn' },
-]
+// const options = [
+//   { label: 'English', value: 'en' },
+//   { label: 'VietNamese', value: 'vn' },
+// ]
 
 const Login = () => {
   const [email, setemail] = useState();
@@ -19,7 +23,7 @@ const Login = () => {
   const navigation = useNavigation();
 
   const { t, i18n } = useTranslation();
-
+          
   const checkLogin = (email: string, pass: string) => {
     if (email == '1' && pass == '1') {
       navigation.navigate("Lookup");
@@ -39,55 +43,20 @@ const Login = () => {
           padding: 7,
           alignItems: 'flex-end',
         }}>
+          
           <View style={styles.LanguageVN}>
-            <TouchableOpacity>
-              <SwitchSelector options={options}
-
-              hasPadding
-              initial={0}
-              onPress={(e)=>{
-                i18n.changeLanguage(e);
-              }}/>
-              <View style={styles.VNorEN}>
-            <Image style={styles.imageVN}
-             source={require('../images/vietnam.jpg')} />
-            <Text style={styles.TextVN}> VNM </Text>
-            </View>
-                hasPadding
-                initial={0}
-                onPress={(e) => {
-                  i18n.changeLanguage(e);
-                }} />
+        
               <Image style={styles.imageVN}
-                source={require('../images/vietnam.png')} />
+                source={require('../images/vietnam.jpg')} />
               <Text style={styles.TextVN}> VNM </Text>
-
-            </TouchableOpacity>
+            
           </View>
         </View>
-
       </View>
       <Text style={styles.text}>
         {t("login")}
       </Text>
       <Input>
-
-      <TextInput 
-      value={email}
-        placeholder={t("Email đăng nhập")}
-        onChangeText={text => setemail(text)}>
-      </TextInput>
-      </Input>
-
-      <Input>
-      <TextInput 
-      value={pass}
-        placeholder={t("Mật khẩu")}
-        keyboardType='numeric'
-        returnKeyType='next'
-        autoFocus={true}
-        onChangeText={text => setpass(text)}>
-      </TextInput>
         <TextInput
           value={email}
           placeholder={t('email')}
@@ -108,30 +77,37 @@ const Login = () => {
 
       <TouchableOpacity>
         <Text style={styles.textForgot}>{t("forgot-password")}</Text>
-      </TouchableOpacity> 
-
-     <TouchableOpacity style={styles.buttonLogin} //style={styles.buttonLoginText}
-     onPress={() => checkLogin(email , pass)}>
-        <Text>Đăng nhập</Text> 
-</TouchableOpacity>
-
-
-      {/* <TouchableOpacity style={styles.buttonLogin}
+      </TouchableOpacity>
+      <DropDownPicker 
+              items={[
+                { label: 'English', value: 'en' },
+                { label: 'VietNamese', value: 'vn' },
+              ]}
+  
+              placeholder="     Language"
+             containerStyle={{height: 40}}
+             onChangeItem={item => console.log(item.label, item.value)}
+             onPress={(e) => {
+              i18n.changeLanguage(e);
+            }}
+                 />
+      <TouchableOpacity style={styles.buttonLogin}
         onPress={() => checkLogin(email, pass)}>
 
         <Text style={styles.buttonLoginText}>{t("signup")}</Text>
-
-      </TouchableOpacity> */}
+      </TouchableOpacity>
 
     </SafeAreaView>
   )
 };
-export default Login;
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: Colors.background,
+    backgroundColor: Colors.background
+
   },
+
   text: {
     fontSize: 25,
     fontWeight: 'bold',
@@ -143,40 +119,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     padding: 10,
   },
-
-  Logo:{
-   width:38,
-   height:38,
-  },
-  imageVN:{
-  width:16,
-  height:16,
-  },
-  TextVN:{
-     color: Colors.blutext,
-     fontWeight: 'normal', 
-     fontSize: 12 ,
-     fontStyle: 'normal'
-  },
-  VNorEN:{
-    flexDirection: 'row',
-      alignSelf: 'center',
-
-  },
-  LanguageVN:{
-    position:'absolute',
-      width: 78,
-      height: 34,
-      justifyContent:'center',
-      opacity:0.8,
-      borderColor:Colors.blue,
-      borderWidth: 1,
-      borderRadius:4,
-  },
-  buttonLogin: {
-    backgroundColor: Colors.blue,
-    width: 362,
-
   Logo: {
     width: 40,
     height: 40,
@@ -195,32 +137,34 @@ const styles = StyleSheet.create({
 
     width: 68,
     height: 30,
-    borderColor:Colors.whitee,
+    borderColor: '#EAF5FA',
     borderWidth: 0.6,
     flexDirection: 'row',
     justifyContent: 'center',
 
   },
-  buttonLoginText: {
+  buttonLogin: {
     backgroundColor: Colors.blue,
     height: 44,
     marginTop: 60,
     borderRadius: 10,
     justifyContent: 'center',
     alignItems: 'center',
-    alignSelf: 'center',
     width: 362,
+    alignSelf: 'center',
+
+  },
+  buttonLoginText: {
     color: Colors.white,
     fontWeight: 'bold',
   },
- 
+
   textForgot: {
     color: Colors.blue,
     textAlign: 'right',
     marginRight: 20,
     marginTop: 20,
     textDecorationLine: 'underline',
-  },
-
+  }
 })
-
+export default Login;

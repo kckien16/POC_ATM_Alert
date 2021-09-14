@@ -1,13 +1,10 @@
 {
     "translation":{
         "login": "Đăng nhập",
-
-        "Login email": "Email đăng nhập",
         "email": "Email",
 
-        "email": "Tên đăng nhập",
-
-        "password": "Mật khẩu",
+        "email": " Email đăng nhập",
+        "password": " Mật khẩu",
         "forgot-password": "Quên mật khẩu",
         "signup": "Đăng nhập",
         "device": "Tra cứu",

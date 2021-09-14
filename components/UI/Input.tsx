@@ -9,11 +9,11 @@ const styles = StyleSheet.create({
     input: {
         marginTop: 15,
         backgroundColor: '#FFFF',
-        borderRadius:10,
+        borderRadius:8,
         alignSelf: 'center',
         height: 44,
         width: 362,
     }
 })
 
-export default Input
+export default Input;

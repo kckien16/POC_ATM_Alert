@@ -11,4 +11,4 @@ const styles = StyleSheet.create({
     }
 })
 
-export default ViewItem
+export default ViewItem;
