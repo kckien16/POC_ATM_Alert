@@ -75,24 +75,63 @@ const CaiDat = ({navigation}) => {
     else if (newSdtGuiTN !== null && sdt_guiTN !== null)
       setSdtGuiTN([newSdtGuiTN]);
   };
-  // const ondelete = item => {
-  //   const data = sdt_kc.filter(i => i.id !== item.id);
-  //   setSdtKC({data});
-  // };
-  // const renderItem = ({item}) => {
-  //   return (
-  //     <View style={styles.container}>
-  //       <TouchableOpacity
-  //         onPress={() => {
-  //           ondelete(item);
-  //         }}
-  //         style={styles.btnDel}>
-  //         <FontAwesome name="minus-circle" size={20} color="#FF5B5B" />
-  //       </TouchableOpacity>
-  //       <Text style={styles.title}>{item.sdt}</Text>
-  //     </View>
-  //   );
-  // };
+
+
+  const ondelete1 = (item,index) => {
+    sdt_kc.splice(index, 1)
+    setSdtKC(sdt_kc.splice(index, 6))
+    }
+  const renderItem1 = ({ item,index }) => {
+    return (
+  
+      <View style={styles.container}>
+        <TouchableOpacity 
+        onPress={() => { ondelete1(item,index); }}
+          style={styles.btnDel}>
+          <FontAwesome name="minus-circle" size={20} color="#FF5B5B" />
+        </TouchableOpacity>
+        <Text style={styles.title}>{item.sdt}</Text>
+   
+      </View>
+    )
+  }
+
+
+  const ondelete2 = (item,index) => {
+    sdt_nhan.splice(index, 1)
+    setSdtNhan(sdt_nhan.splice(index, 6))
+    }
+  const renderItem2 = ({ item,index }) => {
+    return (
+
+      <View style={styles.container}>
+        <TouchableOpacity 
+        onPress={() => { ondelete2(item,index); }}
+          style={styles.btnDel}>
+          <FontAwesome name="minus-circle" size={20} color="#FF5B5B" />
+        </TouchableOpacity>
+        <Text style={styles.title}>{item.sdt}</Text>
+      </View>
+    )
+  }
+
+  const ondelete3 = (item,index) => {
+    sdt_guiTN.splice(index, 1)
+    setSdtGuiTN(sdt_guiTN.splice(index, 6))
+    }
+  const renderItem3 = ({ item,index }) => {
+    return (
+
+      <View style={styles.container}>
+        <TouchableOpacity 
+        onPress={() => { ondelete3(item,index); }}
+          style={styles.btnDel}>
+          <FontAwesome name="minus-circle" size={20} color="#FF5B5B" />
+        </TouchableOpacity>
+        <Text style={styles.title}>{item.sdt}</Text>
+      </View>
+    )
+  }
   return (
     <View>
       <View>
@@ -123,16 +162,21 @@ const CaiDat = ({navigation}) => {
             />
           </Card>
         </View>
+
+        
         <Text style={styles.titles}>{t('set-up-phone-number')}</Text>
 
         <View style={styles.view}>
           <Card>
+           
             <Text style={styles.title}>{t('emergency-number')}</Text>
+            <View style={{ borderBottomWidth: 0.2}}> 
             <FlatList
               data={sdt_kc}
-              renderItem={({item}) => <Emergency phone_emergency={item.sdt} />}
-            />
-            
+              keyExtractor={(item, index) => item.sdt.toString()}
+              // renderItem={({item}) => <Receiving phone_receiving={item.sdt} />}
+              renderItem={renderItem1} />
+           </View> 
             <View style={styles.btnAddView}>
               <View
                 style={{
@@ -187,11 +231,14 @@ const CaiDat = ({navigation}) => {
             <Text style={styles.title}>
               {t('phone-number-to-receive-calls')}
             </Text>
+            <View style={{ borderBottomWidth: 0.2}}> 
             <FlatList
               data={sdt_nhan}
-              renderItem={({item}) => <Receiving phone_receiving={item.sdt} />}
+              keyExtractor={(item, index) => item.sdt.toString()}
+              // renderItem={({item}) => <Receiving phone_receiving={item.sdt} />}
+              renderItem={renderItem2} 
             />
-
+  </View>
             <View style={styles.btnAddView}>
               <View
                 style={{
@@ -246,10 +293,14 @@ const CaiDat = ({navigation}) => {
             <Text style={styles.title}>
               {t('phone-number-to-send-the-message')}
             </Text>
+            <View style={{ borderBottomWidth: 0.2}}> 
             <FlatList
               data={sdt_guiTN}
-              renderItem={({item}) => <Send phone_send={item.sdt} />}
+               keyExtractor={(item, index) => item.sdt.toString()}
+              // renderItem={({item}) => <Receiving phone_receiving={item.sdt} />}
+              renderItem={renderItem3}
             />
+             </View>
             <View style={styles.btnAddView}>
               <View
                 style={{
@@ -350,6 +401,7 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   view: {
+    
     alignItems: 'center',
     justifyContent: 'center',
     marginTop: 20,
@@ -366,10 +418,12 @@ const styles = StyleSheet.create({
     ...FONTS.h2,
   },
   title: {
+   
     ...FONTS.h4,
   },
   
   btnAddView: {
+    
     marginLeft: 2,
     marginBottom: 10,
     flexDirection: 'row',
@@ -407,6 +461,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   container: {
+ 
     flexDirection: 'row',
     alignItems: 'center',
     marginTop: 10,
