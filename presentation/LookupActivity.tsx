@@ -7,6 +7,8 @@ import {
   View,
   Text,
   StyleSheet,
+  Linking,
+  Alert,
 } from 'react-native';
 
 import Input from '../components/UI/Input';
@@ -16,10 +18,11 @@ import { useTranslation } from 'react-i18next';
 import Colors from '../constants/Colors';
 
 const lookup  = ({navigation}) => {
-  onSuccess = e => {
+  const onSuccess = (e: { data: string; }) => {
     Linking.openURL(e.data).catch(err =>
       Alert.alert('An error occured', err)
     );
+    
   };
 
   const{t,i18n} = useTranslation();
@@ -29,25 +32,18 @@ const lookup  = ({navigation}) => {
 
   return (
     <SafeAreaView style={styles.container}>
-    {/* <QRCodeScanner
-        containerStyle={{marginBottom:'50%',backgroundColor:"#FFF"}}
-        onRead={this.onSuccess}
+      <View style={{width:"100%", height:"30%"}}>
+        <QRCodeScanner
+        containerStyle={{backgroundColor:"#FFF"}}
+        onRead={onSuccess}
         reactivate={true}
         permissionDialogMessage="Need Pre"
         reactivateTimeout={10}
         showMarker={true}
         markerStyle={{borderColor:"FFF",borderRadius:10}}
-     
-        bottomContent={
-          <TouchableOpacity style={styles.buttonTouchable}>
-            <Text style={styles.buttonText}>OK. Got it!</Text>
-          </TouchableOpacity>
-        }
-      /> */}
-
-
-   
-      <View style={{alignItems:'center', marginTop: 200}}>
+      />
+      </View>
+      <View style={{alignItems:'center',marginTop:"45%"}}>
         <Text>Hoặc</Text>
       </View>
       <View 

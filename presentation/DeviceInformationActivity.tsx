@@ -8,6 +8,7 @@ import {
   TextInput,
   TouchableOpacity,
   View,
+  
 } from 'react-native';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import {TT, ThongTin} from '../data/ThongTinTB';
@@ -47,12 +48,9 @@ const Information = ({navigation}) => {
           <TouchableOpacity
            onPress={() => navigation.navigate('CaiDat')}
           >
-          <Text style={styles.textRToolBar}>{t('edit')}
-          
-          
-          
-          </Text>
-
+           
+          <Text style={styles.textRToolBar}>{t('edit')}</Text>
+         
           </TouchableOpacity>
         </ToolBar>
       </View>
@@ -146,21 +144,16 @@ const styles = StyleSheet.create({
     marginLeft:26
   },
   textToolBar: {
-    fontSize:16,
     marginTop:25,
     marginLeft:10,
     marginBottom:12,
     alignItems:"center",
-    fontWeight:'bold'
   },
   textRToolBar:{
     marginTop:25,
-    marginLeft:120,
+    marginLeft:130,
     marginBottom:12,
-    color: Colors.blue,
-    fontSize:16,
-    fontWeight:'500'
-    
+    ...FONTS.h7,
   },
   scrollView: {
     backgroundColor: Colors.background,
@@ -181,7 +174,9 @@ const styles = StyleSheet.create({
     height:20,
     marginTop:32,
     marginLeft:26,
-    ...FONTS.h2
+    fontWeight:'bold',
+    color:'#091F3A'
+
   },
  
   br: {
@@ -194,15 +189,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
   },
-  titleBtn: {
-    marginLeft: 10,
-    marginTop: 2,
-    ...FONTS.h5
-  },
-  btnAdd: {
-    flexDirection: 'row',
-    marginTop:10
-  },
+
+
   viewBtnSave: {
     marginTop: 24,
     marginLeft:20,
@@ -210,7 +198,5 @@ const styles = StyleSheet.create({
     marginBottom:30,
     height: 100,
   },
-  titleSave: {
-    ...FONTS.h1
-  },
+  
 });

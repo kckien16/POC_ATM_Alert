@@ -1,32 +1,45 @@
 
   
-import React, { useState } from 'react';
-import { Text, View, StyleSheet, TextInput, TouchableOpacity, Image, ColorValue, StatusBar, SafeAreaView, ToastAndroid, Alert } from 'react-native';
-import { StackActions, useNavigation } from '@react-navigation/native';
-import SwitchSelector from 'react-native-switch-selector'
+import React, {useState} from 'react';
+import {
+  Text,
+  View,
+  StyleSheet,
+  TextInput,
+  TouchableOpacity,
+  Image,
+  ColorValue,
+  StatusBar,
+  SafeAreaView,
+  ToastAndroid,
+  Alert,
+} from 'react-native';
+import {StackActions, useNavigation} from '@react-navigation/native';
+import SwitchSelector from 'react-native-switch-selector';
 
 import Card from '../components/UI/Card';
 import Button from '../components/UI/Button';
 import Colors from '../constants/Colors';
 import Input from '../components/UI/Input';
-import { useTranslation } from 'react-i18next';
-import DropDownPicker from 'react-native-dropdown-picker';
+import {useTranslation} from 'react-i18next';
 
-// const options = [
-//   { label: 'English', value: 'en' },
-//   { label: 'VietNamese', value: 'vn' },
-// ]
+import RNPickerSelect from 'react-native-picker-select';
+
+const options = [
+  {label: 'English', value: 'en'},
+  {label: 'VietNamese', value: 'vn'},
+];
 
 const Login = () => {
   const [email, setemail] = useState();
   const [pass, setpass] = useState();
   const navigation = useNavigation();
 
-  const { t, i18n } = useTranslation();
-          
+  const {t, i18n} = useTranslation();
+
   const checkLogin = (email: string, pass: string) => {
     if (email == '1' && pass == '1') {
-      navigation.navigate("Lookup");
+      navigation.navigate('Lookup');
       ToastAndroid.show('Login success', ToastAndroid.SHORT);
     } else {
       ToastAndroid.show('Xem lai email or pass', ToastAndroid.SHORT);
@@ -34,78 +47,68 @@ const Login = () => {
   };
   return (
     <SafeAreaView style={styles.container}>
-      <View style={styles.logocontainer}>
-        <Image style={styles.Logo}
-          source={require('../images/youtube.png')} />
+      <View></View>
 
-        <View style={{
-          flex: 2,
-          padding: 7,
-          alignItems: 'flex-end',
-        }}>
-          
+      <View style={styles.logocontainer}>
+        <Image style={styles.Logo} source={require('../images/youtube.png')} />
+
+        <View
+          style={{
+            flex: 2,
+            padding: 7,
+            alignItems: 'flex-end',
+          }}>
           <View style={styles.LanguageVN}>
-        
-              <Image style={styles.imageVN}
-                source={require('../images/vietnam.jpg')} />
+            <RNPickerSelect
+              onValueChange={e => i18n.changeLanguage(e)}
+              items={[
+                {label: 'Vietnamese', value: 'vn'},
+                {label: 'English', value: 'en'},
+              ]}>
+              <Image
+                style={styles.imageVN}
+                source={require('../images/vietnam.png')}
+              />
               <Text style={styles.TextVN}> VNM </Text>
-            
+            </RNPickerSelect>
           </View>
         </View>
       </View>
-      <Text style={styles.text}>
-        {t("login")}
-      </Text>
+      <Text style={styles.text}>{t('login')}</Text>
       <Input>
         <TextInput
           value={email}
           placeholder={t('email')}
-          onChangeText={text => setemail(text)}>
-        </TextInput>
+          onChangeText={text => setemail(text)}></TextInput>
       </Input>
 
       <Input>
         <TextInput
           value={pass}
-          placeholder={t("password")}
-          keyboardType='numeric'
-          returnKeyType='next'
+          placeholder={t('password')}
+          keyboardType="numeric"
+          returnKeyType="next"
           autoFocus={true}
-          onChangeText={text => setpass(text)}>
-        </TextInput>
+          onChangeText={text => setpass(text)}></TextInput>
       </Input>
 
       <TouchableOpacity>
-        <Text style={styles.textForgot}>{t("forgot-password")}</Text>
+        <Text style={styles.textForgot}>{t('forgot-password')}</Text>
       </TouchableOpacity>
-      <DropDownPicker 
-              items={[
-                { label: 'English', value: 'en' },
-                { label: 'VietNamese', value: 'vn' },
-              ]}
-  
-              placeholder="     Language"
-             containerStyle={{height: 40}}
-             onChangeItem={item => console.log(item.label, item.value)}
-             onPress={(e) => {
-              i18n.changeLanguage(e);
-            }}
-                 />
-      <TouchableOpacity style={styles.buttonLogin}
+
+      <TouchableOpacity
+        style={styles.buttonLogin}
         onPress={() => checkLogin(email, pass)}>
-
-        <Text style={styles.buttonLoginText}>{t("signup")}</Text>
+        <Text style={styles.buttonLoginText}>{t('signup')}</Text>
       </TouchableOpacity>
-
     </SafeAreaView>
-  )
+  );
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: Colors.background
-
+    backgroundColor: Colors.background,
   },
 
   text: {
@@ -134,14 +137,12 @@ const styles = StyleSheet.create({
     fontSize: 10,
   },
   LanguageVN: {
-
     width: 68,
     height: 30,
     borderColor: '#EAF5FA',
     borderWidth: 0.6,
     flexDirection: 'row',
     justifyContent: 'center',
-
   },
   buttonLogin: {
     backgroundColor: Colors.blue,
@@ -152,7 +153,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     width: 362,
     alignSelf: 'center',
-
   },
   buttonLoginText: {
     color: Colors.white,
@@ -165,6 +165,6 @@ const styles = StyleSheet.create({
     marginRight: 20,
     marginTop: 20,
     textDecorationLine: 'underline',
-  }
-})
+  },
+});
 export default Login;

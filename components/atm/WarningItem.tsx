@@ -73,12 +73,14 @@ const styles = StyleSheet.create({
     
   },
   titles: {
-    ...FONTS.h6
+    fontWeight:'400',
+    color:'#091F3A'
+    
   },
   input: {
     width: 116,
     height: 44,
-    backgroundColor: '#DBE8F5',
+    backgroundColor: '#FFFFFF',
     borderRadius: 8,
     textAlign: 'right',
     paddingRight:16,

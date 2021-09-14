@@ -1,10 +1,12 @@
 interface Gui{
+    id:number,
     sdt: string,
 }
 
 const SDT_GuiTN : Gui[] = [
     {
-        sdt: '0339575631',
+        id:1,
+        sdt: '0000000000',
         
     }
 ];

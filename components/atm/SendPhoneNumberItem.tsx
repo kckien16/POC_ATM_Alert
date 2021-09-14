@@ -4,13 +4,16 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
 const Send = props => {
   return (
-    <View
+    <View>
+      <View
       style={styles.container}>
       <TouchableOpacity style={styles.btnDel}>
-        <FontAwesome name="minus-circle" size={24} color="#FF3333" />
+        <FontAwesome name="minus-circle" size={24} color="#FF5B5B" />
       </TouchableOpacity>
       <Text style={styles.title}>{props.phone_send}</Text>
     </View>
+    </View>
+    
   );
 };
 
@@ -18,9 +21,13 @@ export default Send;
 
 const styles = StyleSheet.create({
     container:{
-        flexDirection: 'row',
-        alignItems: 'center',
-        marginTop: 10,
+      flexDirection: 'row',
+      alignItems: 'center',
+      marginTop:3,
+      borderBottomColor:"black",
+      borderBottomWidth: 0.2,
+      paddingBottom:8,
+      paddingTop:8
     },
     btnDel:{
       marginLeft:2,
@@ -29,5 +36,8 @@ const styles = StyleSheet.create({
     title:{
         fontSize: 16, 
         marginLeft: 10
-    }
+    },br: {
+      opacity: 0.1,
+      width: '100%',
+    },
 });
