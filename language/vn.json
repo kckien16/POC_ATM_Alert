@@ -22,7 +22,7 @@
         "sensor-status": "Trạng thái cảm biến",
         "heat": "Nhiệt",
         "vibrate": "Rung",
-        "ATM-machine-door": "Cửa trên máy ATM",
+        "ATM-machine-door":"Cửa trên máy ATM",
         "ATM-safes": "Của két máy ATM",
         "out-side-the-ATM": "Cửa ngoài máy ATM",
         "preven-tive": "Dự phòng",

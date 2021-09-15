@@ -19,7 +19,7 @@ const SensorStatus = props => {
         <View style={{flex: 1,flexDirection:'row'}}>
         <Image style={{ width: 26, height: 26 ,marginRight:10}}
             source={require('../../images/mobile-phone.png')} />
-          <Text style={styles.titles}>{t('vibrate')}(>1700)</Text>
+          <Text style={styles.titles}>{t('vibrate')}(>1700):</Text>
         </View>
         <View style={{flex: 2}}>
           <Text style={styles.title}>{props.rung}</Text>
@@ -29,7 +29,7 @@ const SensorStatus = props => {
         <View style={{flex: 1,flexDirection:'row'}}>
         <Image style={{ width: 26, height: 26,marginRight:10 }}
             source={require('../../images/border.png')} />
-          <Text style={styles.titles}>{t('ATM-machine-doo')}:</Text>
+          <Text style={styles.titles}>{t('ATM-machine-door')}:</Text>
         </View>
         <View style={{flex: 2}}>
           <Text style={styles.title}>{props.cuatrenATM}</Text>
@@ -39,7 +39,7 @@ const SensorStatus = props => {
         <View style={{flex: 1,flexDirection:'row'}}>
         <Image style={{ width: 26, height: 26 ,marginRight:10}}
            source={require('../../images/door.png')} />
-          <Text style={styles.titles}>{t('ATM-safes')}>36.5)</Text>
+          <Text style={styles.titles}>{t('ATM-safes')}>36.5:</Text>
         </View>
         <View style={{flex: 2}}>
           <Text style={styles.title}>{props.cuaketATM}</Text>
@@ -49,7 +49,7 @@ const SensorStatus = props => {
         <View style={{flex: 1,flexDirection:'row'}}>
         <Image style={{ width: 26, height: 26,marginRight:10 }}
               source={require('../../images/windows.png')} />
-          <Text style={styles.titles}>{t('out-side-the-ATM')}>36.5):</Text>
+          <Text style={styles.titles}>{t('out-side-the-ATM')}>36.5:</Text>
         </View>
         <View style={{flex: 2}}>
           <Text style={styles.title}>{props.cuangoaiATM}</Text>
@@ -69,7 +69,7 @@ const SensorStatus = props => {
         <View style={{flex: 1,flexDirection:'row'}}>
         <Image style={{ width: 26, height: 26 ,marginRight:10}}
           source={require('../../images/move.png')} />
-          <Text style={styles.titles}>{t('move')}</Text>
+          <Text style={styles.titles}>{t('move')}:</Text>
         </View>
         <View style={{flex: 2}}>
           <Text style={styles.title1}>{props.dichChuyen}</Text>
@@ -101,7 +101,7 @@ const SensorStatus = props => {
       <View style={styles.viewItem}>
         <View style={{flex: 1,flexDirection:'row'}}>
         <Image style={{ width: 26, height: 26,marginRight:10 }}
-             source={require('../../images/power-plug.png')} />
+             source={require('../../images/battery.png')} />
           <Text style={styles.titles}>{t('battery-backup')}:</Text>
         </View>
         <View style={{flex: 2}}>
@@ -140,20 +140,21 @@ const styles = StyleSheet.create({
   titles: {
     fontSize: 16,
     fontWeight:'bold'
+
     
   },
   title: {
     fontSize: 16,
 
     fontWeight: '300',
-    marginLeft:"35%",
+    marginLeft:"45%",
     
   },
   title1:{
     fontSize: 16,
     color:'#FF5B5B',
     fontWeight: '300',
-    marginLeft:"35%",
+    marginLeft:"45%",
   },
   viewItem: {
     flexDirection: 'row',
