@@ -12,7 +12,7 @@ const SensorStatus = props => {
           <Text style={styles.titles}>{t("heat")}(>36.5):</Text>
         </View>
         <View style={{flex: 2}}>
-          <Text style={styles.title}>{props.nhiet}</Text>
+          <Text style={styles.title1}>{props.nhiet}</Text>
         </View>
       </View>
       <View style={styles.viewItem}>
@@ -62,7 +62,7 @@ const SensorStatus = props => {
           <Text style={styles.titles}>{t('preven-tive')}:</Text>
         </View>
         <View style={{flex: 2}}>
-          <Text style={styles.title}>{props.duPhong}</Text>
+          <Text style={styles.title1}>{props.duPhong}</Text>
         </View>
       </View>
       <View style={styles.viewItem}>
@@ -72,7 +72,7 @@ const SensorStatus = props => {
           <Text style={styles.titles}>{t('move')}</Text>
         </View>
         <View style={{flex: 2}}>
-          <Text style={styles.title}>{props.dichChuyen}</Text>
+          <Text style={styles.title1}>{props.dichChuyen}</Text>
         </View>
       </View>
 
@@ -83,7 +83,7 @@ const SensorStatus = props => {
           <Text style={styles.titles}>{t('electric leakage')}:</Text>
         </View>
         <View style={{flex: 2}}>
-          <Text style={styles.title}>{props.roDien}</Text>
+          <Text style={styles.title1}>{props.roDien}</Text>
         </View>
       </View>
 
@@ -146,8 +146,14 @@ const styles = StyleSheet.create({
     fontSize: 16,
 
     fontWeight: '300',
-    marginLeft:"30%",
+    marginLeft:"35%",
     
+  },
+  title1:{
+    fontSize: 16,
+    color:'#FF5B5B',
+    fontWeight: '300',
+    marginLeft:"35%",
   },
   viewItem: {
     flexDirection: 'row',

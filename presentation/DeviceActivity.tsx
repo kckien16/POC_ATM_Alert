@@ -1,7 +1,7 @@
 
 
 import { NavigationContainer } from '@react-navigation/native';
-import React, { useState, FC } from 'react';
+import React,{useState, useEffect} from 'react';
 import { View, Text, SafeAreaView, TouchableOpacity, Modal, Image, TextInput, FlatList, ScrollView, StatusBar, StyleSheet } from 'react-native';
 import FontAwesome from 'react-native-vector-icons/FontAwesome'
 
@@ -12,13 +12,29 @@ import Button from '../components/UI/Button';
 
 import SensorStatus from '../components/atm/SensorStatus';
 import { Sensor, status } from '../data/Sensor_status';
-import InformationItem from '../components/atm/InformationItem';
+import InformationLookupItem from '../components/atm/InformationLookupItem';
 import Colors from '../constants/Colors';
 import { useTranslation } from 'react-i18next';
 
 import FONTS  from '../constants/Fonts';
 
+
+
 const Device = ({ navigation }) => {
+  const [currentDate, setCurrentDate] = useState('');
+
+  useEffect(() => {
+    var date = new Date().getDate(); //Current Date
+    var month = new Date().getMonth() + 1; //Current Month
+    var year = new Date().getFullYear(); //Current Year
+    var hours = new Date().getHours(); //Current Hours
+    var min = new Date().getMinutes(); //Current Minutes
+    var sec = new Date().getSeconds(); //Current Seconds
+    setCurrentDate(
+      date + '/' + month + '/' + year 
+      + ' ' + hours + ':' + min + ':' + sec
+    );
+  }, []);
   const { t, i18n } = useTranslation()
   return (
     <SafeAreaView style={styles.container}>
@@ -49,16 +65,26 @@ const Device = ({ navigation }) => {
             <FlatList
               data={ThongTin}
               renderItem={({ item }) => (
-                <InformationItem
+                <InformationLookupItem
                   imei={item.imei}
                   sim={item.sim}
+                  tinhTrang={item.tinhTrang}
                   loaiTB={item.loaiTB}
                   tenTB={item.tenTB}
                   diaChi={item.diaChi}
                   ngayKH={item.ngayKH}
+                  ketnoi={item.ketnoi}
+                  
                 />
+                
               )}
             />
+        <View style={{flexDirection:'row',width:"100%"}}> 
+          <Text style={{color:'#2190CD',fontSize:16}}>{t('query-time')}:</Text>
+        <Text style={{marginLeft:'15%',color:'#2190CD',fontSize:16}}>
+          {currentDate}
+        </Text>
+        </View>
           </Card>
         </View>
 
@@ -122,6 +148,7 @@ const Device = ({ navigation }) => {
 }
 export default Device;
 const styles = StyleSheet.create({
+ 
   container: {
     flex: 1,
     backgroundColor: Colors.background
@@ -135,6 +162,7 @@ const styles = StyleSheet.create({
     marginLeft:26
   },
   testlookup: {
+    fontSize:16,
     marginLeft: 10,
     ...FONTS.h2
   },

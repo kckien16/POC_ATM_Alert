@@ -1,7 +1,6 @@
 {
     "translation":{
         "login": "Đăng nhập",
-        "email": "Email",
 
         "email": " Email đăng nhập",
         "password": " Mật khẩu",
@@ -13,10 +12,13 @@
         "atm-information": "Thông tin ATM",
         "imei": "IMEI",
         "sim": "SIM",
-        "type-of-device": "Loai thiết bị",
+        "status": "Tình trạng thiết bị",
+        "type-of-device": "Loại thiết bị",
         "device-name": "Tên thiết bị",
         "place": "Địa chỉ",
         "activation-date": "Ngày kích hoạt",
+        "connection":"Kết nối nguồn",
+        "query-time":"Thời gian truy vấn",
         "sensor-status": "Trạng thái cảm biến",
         "heat": "Nhiệt",
         "vibrate": "Rung",
@@ -31,7 +33,7 @@
         "AC-supply-voltage": "Điện áp nguồn AC",
         "signaling": "Báo hiệu",
         "update": "Cập nhập",
-        "warning": "Cảnh báo",
+        "warning": "Tắt cảnh báo",
         "turn-off": "Tắt",
         "turn-on ": "Bật",
         "normal" : "Bình thường",
