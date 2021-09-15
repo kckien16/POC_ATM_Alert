@@ -8,9 +8,7 @@ const Receiving = props => {
     <View>
       <View
       style={styles.container}>
-      <TouchableOpacity style={styles.btnDel}>
-        <FontAwesome name="minus-circle" size={24} color="#FF5B5B" />
-      </TouchableOpacity>
+     
       <Text style={styles.title}>{props.phone_receiving}</Text>
     </View>
     </View>

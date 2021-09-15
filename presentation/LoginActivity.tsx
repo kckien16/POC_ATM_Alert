@@ -1,3 +1,4 @@
+
 import React, {useState} from 'react';
 import {
   Text,
@@ -19,6 +20,8 @@ import Card from '../components/UI/Card';
 import Button from '../components/UI/Button';
 import Colors from '../constants/Colors';
 import Input from '../components/UI/Input';
+
+import Fonts from '../constants/Fonts';
 import {useTranslation} from 'react-i18next';
 
 import RNPickerSelect from 'react-native-picker-select';
@@ -54,21 +57,25 @@ const Login = () => {
           style={{
             flex: 2,
             padding: 7,
+          
             alignItems: 'flex-end',
           }}>
           <View style={styles.LanguageVN}>
-            <RNPickerSelect
+          
+              <Image
+                style={styles.imageVN}
+                source={require('../images/vietnam.jpg')}
+              />
+               <RNPickerSelect
               onValueChange={e => i18n.changeLanguage(e)}
               items={[
                 {label: 'Vietnamese', value: 'vn'},
                 {label: 'English', value: 'en'},
+                
               ]}>
-              <Image
-                style={styles.imageVN}
-                source={require('../images/vietnam.png')}
-              />
-              <Text style={styles.TextVN}> VNM </Text>
-            </RNPickerSelect>
+              
+              <Text style={styles.TextVN}> VNM ▽</Text>
+                </RNPickerSelect>
           </View>
         </View>
       </View>
@@ -125,22 +132,25 @@ const styles = StyleSheet.create({
     height: 40,
   },
   imageVN: {
-    width: 25,
-    height: 25,
+    width: 16,
+    
+    height: 16,
   },
   TextVN: {
-    color: 'blue',
     alignSelf: 'center',
-    fontWeight: 'bold',
-    fontSize: 10,
+    display: 'flex',
+   ...Fonts.h5,
   },
   LanguageVN: {
+   justifyContent:'center',
     width: 68,
-    height: 30,
-    borderColor: '#EAF5FA',
-    borderWidth: 0.6,
+    height: 34,
+    opacity: 0.8,
+    borderColor: Colors.blue,
+    borderWidth:0.6,
+    borderRadius:4,
     flexDirection: 'row',
-    justifyContent: 'center',
+    alignItems:'center',
   },
   buttonLogin: {
     backgroundColor: Colors.blue,

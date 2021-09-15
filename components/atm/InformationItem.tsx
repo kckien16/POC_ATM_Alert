@@ -62,7 +62,7 @@ export default InformationItem;
 
 const styles = StyleSheet.create({
   titles: {
-    fontSize: 16,
+    fontSize: 14,
     fontWeight:'bold',
     fontFamily:"Mulish",
     color:"#091F3A",

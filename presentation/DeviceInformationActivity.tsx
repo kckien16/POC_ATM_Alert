@@ -76,14 +76,12 @@ const Information = ({navigation}) => {
 
         <View style={styles.view}>
           <Card>
-            <Text >{t("emergency-number")}</Text>
+            <Text style={styles.settingText}>{t("emergency-number")}</Text>
             <FlatList
               data={SDT_Nhan}
               renderItem={({item}) => <Receiving phone_receiving={item.sdt} />}
             />
-            <Text style={styles.br}>
-              ________________________________________________
-            </Text>
+           
             
            
           </Card>
@@ -91,7 +89,7 @@ const Information = ({navigation}) => {
 
         <View style={styles.view}>
           <Card>
-            <Text >{t("phone-number-to-receive-calls")}</Text>
+            <Text style={styles.settingText} >{t("phone-number-to-receive-calls")}</Text>
             <FlatList
               data={SDT_Nhan}
               renderItem={({item}) => <Receiving phone_receiving={item.sdt} />}
@@ -102,7 +100,7 @@ const Information = ({navigation}) => {
 
         <View style={styles.view}>
           <Card>
-            <Text >{t("phone-number-to-send-the-message")}</Text>
+            <Text style={styles.settingText}>{t("phone-number-to-send-the-message")}</Text>
             <FlatList
               data={SDT_Nhan}
               renderItem={({item}) => <Receiving phone_receiving={item.sdt} />}
@@ -148,12 +146,18 @@ const styles = StyleSheet.create({
     marginLeft:10,
     marginBottom:12,
     alignItems:"center",
+    ...FONTS.h3,
   },
   textRToolBar:{
     marginTop:25,
     marginLeft:130,
     marginBottom:12,
     ...FONTS.h7,
+  },
+  settingText:{
+    ...FONTS.h8
+
+
   },
   scrollView: {
     backgroundColor: Colors.background,
@@ -179,16 +183,8 @@ const styles = StyleSheet.create({
 
   },
  
-  br: {
-    opacity:0.3,
-    width:"100%",
-  },
-  btnAddView: {
-    marginLeft:2,
-    marginBottom: 10,
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
+  
+ 
 
 
   viewBtnSave: {

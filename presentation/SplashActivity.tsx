@@ -7,6 +7,7 @@ const Splash =()=>{
     <SafeAreaView style = {styles.container}>
         <View style={ styles.logocontainer}>
         <Image style={styles.image}
+        
      source ={require('../images/youtube.png')}/>  
         </View>
      <View style = {styles.Textcontainer}>

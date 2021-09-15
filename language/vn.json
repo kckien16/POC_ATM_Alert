@@ -1,20 +1,22 @@
 {
     "translation":{
         "login": "Đăng nhập",
-        "email": "Tên đăng nhập",
-        "password": "Mật khẩu",
+        "email": "Email",
+
+        "email": " Email đăng nhập",
+        "password": " Mật khẩu",
         "forgot-password": "Quên mật khẩu",
         "signup": "Đăng nhập",
         "device": "Tra cứu",
         "setting": "Cài đặt",
         "device-lookup": "Tra cứu thiết bị",
         "atm-information": "Thông tin ATM",
-        "imei": "IMEI",
-        "sim": "SIM",
-        "type-of-device": "Loai thiết bị",
-        "device-name": "Tên thiết bị",
-        "place": "Địa chỉ",
-        "activation-date": "Ngày kích hoạt",
+        "imei": "IMEI:",
+        "sim": "SIM:",
+        "type-of-device": "Loai thiết bị:",
+        "device-name": "Tên thiết bị:",
+        "place": "Địa chỉ lắp đặt:",
+        "activation-date": "Ngày kích hoạt:",
         "sensor-status": "Trạng thái cảm biến",
         "heat": "Nhiệt",
         "vibrate": "Rung",
@@ -50,7 +52,8 @@
         "smoke-alarm-threshold": "Ngưỡng cảnh báo khói(mật độ)",
         "temperature-warning-threshold": "Ngưỡng cảnh báo nhiệt độ (độ C)",
         "battery-warning": "Cảnh báo pin(%)",
-        "save": "Lưu"
+        "save": "Lưu",
+        "exit" :"Hủy"
     }
     
 }

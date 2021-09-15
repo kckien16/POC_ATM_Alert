@@ -6,9 +6,10 @@ interface Nhan{
 const SDT_Nhan : Nhan[] = [
     { 
         id:1,
-        sdt: '12345678901',
+        sdt: '0342872745',
         
-    }
+    },
+   
 ];
 
 export {Nhan , SDT_Nhan}; 

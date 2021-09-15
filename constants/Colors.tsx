@@ -5,7 +5,11 @@ export default {
     blue:"#2190CD",
     whitee: '#EAF5FA',
     black:'#000000',
-    background:'#E3F5FF',
+
+    background:'#F0F8FF',
+    blutext: '#1085C5',
+    background1:'#E3F5FF',
     grey:'#ACBCD1',
+
 
 };
