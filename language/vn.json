@@ -1,7 +1,6 @@
 {
     "translation":{
         "login": "Đăng nhập",
-        "email": "Email",
 
         "email": " Email đăng nhập",
         "password": " Mật khẩu",
@@ -13,6 +12,9 @@
         "atm-information": "Thông tin ATM",
         "imei": "IMEI:",
         "sim": "SIM:",
+        "query-time":"Thời gian truy vấn",
+        "connection":"Kết nối nguồn",
+        "status":"Tình trạng thiết bị",
         "type-of-device": "Loai thiết bị:",
         "device-name": "Tên thiết bị:",
         "place": "Địa chỉ lắp đặt:",
@@ -20,7 +22,7 @@
         "sensor-status": "Trạng thái cảm biến",
         "heat": "Nhiệt",
         "vibrate": "Rung",
-        "ATM-machine-door": "Cửa trên máy ATM",
+        "ATM-machine-door":"Cửa trên máy ATM",
         "ATM-safes": "Của két máy ATM",
         "out-side-the-ATM": "Cửa ngoài máy ATM",
         "preven-tive": "Dự phòng",
@@ -31,7 +33,7 @@
         "AC-supply-voltage": "Điện áp nguồn AC",
         "signaling": "Báo hiệu",
         "update": "Cập nhập",
-        "warning": "Cảnh báo",
+        "warning": "Tắt cảnh báo",
         "turn-off": "Tắt",
         "turn-on ": "Bật",
         "normal" : "Bình thường",
@@ -53,7 +55,8 @@
         "temperature-warning-threshold": "Ngưỡng cảnh báo nhiệt độ (độ C)",
         "battery-warning": "Cảnh báo pin(%)",
         "save": "Lưu",
-        "exit" :"Hủy"
+        "exit" :"Hủy",
+        "place-bottomsheet":"Địa chỉ"
     }
     
 }

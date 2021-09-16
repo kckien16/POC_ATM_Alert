@@ -1,7 +1,7 @@
 
 
 import { NavigationContainer } from '@react-navigation/native';
-import React, { useState, FC, useRef, createRef } from 'react';
+import React, { useState, FC, useRef, createRef, useEffect } from 'react';
 import { View, Alert, Text, SafeAreaView, TouchableOpacity, Modal, Image, TextInput, FlatList, ScrollView, StatusBar, StyleSheet, Dimensions } from 'react-native';
 import FontAwesome from 'react-native-vector-icons/FontAwesome'
 
@@ -9,10 +9,10 @@ import { TT, ThongTin } from "../data/ThongTinTB";
 import Card from '../components/UI/Card';
 import ToolBar from '../components/UI/ToolBar';
 import Button from '../components/UI/Button';
-
+;
 import SensorStatus from '../components/atm/SensorStatus';
 import { Sensor, status } from '../data/Sensor_status';
-import InformationItem from '../components/atm/InformationItem';
+import InformationLookupItem from '../components/atm/InformationLookupItem';
 import Colors from '../constants/Colors';
 import { useTranslation } from 'react-i18next';
 import RBSheet from "react-native-raw-bottom-sheet";
@@ -22,14 +22,30 @@ import FONTS from '../constants/Fonts';
 
 const actionSheetRef = createRef();
 const Device = ({ navigation }) => {
-  const { t, i18n } = useTranslation()
+  const [currentDate, setCurrentDate] = useState('');
 
- 
+  useEffect(() => {
+    var date = new Date().getDate(); //Current Date
+    var month = new Date().getMonth() + 1; //Current Month
+    var year = new Date().getFullYear(); //Current Year
+    var hours = new Date().getHours(); //Current Hours
+    var min = new Date().getMinutes(); //Current Minutes
+    var sec = new Date().getSeconds(); //Current Seconds
+    setCurrentDate(
+      date + '/' + month + '/' + year
+      + ' ' + hours + ':' + min + ':' + sec
+    );
+  }, []);
+  const { t, i18n } = useTranslation()
+  const [IMEI, setIMEI] = useState();
+  const [Loai, setLoai] = useState();
+
+
   const refRBSheet = useRef();
-  const randomHsl = () => `hsla(${Math.random() * 360}, 100%, 50%, 1)`;
+
   return (
 
-    <SafeAreaView style={styles.container}>
+    <View style={styles.container}>
       <ScrollView>
         <ToolBar style={styles.Toolbar}>
           <TouchableOpacity style={styles.btnBack} onPress={() => navigation.goBack()}>
@@ -57,20 +73,30 @@ const Device = ({ navigation }) => {
             <FlatList
               data={ThongTin}
               renderItem={({ item }) => (
-                <InformationItem
+                <InformationLookupItem
                   imei={item.imei}
                   sim={item.sim}
+                  tinhTrang={item.tinhTrang}
                   loaiTB={item.loaiTB}
                   tenTB={item.tenTB}
                   diaChi={item.diaChi}
                   ngayKH={item.ngayKH}
+                  ketnoi={item.ketnoi}
+
                 />
+
               )}
             />
+            <View style={{ flexDirection: 'row', }}>
+              <Text style={{ color: '#347AFF', fontSize: 16, fontWeight: 'bold' }}>{t('query-time')}:</Text>
+              <Text style={{ marginLeft: '15%', color: '#2190CD', fontSize: 16, }}>
+                {currentDate}
+              </Text>
+            </View>
           </Card>
         </View>
 
-        <View style={{ flex: 1, marginTop: 20, marginLeft: 20 }}>
+        <View style={{ flex: 1, marginTop: 20, marginLeft: 22 }}>
           <Text style={{ fontSize: 16, fontWeight: '600' }}>
             {t("sensor-status")}
           </Text>
@@ -125,38 +151,38 @@ const Device = ({ navigation }) => {
 
             </TouchableOpacity>
 
-            <RBSheet 
+            <RBSheet
               ref={refRBSheet}
-              height={500}
+              height={600}
               closeOnDragDown={true}
               closeOnPressMask={true}
-              
+
               customStyles={{
-                
+
                 wrapper: {
                   backgroundColor: 'rgba(0,0,0,0.3)',
                 },
-                draggableIcon: {
-                  backgroundColor: "#000"
-                },
+
                 container: {
-                  
+
                   justifyContent: "center",
-                  backgroundColor:'#fff',
-                  borderRadius:20,
-                  borderColor:'#000',
+                  backgroundColor: '#fff',
+                  borderTopLeftRadius:16,
+                  borderTopRightRadius:16,
+                  
                   alignItems: "center",
-                  
-                  
-                 
+
+
+
                 }
               }}
-              
+
             >
               <View style={styles.containerBottomSheet}>
                 <View
                   style={styles.bottomSheet}>
                   <TouchableOpacity
+                    onPress={() => refRBSheet.current.close()}
                     style={styles.bottomSheetExit}>
                     <Text
                       style={styles.textbottomSheetExit}>
@@ -169,6 +195,8 @@ const Device = ({ navigation }) => {
                 <View
                   style={styles.updateBottomSheet}>
                   <TouchableOpacity
+                    onPress={() => refRBSheet.current.close()}
+
                     style={styles.bottomSheetSave}>
                     <Text
                       style={styles.textbottomSheetSave}>
@@ -179,27 +207,181 @@ const Device = ({ navigation }) => {
 
 
               </View>
+              <View  >
+                <View style={styles.viewItem}>
+                  <Card style={styles.card}>
+                    <FlatList data={ThongTin}
+                      renderItem={({ item }) => (
+                        <View>
+                          <View style={styles.flexDirection}>
+                            <Text style={styles.textFrame1}>{t('imei')}</Text>
+                            <Text style={styles.textContentIMEI}>{item.imei}</Text>
+                          </View>
+                          <View style={styles.flexDirection}>
+                            <Text style={styles.textFrame1}>{t('type-of-device')}</Text>
+                            <Text style={styles.textContentLTB}>{item.loaiTB}</Text>
+
+                          </View>
+
+                          <View style={styles.flexDirection}>
+                            <Text style={styles.textFrame1}>{t('activation-date')}</Text>
+                            <Text style={styles.textContentNKH}>{item.ngayKH}</Text>
+
+                          </View>
+
+                        </View>
+
+                      )}>
+
+
+                    </FlatList>
+                  </Card>
+
+
+                </View>
+
+              </View>
+              <Text style={styles.textFrame4}>{t('device-name')}</Text>
+              <Card style={styles.card4}>
+                <FlatList
+                  data={ThongTin}
+                  renderItem={({ item }) => (
+                    <View>
+                      <Text style={styles.textContent}>{item.tenTB}</Text>
+                    </View>
+                  )}>
+                </FlatList>
+              </Card>
+
+              <Text style={styles.textFrame3}>{t('sim')}</Text>
+              <Card style={styles.card3}>
+                <FlatList
+                  data={ThongTin}
+                  renderItem={({ item }) => (
+                    <View>
+                      <Text style={styles.textContent}>{item.sim}</Text>
+                    </View>
+                  )}>
+                </FlatList>
+              </Card>
               
+              <Text style={styles.textFrame2}>{t('place-bottomsheet')}:</Text>
+              <Card style={styles.card2}>
+                <FlatList
+                  data={ThongTin}
+                  renderItem={({ item }) => (
+                    <View>
+                      <Text style={styles.textContent}>{item.diaChi}</Text>
+                    </View>
+                  )}>
+                </FlatList>
+              </Card>
 
             </RBSheet>
+
+
 
 
           </View>
         </View>
       </ScrollView>
-    </SafeAreaView>
+    </View>
   );
 
 }
 export default Device;
 const styles = StyleSheet.create({
+
   container: {
     flex: 1,
+
     backgroundColor: Colors.background
   },
+  flexDirection: {
+    flexDirection: "row",
+    margin: 10,
+  },
+  textFrame1:{
+    ...FONTS.h8
+  },
+ 
+  textFrame2: {
+    marginRight: '70%',
+    padding: 8,
+    ...FONTS.h8,
+
+  },
+  textFrame3:{
+    marginRight: '75%',
+    padding: 8,
+    ...FONTS.h8,
+  },
+  textFrame4:{
+    marginRight: '65%',
+    padding: 8,
+    ...FONTS.h8,
+  },
+  textContentIMEI: {
+    fontSize: 14,
+
+    fontWeight: '400',
+    opacity: .5,
+    marginLeft: '35%'
+
+
+  },
+  textContentLTB: {
+    fontSize: 14,
+    width: 179,
+    fontWeight: '400',
+    opacity: .5,
+    marginLeft: '14%'
+
+  },
+  textContentNKH: {
+    fontSize: 14,
+    width: 179,
+    fontWeight: '400',
+    opacity: .5,
+    marginLeft: '14%'
+  },
+  textContent: {
+    ...FONTS.h10
+     
+
+  },
+  viewItem: {
+    flexDirection: 'row',
+    marginBottom: 20,
+    width: "100%"
+  },
+  viewDc: {
+
+
+  },
   card: {
-    alignSelf: 'center',
-    marginBottom:'40%'
+
+    backgroundColor: '#EAF5FA',
+    borderWidth: 1,
+    borderColor:'#ACBCD1'
+
+  },
+  card2: {
+
+    borderWidth: 1,
+    marginBottom: '30%',
+    borderColor:'#ACBCD1'
+
+
+  },
+  card4:{
+    borderWidth: 1,
+    borderColor:'#ACBCD1'
+    
+  },
+  card3:{
+    borderWidth: 1,
+    borderColor:'#ACBCD1'
   },
   Toolbar: {
     justifyContent: 'center',
@@ -210,6 +392,7 @@ const styles = StyleSheet.create({
     marginLeft: 26
   },
   testlookup: {
+
     marginLeft: 10,
     ...FONTS.h2
   },
@@ -253,11 +436,11 @@ const styles = StyleSheet.create({
     marginBottom: 60,
   },
   containerBottomSheet: {
-
     flex: 1,
-    width: '100%',
+
     flexDirection: 'row',
     padding: 15,
+
 
   },
   fontwarning: {
@@ -316,12 +499,13 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontWeight: '500',
   },
+
   bottomSheet: {
 
     flex: 1,
     width: '50%',
     margin: 10,
-    marginTop: '110%'
+    marginTop: '140%'
 
 
   },
@@ -338,6 +522,7 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.blue,
     borderRadius: 8,
 
+
   },
   updateBottomSheet: {
     width: '50%',
@@ -345,7 +530,7 @@ const styles = StyleSheet.create({
     margin: 10,
     backgroundColor: Colors.blue,
     borderRadius: 8,
-    marginTop: '110%'
+    marginTop: '140%'
   },
   inputupdate: {
     height: 40,

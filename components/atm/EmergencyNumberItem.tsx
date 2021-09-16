@@ -37,6 +37,7 @@ const styles = StyleSheet.create({
     marginLeft: 10,
     
     
+    
   },
   br: {
     opacity: 0.1,
