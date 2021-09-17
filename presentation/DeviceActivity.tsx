@@ -271,7 +271,8 @@ const Device = ({ navigation }) => {
               </View>
               <View  style={{
                 position: 'relative',
-                justifyContent: 'center'
+                justifyContent: 'center',
+                
               }}>
                 <Text style={styles.textFrame3}>{t('sim')}</Text>
                 <TextInput
@@ -280,7 +281,7 @@ const Device = ({ navigation }) => {
                   onFocus={() => setActiveInput('sim')}
 
                   style={{
-
+                  
                     width: 362,
                     height:44,
                     backgroundColor: Colors.white,
@@ -290,12 +291,14 @@ const Device = ({ navigation }) => {
                     borderWidth: 2,
                     borderColor: activeInput == "sim" ? Colors.blue : Colors.white
                   }} />
-                <Text style={styles.textFrame2}>{t('place-bottomsheet')}:</Text>
+               
               </View>
               <View  style={{
                 position: 'relative',
-                justifyContent: 'center'
+                justifyContent: 'center',
+                alignItems:'center',
               }}>
+                 <Text style={styles.textFrame2}>{t('place-bottomsheet')}:</Text>
                 <TextInput
                   placeholder="86/33 Âu Cơ, phường 9, quận Tân Bình, TP.HCM"
 
@@ -303,7 +306,7 @@ const Device = ({ navigation }) => {
 
                   style={{
 
-                  
+                 
 
                     width: 362,
                     height:100,
@@ -344,7 +347,8 @@ const styles = StyleSheet.create({
   },
 
   textFrame2: {
-    marginRight: '70%',
+    
+    marginRight: '56%',
     padding: 8,
     ...FONTS.h13
 

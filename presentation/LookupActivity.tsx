@@ -41,7 +41,7 @@ const lookup  = ({navigation}) => {
        <ToolBar>
          <View style={{flex:1,marginVertical:20,flexDirection:'row',}}> 
           <TouchableOpacity style={styles.btnBack} 
-          // onPress={() => navigation.navigate('Lookup')}
+          // onPress={() => navigation.navigate('DrawerContent')}
           >
             <FontAwesome name="bars" size={20} color={Colors.blue} />
 
@@ -82,7 +82,7 @@ const lookup  = ({navigation}) => {
           placeholder="Nhập IMEI/Seri number"
           value={IMEI}
           onChangeText={value => setIMEI(value)}></TextInput>
-      <View style={styles.dropdown}>
+         <View style={styles.dropdown}>
           <RNPickerSelect
           onValueChange={e => i18n.changeLanguage(e)}
           items={[
@@ -92,7 +92,8 @@ const lookup  = ({navigation}) => {
           ]}
           
            >
-          
+          <Text style={styles.Textlookup}>  Loại thiết bị                                                              ▽
+          </Text>
             </RNPickerSelect>
             </View>
       </View>
@@ -122,9 +123,10 @@ const styles = StyleSheet.create({
   },
   dropdown:{
 marginTop:10,
-width:355,
+width:'100%',
 height:40,
 borderRadius:8,
+justifyContent:'center',
 
 backgroundColor: Colors.white,
   },
@@ -209,6 +211,10 @@ backgroundColor: Colors.white,
     ...FONTS.h1,
     lineHeight:20,
 
+  },
+  Textlookup:{
+    fontWeight:'300',
+    fontSize:16,
   }
 
 })
