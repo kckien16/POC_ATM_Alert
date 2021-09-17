@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {StyleSheet, Text, View, TextInput} from 'react-native';
 import Colors from '../../constants/Colors';
 import { useTranslation } from 'react-i18next';
@@ -7,14 +7,24 @@ import FONTS  from '../../constants/Fonts';
 
 const WarningItem = props => {
   const{t,i18n}=useTranslation()
+
+  const [isEdittable ,setisEdittable ] = useState(false);
+
+ 
   return (
     <View style={{flex:1,width:"95%"}}>
       <View style={styles.viewItem}>
         <View style={styles.viewTitle}>
-          <Text style={styles.titles}>{t("vibration-warning-threshold")}</Text>
+          <Text style={styles.titles}
+          
+          >{t("vibration-warning-threshold")}</Text>
         </View>
         <View style={styles.viewInput}>
-          <TextInput style={styles.input}>{props.rung}</TextInput>
+          <TextInput
+          placeholder='1500'
+          editable={false} selectTextOnFocus={false}
+          
+          style={styles.input}></TextInput>
         </View>
       </View>
       <View style={styles.viewItem}>
@@ -22,7 +32,14 @@ const WarningItem = props => {
           <Text style={styles.titles}>{t("leakage-alarm-threshold")}</Text>
         </View>
         <View style={styles.viewInput}>
-          <TextInput style={styles.input}>{props.roDien}</TextInput>
+          <TextInput
+          placeholder='1500'
+          editable={false}
+          selectTextOnFocus={false}
+          
+           style={styles.input }
+          
+           />
         </View>
       </View>
       <View style={styles.viewItem}>
@@ -30,7 +47,10 @@ const WarningItem = props => {
           <Text style={styles.titles}>{t("smoke-alarm-threshold")}</Text>
         </View>
         <View style={styles.viewInput}>
-          <TextInput style={styles.input}>{props.khoi}</TextInput>
+          <TextInput
+          placeholder='70'
+          editable={false} selectTextOnFocus={false}
+           style={styles.input}></TextInput>
         </View>
       </View>
       <View style={styles.viewItem}>
@@ -38,7 +58,10 @@ const WarningItem = props => {
           <Text style={styles.titles}>{t("temperature-warning-threshold")}</Text>
         </View>
         <View style={styles.viewInput}>
-          <TextInput style={styles.input}>{props.nhietDo}</TextInput>
+          <TextInput
+          placeholder='70'
+          editable={false} selectTextOnFocus={false}
+           style={styles.input}></TextInput>
         </View>
       </View>
       <View style={styles.viewItem}>
@@ -46,7 +69,10 @@ const WarningItem = props => {
           <Text style={styles.titles}>{t("battery-warning")}</Text>
         </View>
         <View style={styles.viewInput}>
-          <TextInput style={styles.input}>{props.pin}</TextInput>
+          <TextInput 
+          placeholder='70'
+          editable={false} selectTextOnFocus={false}
+          style={styles.input}></TextInput>
         </View>
       </View>
     </View>
@@ -80,10 +106,11 @@ const styles = StyleSheet.create({
   input: {
     width: 116,
     height: 44,
-    backgroundColor: '#FFFFFF',
+    backgroundColor: '#DBE8F5',
     borderRadius: 8,
     textAlign: 'right',
     paddingRight:16,
+    
     
     ...FONTS.h6
   },

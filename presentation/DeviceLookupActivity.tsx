@@ -26,18 +26,18 @@ const traCuuTB = ({ navigation }) => {
           renderItem={({ item }) => (
             <View>
               <View style={styles.flexDirection}>
-                <Text style={styles.textFrame1}>IMEI:</Text>
+                <Text style={styles.textFrame1}>IMEI</Text>
                 <Text style={styles.textContentIMEI}>{item.imei}</Text>
               </View>
               <View style={styles.flexDirection}>
-                <Text style={styles.textFrame1}>Loại thiết bị:</Text>
+                <Text style={styles.textFrame1}>Loại thiết bị</Text>
                 <Text style={styles.textContentLTB}>{item.loaiTB}</Text>
               </View>
             </View>
           )}>
         </FlatList>
       </Card>
-      <Text style={styles.textFrame2}>Tên thiết bị:</Text>
+      <Text style={styles.textFrame2}>Tên thiết bị</Text>
       <Card style = {styles.card}>
         <FlatList
           data={ThongTin}
@@ -85,7 +85,8 @@ const styles = StyleSheet.create({
   },
   card: {
     alignSelf: 'center',
-    marginTop: 20
+    marginTop: 20,
+    
   },
   title: {
     fontSize: 18,

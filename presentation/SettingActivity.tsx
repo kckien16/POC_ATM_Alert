@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   FlatList,
   ScrollView,
@@ -9,11 +9,11 @@ import {
   View,
 } from 'react-native';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
-import {TT, ThongTin} from '../data/ThongTinTB';
-import {SDT, SDT_KC} from '../data/SDT_KC';
-import {Nhan, SDT_Nhan} from '../data/SDT_Nhan';
-import {Gui, SDT_GuiTN} from '../data/SDT_GuiTN';
-import {Warning, Warnings} from '../data/Warning';
+import { TT, ThongTin } from '../data/ThongTinTB';
+import { SDT, SDT_KC } from '../data/SDT_KC';
+import { Nhan, SDT_Nhan } from '../data/SDT_Nhan';
+import { Gui, SDT_GuiTN } from '../data/SDT_GuiTN';
+import { Warning, Warnings } from '../data/Warning';
 
 import Dialog, { DialogContent } from 'react-native-popup-dialog';
 
@@ -25,12 +25,12 @@ import Colors from '../constants/Colors';
 import Receiving from '../components/atm/ReceivingPhoneNumber';
 import Send from '../components/atm/SendPhoneNumberItem';
 import WarningItem from '../components/atm/WarningItem';
-import {useTranslation} from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 
 import FONTS from '../constants/Fonts';
 import InputText from '../components/UI/InputText';
-const CaiDat = ({navigation}) => {
-  const {t, i18n} = useTranslation();
+const CaiDat = ({ navigation }) => {
+  const { t, i18n } = useTranslation();
 
   const [sdt_kc, setSdtKC] = useState<SDT[] | null>(null);
   const [sdt_nhan, setSdtNhan] = useState<Nhan[] | null>(null);
@@ -77,36 +77,38 @@ const CaiDat = ({navigation}) => {
   };
 
 
-  const ondelete1 = (item,index) => {
+  const ondelete1 = (item, index) => {
     sdt_kc.splice(index, 1)
     setSdtKC(sdt_kc.splice(index, 6))
-    }
-  const renderItem1 = ({ item,index }) => {
+  }
+  const renderItem1 = ({ item, index }) => {
     return (
-  
+
       <View style={styles.container}>
-        <TouchableOpacity 
-        onPress={() => { ondelete1(item,index); }}
+        <TouchableOpacity
+          onPress={() => { ondelete1(item, index); }}
           style={styles.btnDel}>
           <FontAwesome name="minus-circle" size={20} color="#FF5B5B" />
         </TouchableOpacity>
         <Text style={styles.title}>{item.sdt}</Text>
-   
+
       </View>
     )
   }
 
 
-  const ondelete2 = (item,index) => {
+  const ondelete2 = (item, index) => {
     sdt_nhan.splice(index, 1)
     setSdtNhan(sdt_nhan.splice(index, 6))
-    }
-  const renderItem2 = ({ item,index }) => {
+  }
+  const renderItem2 = ({ item, index }) => {
     return (
 
       <View style={styles.container}>
-        <TouchableOpacity 
-        onPress={() => { ondelete2(item,index); }}
+        <TouchableOpacity
+        
+          onPress={() => { ondelete2(item, index); }}
+          
           style={styles.btnDel}>
           <FontAwesome name="minus-circle" size={20} color="#FF5B5B" />
         </TouchableOpacity>
@@ -115,16 +117,16 @@ const CaiDat = ({navigation}) => {
     )
   }
 
-  const ondelete3 = (item,index) => {
+  const ondelete3 = (item, index) => {
     sdt_guiTN.splice(index, 1)
     setSdtGuiTN(sdt_guiTN.splice(index, 6))
-    }
-  const renderItem3 = ({ item,index }) => {
+  }
+  const renderItem3 = ({ item, index }) => {
     return (
 
       <View style={styles.container}>
-        <TouchableOpacity 
-        onPress={() => { ondelete3(item,index); }}
+        <TouchableOpacity
+          onPress={() => { ondelete3(item, index); }}
           style={styles.btnDel}>
           <FontAwesome name="minus-circle" size={20} color="#FF5B5B" />
         </TouchableOpacity>
@@ -149,7 +151,7 @@ const CaiDat = ({navigation}) => {
           <Card>
             <FlatList
               data={ThongTin}
-              renderItem={({item}) => (
+              renderItem={({ item }) => (
                 <InformationItem
                   imei={item.imei}
                   sim={item.sim}
@@ -163,20 +165,20 @@ const CaiDat = ({navigation}) => {
           </Card>
         </View>
 
-        
+
         <Text style={styles.titles}>{t('set-up-phone-number')}</Text>
 
         <View style={styles.view}>
           <Card>
-           
+
             <Text style={styles.title}>{t('emergency-number')}</Text>
-            <View style={{ borderBottomWidth: 0.2}}> 
-            <FlatList
-              data={sdt_kc}
-              keyExtractor={(item, index) => item.sdt.toString()}
-              // renderItem={({item}) => <Receiving phone_receiving={item.sdt} />}
-              renderItem={renderItem1} />
-           </View> 
+            <View style={{ borderBottomWidth: 0.2 }}>
+              <FlatList
+                data={sdt_kc}
+                keyExtractor={(item, index) => item.sdt.toString()}
+                // renderItem={({item}) => <Receiving phone_receiving={item.sdt} />}
+                renderItem={renderItem1} />
+            </View>
             <View style={styles.btnAddView}>
               <View
                 style={{
@@ -203,7 +205,7 @@ const CaiDat = ({navigation}) => {
                   display: inputShown == true ? 'flex' : 'none',
                   width: '100%',
                 }}>
-                <View style={{alignItems: 'center', flexDirection: 'row'}}>
+                <View style={{ alignItems: 'center', flexDirection: 'row' }}>
                   <TouchableOpacity onPress={addPhoneE}>
                     <FontAwesome
                       name="plus-circle"
@@ -214,9 +216,9 @@ const CaiDat = ({navigation}) => {
                   <InputText
                     onChangeText={text => {
                       if (newSdtKC !== null) {
-                        setNewSdtKC({...newSdtKC, sdt: text});
+                        setNewSdtKC({ ...newSdtKC, sdt: text });
                       } else {
-                        setNewSdtKC({id: Date.now(), sdt: text});
+                        setNewSdtKC({ id: Date.now(), sdt: text });
                       }
                     }}
                   />
@@ -231,14 +233,14 @@ const CaiDat = ({navigation}) => {
             <Text style={styles.title}>
               {t('phone-number-to-receive-calls')}
             </Text>
-            <View style={{ borderBottomWidth: 0.2}}> 
-            <FlatList
-              data={sdt_nhan}
-              keyExtractor={(item, index) => item.sdt.toString()}
-              // renderItem={({item}) => <Receiving phone_receiving={item.sdt} />}
-              renderItem={renderItem2} 
-            />
-  </View>
+            <View style={{ borderBottomWidth: 0.2 }}>
+              <FlatList
+                data={sdt_nhan}
+                keyExtractor={(item, index) => item.sdt.toString()}
+                // renderItem={({item}) => <Receiving phone_receiving={item.sdt} />}
+                renderItem={renderItem2}
+              />
+            </View>
             <View style={styles.btnAddView}>
               <View
                 style={{
@@ -265,7 +267,7 @@ const CaiDat = ({navigation}) => {
                   display: inputShown == true ? 'flex' : 'none',
                   width: '100%',
                 }}>
-                <View style={{alignItems: 'center', flexDirection: 'row'}}>
+                <View style={{ alignItems: 'center', flexDirection: 'row' }}>
                   <TouchableOpacity onPress={addPhoneR}>
                     <FontAwesome
                       name="plus-circle"
@@ -276,9 +278,9 @@ const CaiDat = ({navigation}) => {
                   <InputText
                     onChangeText={text => {
                       if (newSdtNhan !== null) {
-                        setNewSdtNhan({...newSdtNhan, sdt: text});
+                        setNewSdtNhan({ ...newSdtNhan, sdt: text });
                       } else {
-                        setNewSdtNhan({id: Date.now(), sdt: text});
+                        setNewSdtNhan({ id: Date.now(), sdt: text });
                       }
                     }}
                   />
@@ -293,14 +295,14 @@ const CaiDat = ({navigation}) => {
             <Text style={styles.title}>
               {t('phone-number-to-send-the-message')}
             </Text>
-            <View style={{ borderBottomWidth: 0.2}}> 
-            <FlatList
-              data={sdt_guiTN}
-               keyExtractor={(item, index) => item.sdt.toString()}
-              // renderItem={({item}) => <Receiving phone_receiving={item.sdt} />}
-              renderItem={renderItem3}
-            />
-             </View>
+            <View style={{ borderBottomWidth: 0.2 }}>
+              <FlatList
+                data={sdt_guiTN}
+                keyExtractor={(item, index) => item.sdt.toString()}
+                // renderItem={({item}) => <Receiving phone_receiving={item.sdt} />}
+                renderItem={renderItem3}
+              />
+            </View>
             <View style={styles.btnAddView}>
               <View
                 style={{
@@ -327,7 +329,7 @@ const CaiDat = ({navigation}) => {
                   display: inputShown == true ? 'flex' : 'none',
                   width: '100%',
                 }}>
-                <View style={{alignItems: 'center', flexDirection: 'row'}}>
+                <View style={{ alignItems: 'center', flexDirection: 'row' }}>
                   <TouchableOpacity onPress={addPhoneS}>
                     <FontAwesome
                       name="plus-circle"
@@ -338,9 +340,9 @@ const CaiDat = ({navigation}) => {
                   <InputText
                     onChangeText={text => {
                       if (newSdtGuiTN !== null) {
-                        setNewSdtGuiTN({...newSdtGuiTN, sdt: text});
+                        setNewSdtGuiTN({ ...newSdtGuiTN, sdt: text });
                       } else {
-                        setNewSdtGuiTN({id: Date.now(), sdt: text});
+                        setNewSdtGuiTN({ id: Date.now(), sdt: text });
                       }
                     }}
                   />
@@ -351,10 +353,10 @@ const CaiDat = ({navigation}) => {
         </View>
 
         <Text style={styles.titles}>{t('alarm-threshold-setting')}</Text>
-        <View style={{flex: 1}}>
+        <View style={{ flex: 1 }}>
           <FlatList
             data={Warnings}
-            renderItem={({item}) => (
+            renderItem={({ item }) => (
               <WarningItem
                 rung={item.rung}
                 roDien={item.roDien}
@@ -401,7 +403,7 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   view: {
-    
+
     alignItems: 'center',
     justifyContent: 'center',
     marginTop: 20,
@@ -418,12 +420,12 @@ const styles = StyleSheet.create({
     ...FONTS.h2,
   },
   title: {
-   
+
     ...FONTS.h4,
   },
-  
+
   btnAddView: {
-    
+
     marginLeft: 2,
     marginBottom: 10,
     flexDirection: 'row',
@@ -461,7 +463,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   container: {
- 
+
     flexDirection: 'row',
     alignItems: 'center',
     marginTop: 10,

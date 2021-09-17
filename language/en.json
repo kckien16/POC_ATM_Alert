@@ -12,10 +12,13 @@
     "atm-information": "ATM Information",
     "imei": "IMEI",
     "sim": "SIM",
+    "status": "Status",
     "type-of-device": "Type of device",
+    "query-time":"Query time",
     "device-name": "Device name",
     "place": "Place",
     "activation-date": "Activation date",
+    "connection":"Connection",
     "sensor-status": "Sensor status",
     "heat": "Heat",
     "vibrate": "Vibrate",
@@ -30,7 +33,7 @@
     "AC-supply-voltage": "AC supply voltage",
     "signaling": "Signaling",
     "update": "Update",
-    "warning": "Warning",
+    "warning": "Turn off the warning ",
     "turn-off": "Turn off",
     "turn-on ": "Turn on",
     "normal" : "Normal",
@@ -51,7 +54,10 @@
     "smoke-alarm-threshold": "Smoke alarm threshold (density)",
     "temperature-warning-threshold": "Temperature warning threshold (degrees Celsius)",
     "battery-warning": "Battery warning (%)",
-    "save": "Save"
+    "save": "Save",
+    "exit" :"Exit",
+    "place-bottomsheet":"Place"
+
     }
     
 }
