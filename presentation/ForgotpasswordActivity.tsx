@@ -25,7 +25,7 @@ return(
           <Text style={styles.textToolBar}>{t('Forgot Password')}</Text>
         </ToolBar>
       <View>
-          <Text style={styles.TextInfo}>{t(`    Nhập địa chỉ Email liên kết với tài khoản để    \n    tôi gửi đường dẫn đặt lại mật khẩu`)}</Text>
+          <Text style={styles.TextInfo}>{t('Enter the email address link to the account so I can resend the password')}</Text>
           <Input>
         <TextInput
          label="Email"
@@ -52,6 +52,7 @@ return(
 backgroundColor:Colors.whitee
      },
      TextInfo:{
+       marginLeft:15,
         marginTop:103,
      ...Fonts.h11,
      },
