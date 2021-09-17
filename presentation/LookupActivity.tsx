@@ -19,7 +19,7 @@ import { useTranslation } from 'react-i18next';
 import Colors from '../constants/Colors';
 import ToolBar from '../components/UI/ToolBar';
 import FONTS  from '../constants/Fonts';
-
+import RNPickerSelect from 'react-native-picker-select';
 
 
 const lookup  = ({navigation}) => {
@@ -80,11 +80,19 @@ const lookup  = ({navigation}) => {
           placeholder="Nhập IMEI/Seri number"
           value={IMEI}
           onChangeText={value => setIMEI(value)}></TextInput>
-        <TextInput
-          style={styles.textloaiTB}
-          placeholder="Loại thiết bị"
-          value={Loai}
-          onChangeText={value => setLoai(value)}></TextInput>
+      <View style={styles.dropdown}>
+          <RNPickerSelect
+          onValueChange={e => i18n.changeLanguage(e)}
+          items={[
+            {label: 'Thiết bị cảnh báo dành cho máy ATM', value: 'xxx'},
+            {label: 'Thiết bị cảnh báo dành cho phòng giao dịch', value: 'xxx'},
+            
+          ]}
+          
+           >
+          
+            </RNPickerSelect>
+            </View>
       </View>
       
       <TouchableOpacity 
@@ -109,6 +117,14 @@ const styles = StyleSheet.create({
     flex: 1,
      backgroundColor: Colors.background
 
+  },
+  dropdown:{
+marginTop:10,
+width:355,
+height:40,
+borderRadius:8,
+
+backgroundColor: Colors.white,
   },
   testlookup: {
     fontSize:16,
