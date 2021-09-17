@@ -19,17 +19,8 @@ import { useTranslation } from 'react-i18next';
 import Colors from '../constants/Colors';
 import ToolBar from '../components/UI/ToolBar';
 import FONTS  from '../constants/Fonts';
-import 'react-native-gesture-handler';
-import { createDrawerNavigator } from '@react-navigation/drawer';
-import CaiDat from './SettingActivity';
-import { NavigationContainer } from '@react-navigation/native';
-import HomeScreen from '../screens/HomeScreen';
 
-import SelectDropdown from 'react-native-select-dropdown'
-import RNPickerSelect from 'react-native-picker-select';
 
-const Drawer = createDrawerNavigator();
-const countries = ["Egypt", "Canada", "Australia", "Ireland"]
 
 const lookup  = ({navigation}) => {
   
@@ -46,37 +37,32 @@ const lookup  = ({navigation}) => {
   const [Loai, setLoai] = useState();
 
   return (
-   
-    
     <SafeAreaView style={styles.container}>
-
-
-            
        <ToolBar>
          <View style={{flex:1,marginVertical:20,flexDirection:'row',}}> 
-         
-         <TouchableOpacity style={styles.btnBack} onPress={() => navigation.goBack()}>
-            <FontAwesome name="angle-left" size={30} color={Colors.blue} />
+          <TouchableOpacity style={styles.btnBack} onPress={() => navigation.goBack()}>
+            <FontAwesome name="bars" size={20} color={Colors.blue} />
+
+            
           </TouchableOpacity>
-           
+          
+
           <View style={{flex:1,justifyContent:'center',alignItems:'center'}}>
-         
+          <Text style={styles.testlookup}>{t('device-lookup')}</Text>
           </View>
-        
           </View>
         </ToolBar>
-        <View style={styles.container}>
-        
-            </View>
-      <View style={{flex:1}}>
+      <View style={{flex:1 }}>
         <QRCodeScanner
-        cameraStyle={{width:250,height:300,marginLeft:10, padding:50}}
+        // topViewStyle={{width:250,height:30,marginLeft:10, padding:50}}
+        cameraStyle={{width:250,height:250,marginLeft:10, padding:50}}
         containerStyle={{}}
         onRead={onSuccess}
         reactivate={true}
         permissionDialogMessage="Need Pre"
         reactivateTimeout={10}
         showMarker={true}
+        
         markerStyle={{borderColor:"FFF",borderRadius:10,width:150,height:150}}
       />
       </View>
@@ -94,17 +80,11 @@ const lookup  = ({navigation}) => {
           placeholder="Nhập IMEI/Seri number"
           value={IMEI}
           onChangeText={value => setIMEI(value)}></TextInput>
-       
-          <RNPickerSelect
-              onValueChange={e => i18n.changeLanguage(e)}
-              items={[
-                {label: 'Vietnamese', value: 'vn'},
-                {label: 'English', value: 'en'},
-                
-              ]}
-              
-               >
-                </RNPickerSelect>
+        <TextInput
+          style={styles.textloaiTB}
+          placeholder="Loại thiết bị"
+          value={Loai}
+          onChangeText={value => setLoai(value)}></TextInput>
       </View>
       
       <TouchableOpacity 
@@ -201,7 +181,7 @@ const styles = StyleSheet.create({
   inputTC:{
     width:'90%',
     backgroundColor:Colors.blue,
-    height:50,
+    height:44,
    borderRadius:8,
    alignItems:'center',
    marginLeft:20,
