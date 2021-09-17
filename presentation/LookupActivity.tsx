@@ -25,10 +25,11 @@ import CaiDat from './SettingActivity';
 import { NavigationContainer } from '@react-navigation/native';
 import HomeScreen from '../screens/HomeScreen';
 
-
-
+import SelectDropdown from 'react-native-select-dropdown'
+import RNPickerSelect from 'react-native-picker-select';
 
 const Drawer = createDrawerNavigator();
+const countries = ["Egypt", "Canada", "Australia", "Ireland"]
 
 const lookup  = ({navigation}) => {
   
@@ -99,7 +100,10 @@ const lookup  = ({navigation}) => {
           style={styles.textloaiTB}
           placeholder="Loại thiết bị"
           value={Loai}
-          onChangeText={value => setLoai(value)}></TextInput>
+          onChangeText={value => setLoai(value)}
+          >
+          </TextInput>
+
       </View>
       
       <TouchableOpacity 
