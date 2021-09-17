@@ -305,10 +305,10 @@ const Device = ({ navigation }) => {
                     padding: SIZES.base,
                             backgroundColor: Colors.white,
                             borderRadius: 8,
-                            paddingVertical: SIZES.base*1.5,
+                            paddingVertical: SIZES.base*2.5,
                             borderWidth: 2,
                     borderColor: activeInput == "place-bottomsheet" ? Colors.blue : Colors.white,
-                    marginBottom:'30%'
+                    marginBottom:'35%'
                   }} />
               </View>
             </RBSheet>
@@ -346,7 +346,7 @@ const styles = StyleSheet.create({
 
   },
   textFrame3: {
-    marginRight: '75%',
+    marginRight: '55%',
     padding: 8,
     ...FONTS.h13,
   },
@@ -542,7 +542,7 @@ const styles = StyleSheet.create({
     flex: 1,
     width: '50%',
     margin: 10,
-    marginTop: '130%'
+    marginTop: '135%'
 
 
   },
@@ -567,7 +567,7 @@ const styles = StyleSheet.create({
     margin: 10,
     backgroundColor: Colors.blue,
     borderRadius: 8,
-    marginTop: '130%'
+    marginTop: '135%'
   },
   inputupdate: {
     height: 40,
