@@ -91,7 +91,7 @@ const Login = () => {
       <Input>
         <TextInput
           value={pass}
-          placeholder={t('Password')}
+          placeholder={t('  Password')}
           keyboardType="numeric"
           returnKeyType="next"
           autoFocus={true}

@@ -10,11 +10,27 @@ import traCuuTB from './presentation/DeviceLookupActivity';
 import Forgot from './presentation/ForgotpasswordActivity'
 import {DefaultTheme, NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-
+import { createDrawerNavigator } from '@react-navigation/drawer';
+import HomeScreen from './screens/HomeScreen';
+import SettingScreen from './screens/SettingScreen';
+import DrawerContent from './presentation/DrawerContent'
 const font = {
   ...DefaultTheme
 }
+ const Draw =createDrawerNavigator();
+const Drawer =() =>{
+  return(
 
+         <Draw.Navigator 
+         initialRouteName="Lookup" screenOptions={{headerShown: false}}
+        drawerContent={props => <DrawerContent {...props} /> }
+         >
+         
+           <Draw.Screen name ="Lookup" component={Lookup}  />
+           
+        </Draw.Navigator>
+  );
+}
 const Stack = createNativeStackNavigator();
 const App =()=>{
   return(
@@ -22,7 +38,8 @@ const App =()=>{
          <Stack.Navigator initialRouteName="Login" screenOptions={{headerShown: false}}>
          
            <Stack.Screen name ="Login" component={Login}  />
-           <Stack.Screen name ="Lookup" component={Lookup}  />
+           <Stack.Screen name ="DrawerContent" component={DrawerContent}  />
+           <Stack.Screen name ="Lookup" component={Drawer}  />
            <Stack.Screen name ="Device" component={Device}  />
            <Stack.Screen name ="ThongTinThietBi" component={ThongTinThietBi}  />
            <Stack.Screen name ="Forgot" component={Forgot}  />
@@ -35,8 +52,6 @@ const App =()=>{
        </NavigationContainer>
   
   
- 
-
 
   );
 }

@@ -257,7 +257,8 @@ const Device = ({ navigation }) => {
 
                   style={{
 
-                    padding: 8,
+                    width: 362,
+                    height:44,
 
                     backgroundColor: Colors.white,
                     borderRadius: 8,
@@ -270,7 +271,8 @@ const Device = ({ navigation }) => {
               </View>
               <View  style={{
                 position: 'relative',
-                justifyContent: 'center'
+                justifyContent: 'center',
+                
               }}>
                 <Text style={styles.textFrame3}>{t('sim')}</Text>
                 <TextInput
@@ -279,9 +281,9 @@ const Device = ({ navigation }) => {
                   onFocus={() => setActiveInput('sim')}
 
                   style={{
-
-                    padding: 8,
-
+                  
+                    width: 362,
+                    height:44,
                     backgroundColor: Colors.white,
                     borderRadius: 8,
 
@@ -289,12 +291,14 @@ const Device = ({ navigation }) => {
                     borderWidth: 2,
                     borderColor: activeInput == "sim" ? Colors.blue : Colors.white
                   }} />
-                <Text style={styles.textFrame2}>{t('place-bottomsheet')}:</Text>
+               
               </View>
               <View  style={{
                 position: 'relative',
-                justifyContent: 'center'
+                justifyContent: 'center',
+                alignItems:'center',
               }}>
+                 <Text style={styles.textFrame2}>{t('place-bottomsheet')}:</Text>
                 <TextInput
                   placeholder="86/33 Âu Cơ, phường 9, quận Tân Bình, TP.HCM"
 
@@ -302,7 +306,10 @@ const Device = ({ navigation }) => {
 
                   style={{
 
-                    padding: SIZES.base,
+                 
+
+                    width: 362,
+                    height:100,
                             backgroundColor: Colors.white,
                             borderRadius: 8,
                             paddingVertical: SIZES.base*2.5,
@@ -340,7 +347,8 @@ const styles = StyleSheet.create({
   },
 
   textFrame2: {
-    marginRight: '70%',
+    
+    marginRight: '56%',
     padding: 8,
     ...FONTS.h13
 
@@ -380,7 +388,7 @@ const styles = StyleSheet.create({
     marginLeft: '14%'
   },
   textContent: {
-    ...FONTS.h10
+    ...FONTS.h2
 
 
   },
@@ -497,7 +505,7 @@ const styles = StyleSheet.create({
     borderColor: Colors.red,
     borderStyle: 'solid',
     borderWidth: 1,
-    height: 40,
+    height: 44,
     backgroundColor: '#FFFF',
     borderRadius: 8,
     justifyContent: 'center',
@@ -570,7 +578,7 @@ const styles = StyleSheet.create({
     marginTop: '135%'
   },
   inputupdate: {
-    height: 40,
+    height: 44,
     borderRadius: 8,
     borderColor: Colors.blue,
     justifyContent: 'center',
