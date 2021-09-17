@@ -40,7 +40,9 @@ const lookup  = ({navigation}) => {
     <SafeAreaView style={styles.container}>
        <ToolBar>
          <View style={{flex:1,marginVertical:20,flexDirection:'row',}}> 
-          <TouchableOpacity style={styles.btnBack} onPress={() => navigation.goBack()}>
+          <TouchableOpacity style={styles.btnBack} 
+          // onPress={() => navigation.navigate('Lookup')}
+          >
             <FontAwesome name="bars" size={20} color={Colors.blue} />
 
             

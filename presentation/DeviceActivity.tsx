@@ -257,7 +257,8 @@ const Device = ({ navigation }) => {
 
                   style={{
 
-                    padding: 8,
+                    width: 362,
+                    height:44,
 
                     backgroundColor: Colors.white,
                     borderRadius: 8,
@@ -280,8 +281,8 @@ const Device = ({ navigation }) => {
 
                   style={{
 
-                    padding: 8,
-
+                    width: 362,
+                    height:44,
                     backgroundColor: Colors.white,
                     borderRadius: 8,
 
@@ -302,7 +303,10 @@ const Device = ({ navigation }) => {
 
                   style={{
 
-                    padding: SIZES.base,
+                  
+
+                    width: 362,
+                    height:100,
                             backgroundColor: Colors.white,
                             borderRadius: 8,
                             paddingVertical: SIZES.base*1.5,
