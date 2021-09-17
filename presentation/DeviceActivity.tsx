@@ -304,9 +304,9 @@ const Device = ({ navigation }) => {
 
                     padding: SIZES.base,
                             backgroundColor: Colors.white,
-                            borderRadius: 5,
+                            borderRadius: 8,
                             paddingVertical: SIZES.base*1.5,
-                            borderWidth: 1.5,
+                            borderWidth: 2,
                     borderColor: activeInput == "place-bottomsheet" ? Colors.blue : Colors.white,
                     marginBottom:'30%'
                   }} />
@@ -336,24 +336,24 @@ const styles = StyleSheet.create({
     margin: 10,
   },
   textFrame1: {
-    ...FONTS.h8
+    ...FONTS.h12
   },
 
   textFrame2: {
     marginRight: '70%',
     padding: 8,
-    ...FONTS.h8,
+    ...FONTS.h13
 
   },
   textFrame3: {
     marginRight: '75%',
     padding: 8,
-    ...FONTS.h8,
+    ...FONTS.h13,
   },
   textFrame4: {
-    marginRight: '65%',
+    marginRight: '60%',
     padding: 8,
-    ...FONTS.h8,
+    ...FONTS.h13,
   },
   textContentIMEI: {
     fontSize: 14,

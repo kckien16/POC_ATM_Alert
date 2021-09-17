@@ -9,6 +9,8 @@ export default {
     h8:{fontSize: 24, fontWeight: 'bold', fontFamily:"Mulish", fontStyle:"normal",color: "#091F3A",lineHeight:30},
     h9:{fontSize: 16, fontWeight: '600', fontFamily:"Mulish", fontStyle:"normal",color: "#2190CD",lineHeight:24},
     h10:{fontSize: 15, fontWeight: 'bold', fontFamily:"Mulish", fontStyle:"normal",color: "#FFFFFF",lineHeight:20},
-    h11:{fontSize: 16, fontWeight: '400', fontFamily:"Mulish", fontStyle:"normal",color: "#1085C5",lineHeight:17},
+    h11:{fontSize: 14, fontWeight: '400', fontFamily:"Mulish", fontStyle:"normal",color: "#1085C5",lineHeight:17},
+    h12:{fontSize: 14, fontWeight: 'bold', fontFamily:"Mulish", fontStyle:"normal",color: "#114A69",lineHeight:17},
+    h13:{fontSize: 14, fontWeight: 'bold', fontFamily:"Mulish", fontStyle:"normal",color: "#091F3A",lineHeight:20},
    
 }

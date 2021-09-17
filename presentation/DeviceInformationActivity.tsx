@@ -149,7 +149,7 @@ const styles = StyleSheet.create({
     ...FONTS.h3,
   },
   settingText: {
-    ...FONTS.h8
+    ...FONTS.h13
   },
   textRToolBar: {
     marginTop: '10%',
