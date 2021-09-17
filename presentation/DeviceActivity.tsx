@@ -16,7 +16,7 @@ import InformationLookupItem from '../components/atm/InformationLookupItem';
 import Colors from '../constants/Colors';
 import { useTranslation } from 'react-i18next';
 import RBSheet from "react-native-raw-bottom-sheet";
-
+import {  SIZES } from '../constants/theme'
 import FONTS from '../constants/Fonts';
 
 
@@ -42,7 +42,7 @@ const Device = ({ navigation }) => {
 
 
   const refRBSheet = useRef();
-
+  const [activeInput, setActiveInput] = useState(null);
   return (
 
     <View style={styles.container}>
@@ -153,9 +153,11 @@ const Device = ({ navigation }) => {
 
             <RBSheet
               ref={refRBSheet}
-              height={600}
+              height={550}
               closeOnDragDown={true}
-              closeOnPressMask={true}
+              openDuration={250}
+              dragFromTopOnly={false}
+              closeOnPressMask={false}
 
               customStyles={{
 
@@ -166,10 +168,10 @@ const Device = ({ navigation }) => {
                 container: {
 
                   justifyContent: "center",
-                  backgroundColor: '#fff',
-                  borderTopLeftRadius:16,
-                  borderTopRightRadius:16,
-                  
+                  backgroundColor: '#DBE8F5',
+                  borderTopLeftRadius: 16,
+                  borderTopRightRadius: 16,
+
                   alignItems: "center",
 
 
@@ -195,7 +197,7 @@ const Device = ({ navigation }) => {
                 <View
                   style={styles.updateBottomSheet}>
                   <TouchableOpacity
-                    onPress={() => refRBSheet.current.close()}
+
 
                     style={styles.bottomSheetSave}>
                     <Text
@@ -241,42 +243,74 @@ const Device = ({ navigation }) => {
                 </View>
 
               </View>
-              <Text style={styles.textFrame4}>{t('device-name')}</Text>
-              <Card style={styles.card4}>
-                <FlatList
-                  data={ThongTin}
-                  renderItem={({ item }) => (
-                    <View>
-                      <Text style={styles.textContent}>{item.tenTB}</Text>
-                    </View>
-                  )}>
-                </FlatList>
-              </Card>
 
-              <Text style={styles.textFrame3}>{t('sim')}</Text>
-              <Card style={styles.card3}>
-                <FlatList
-                  data={ThongTin}
-                  renderItem={({ item }) => (
-                    <View>
-                      <Text style={styles.textContent}>{item.sim}</Text>
-                    </View>
-                  )}>
-                </FlatList>
-              </Card>
-              
-              <Text style={styles.textFrame2}>{t('place-bottomsheet')}:</Text>
-              <Card style={styles.card2}>
-                <FlatList
-                  data={ThongTin}
-                  renderItem={({ item }) => (
-                    <View>
-                      <Text style={styles.textContent}>{item.diaChi}</Text>
-                    </View>
-                  )}>
-                </FlatList>
-              </Card>
+              <View style={{
+                position: 'relative',
+                justifyContent: 'center'
+              }}>
+                <Text style={styles.textFrame4}>{t('device-name')}</Text>
 
+                <TextInput
+                  placeholder="ATM - 1208323582"
+
+                  onFocus={() => setActiveInput('device-name')}
+
+                  style={{
+
+                    padding: 8,
+
+                    backgroundColor: Colors.white,
+                    borderRadius: 8,
+                    
+
+                    paddingVertical: 8,
+                    borderWidth: 2,
+                    borderColor: activeInput == "device-name" ? Colors.blue : Colors.white
+                  }} />
+              </View>
+              <View  style={{
+                position: 'relative',
+                justifyContent: 'center'
+              }}>
+                <Text style={styles.textFrame3}>{t('sim')}</Text>
+                <TextInput
+                  placeholder="0904025252"
+
+                  onFocus={() => setActiveInput('sim')}
+
+                  style={{
+
+                    padding: 8,
+
+                    backgroundColor: Colors.white,
+                    borderRadius: 8,
+
+                    paddingVertical: 8,
+                    borderWidth: 2,
+                    borderColor: activeInput == "sim" ? Colors.blue : Colors.white
+                  }} />
+                <Text style={styles.textFrame2}>{t('place-bottomsheet')}:</Text>
+              </View>
+              <View  style={{
+                position: 'relative',
+                justifyContent: 'center'
+              }}>
+                <TextInput
+                  placeholder="86/33 Âu Cơ, phường 9, quận Tân Bình, TP.HCM"
+
+                  onFocus={() => setActiveInput('place-bottomsheet')}
+
+                  style={{
+
+                    padding: SIZES.base,
+                            backgroundColor: Colors.white,
+                            borderRadius: 5,
+                            paddingVertical: SIZES.base*1.5,
+                            borderWidth: 1.5,
+                    borderColor: activeInput == "place-bottomsheet" ? Colors.blue : Colors.white,
+                    marginBottom:'30%'
+                  }} />
+              </View>
             </RBSheet>
 
 
@@ -301,22 +335,22 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     margin: 10,
   },
-  textFrame1:{
+  textFrame1: {
     ...FONTS.h8
   },
- 
+
   textFrame2: {
     marginRight: '70%',
     padding: 8,
     ...FONTS.h8,
 
   },
-  textFrame3:{
+  textFrame3: {
     marginRight: '75%',
     padding: 8,
     ...FONTS.h8,
   },
-  textFrame4:{
+  textFrame4: {
     marginRight: '65%',
     padding: 8,
     ...FONTS.h8,
@@ -347,12 +381,12 @@ const styles = StyleSheet.create({
   },
   textContent: {
     ...FONTS.h10
-     
+
 
   },
   viewItem: {
     flexDirection: 'row',
-    marginBottom: 20,
+    
     width: "100%"
   },
   viewDc: {
@@ -363,25 +397,28 @@ const styles = StyleSheet.create({
 
     backgroundColor: '#EAF5FA',
     borderWidth: 1,
-    borderColor:'#ACBCD1'
+    borderColor: '#ACBCD1',
+    
+    
 
   },
   card2: {
 
     borderWidth: 1,
     marginBottom: '30%',
-    borderColor:'#ACBCD1'
+    borderColor: '#ACBCD1'
 
 
   },
-  card4:{
+  card4: {
     borderWidth: 1,
-    borderColor:'#ACBCD1'
-    
+    borderColor: '#ACBCD1',
+
+
   },
-  card3:{
+  card3: {
     borderWidth: 1,
-    borderColor:'#ACBCD1'
+    borderColor: '#ACBCD1'
   },
   Toolbar: {
     justifyContent: 'center',
@@ -505,7 +542,7 @@ const styles = StyleSheet.create({
     flex: 1,
     width: '50%',
     margin: 10,
-    marginTop: '140%'
+    marginTop: '130%'
 
 
   },
@@ -530,7 +567,7 @@ const styles = StyleSheet.create({
     margin: 10,
     backgroundColor: Colors.blue,
     borderRadius: 8,
-    marginTop: '140%'
+    marginTop: '130%'
   },
   inputupdate: {
     height: 40,

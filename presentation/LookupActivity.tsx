@@ -19,9 +19,16 @@ import { useTranslation } from 'react-i18next';
 import Colors from '../constants/Colors';
 import ToolBar from '../components/UI/ToolBar';
 import FONTS  from '../constants/Fonts';
-import { RNNDrawer } from "react-native-navigation-drawer-extension";
-import { Navigation } from "react-native-navigation";
+import 'react-native-gesture-handler';
+import { createDrawerNavigator } from '@react-navigation/drawer';
+import CaiDat from './SettingActivity';
+import { NavigationContainer } from '@react-navigation/native';
+import HomeScreen from '../screens/HomeScreen';
 
+
+
+
+const Drawer = createDrawerNavigator();
 
 const lookup  = ({navigation}) => {
   
@@ -38,21 +45,30 @@ const lookup  = ({navigation}) => {
   const [Loai, setLoai] = useState();
 
   return (
+   
+    
     <SafeAreaView style={styles.container}>
+
+
+            <Drawer.Navigator>
+              <Drawer.Screen name="Device" component={HomeScreen}/>
+            </Drawer.Navigator>
        <ToolBar>
          <View style={{flex:1,marginVertical:20,flexDirection:'row',}}> 
-          <TouchableOpacity style={styles.btnBack} onPress={() => navigation.goBack()}>
-            <FontAwesome name="bars" size={20} color={Colors.blue} />
-
-            
-          </TouchableOpacity>
-          
-
+         
+          <TouchableOpacity style={styles.btnBack} >
+           
+            </TouchableOpacity>
+           
           <View style={{flex:1,justifyContent:'center',alignItems:'center'}}>
-          <Text style={styles.testlookup}>{t('device-lookup')}</Text>
+         
           </View>
+        
           </View>
         </ToolBar>
+        <View style={styles.container}>
+        
+            </View>
       <View style={{flex:1}}>
         <QRCodeScanner
         cameraStyle={{width:250,height:300,marginLeft:10, padding:50}}

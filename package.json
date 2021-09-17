@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@react-native-picker/picker": "^2.1.0",
+    "@react-navigation/drawer": "^6.1.4",
     "@react-navigation/native": "^6.0.2",
     "@react-navigation/native-stack": "^6.1.0",
     "@react-navigation/stack": "^6.0.7",
@@ -33,12 +34,14 @@
     "react-native-popup-dialog": "^0.18.3",
     "react-native-qrcode-scanner": "^1.5.4",
     "react-native-raw-bottom-sheet": "^2.2.0",
+    "react-native-reanimated": "^2.2.2",
     "react-native-safe-area-context": "^3.3.2",
     "react-native-screens": "^3.6.0",
     "react-native-scroll-bottom-sheet": "^0.7.0",
     "react-native-select-dropdown": "^1.1.0",
     "react-native-switch-selector": "^2.1.4",
     "react-native-vector-icons": "^8.1.0",
+    "react-navigation": "^4.4.4",
     "react-redux": "^7.2.5",
     "redux": "^4.1.1"
   },
