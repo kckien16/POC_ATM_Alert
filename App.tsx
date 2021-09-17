@@ -7,7 +7,7 @@ import Lookup from './presentation/LookupActivity';
 import Device from './presentation/DeviceActivity';
 import ThongTinThietBi from './presentation/DeviceInformationActivity';
 import traCuuTB from './presentation/DeviceLookupActivity';
-
+import Forgot from './presentation/ForgotpasswordActivity'
 import {DefaultTheme, NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
@@ -25,7 +25,7 @@ const App =()=>{
            <Stack.Screen name ="Lookup" component={Lookup}  />
            <Stack.Screen name ="Device" component={Device}  />
            <Stack.Screen name ="ThongTinThietBi" component={ThongTinThietBi}  />
-  
+           <Stack.Screen name ="Forgot" component={Forgot}  />
            <Stack.Screen name ="CaiDat" component={CaiDat}  />
            <Stack.Screen name ="traCuuTB" component={traCuuTB}  />
   

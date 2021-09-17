@@ -7,12 +7,16 @@ const Input = props => {
 
 const styles = StyleSheet.create({
     input: {
-        marginTop: 15,
-        backgroundColor: '#FFFF',
+    
+         marginTop:16,
+        backgroundColor: '#FFFFFF',
         borderRadius:8,
+        flexDirection: 'row',
         alignSelf: 'center',
-        height: 44,
         width: 362,
+        height: 44,
+        display:"flex"
+    
     }
 })
 
