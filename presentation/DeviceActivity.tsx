@@ -380,7 +380,7 @@ const styles = StyleSheet.create({
     marginLeft: '14%'
   },
   textContent: {
-    ...FONTS.h10
+    ...FONTS.h2
 
 
   },
@@ -497,7 +497,7 @@ const styles = StyleSheet.create({
     borderColor: Colors.red,
     borderStyle: 'solid',
     borderWidth: 1,
-    height: 40,
+    height: 44,
     backgroundColor: '#FFFF',
     borderRadius: 8,
     justifyContent: 'center',
@@ -570,7 +570,7 @@ const styles = StyleSheet.create({
     marginTop: '130%'
   },
   inputupdate: {
-    height: 40,
+    height: 44,
     borderRadius: 8,
     borderColor: Colors.blue,
     justifyContent: 'center',
