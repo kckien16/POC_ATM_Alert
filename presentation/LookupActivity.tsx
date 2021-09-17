@@ -51,15 +51,13 @@ const lookup  = ({navigation}) => {
     <SafeAreaView style={styles.container}>
 
 
-            <Drawer.Navigator>
-              <Drawer.Screen name="Device" component={HomeScreen}/>
-            </Drawer.Navigator>
+            
        <ToolBar>
          <View style={{flex:1,marginVertical:20,flexDirection:'row',}}> 
          
-          <TouchableOpacity style={styles.btnBack} >
-           
-            </TouchableOpacity>
+         <TouchableOpacity style={styles.btnBack} onPress={() => navigation.goBack()}>
+            <FontAwesome name="angle-left" size={30} color={Colors.blue} />
+          </TouchableOpacity>
            
           <View style={{flex:1,justifyContent:'center',alignItems:'center'}}>
          
@@ -96,14 +94,17 @@ const lookup  = ({navigation}) => {
           placeholder="Nhập IMEI/Seri number"
           value={IMEI}
           onChangeText={value => setIMEI(value)}></TextInput>
-        <TextInput
-          style={styles.textloaiTB}
-          placeholder="Loại thiết bị"
-          value={Loai}
-          onChangeText={value => setLoai(value)}
-          >
-          </TextInput>
-
+       
+          <RNPickerSelect
+              onValueChange={e => i18n.changeLanguage(e)}
+              items={[
+                {label: 'Vietnamese', value: 'vn'},
+                {label: 'English', value: 'en'},
+                
+              ]}
+              
+               >
+                </RNPickerSelect>
       </View>
       
       <TouchableOpacity 

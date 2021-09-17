@@ -7,6 +7,7 @@ import {AppRegistry} from 'react-native';
 
 import App from './App';
 import i18n from './language/i18n';
+import Forgot from './presentation/ForgotpasswordActivity';
 
 // import Splash from './presentation/SplashActivity';
 

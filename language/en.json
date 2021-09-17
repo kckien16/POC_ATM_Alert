@@ -1,7 +1,8 @@
 {
     "translation":{
     "login": "Login",
-    "email": "Email",
+    "Enter the email address link to the account so I can resend the password":"Enter the email address link to the account so I can resend the password",
+    "  email": "Email",
     "password": "Password",
     "forgot-password": "Forgot Password",
     "signup": "Sign up",

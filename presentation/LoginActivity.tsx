@@ -72,8 +72,9 @@ const Login = () => {
                 {label: 'Vietnamese', value: 'vn'},
                 {label: 'English', value: 'en'},
                 
-              ]}>
+              ]}
               
+               >
               <Text style={styles.TextVN}> VNM ▽</Text>
                 </RNPickerSelect>
           </View>
@@ -90,17 +91,20 @@ const Login = () => {
       <Input>
         <TextInput
           value={pass}
-          placeholder={t('password')}
+          placeholder={t('  Password')}
           keyboardType="numeric"
           returnKeyType="next"
           autoFocus={true}
           onChangeText={text => setpass(text)}></TextInput>
       </Input>
 
-      <TouchableOpacity>
+      <TouchableOpacity
+      onPress={() => navigation.navigate('Forgot')}
+          >
         <Text style={styles.textForgot}>{t('forgot-password')}</Text>
       </TouchableOpacity>
-
+      
+      
       <TouchableOpacity
         style={styles.buttonLogin}
         onPress={() => checkLogin(email, pass)}>
@@ -117,11 +121,10 @@ const styles = StyleSheet.create({
   },
 
   text: {
-    fontSize: 25,
-    fontWeight: 'bold',
+   ...Fonts.h8,
     textAlign: 'center',
-    paddingTop: 100,
-    paddingBottom: 40,
+  marginTop:103,
+  marginBottom:63,
   },
   logocontainer: {
     flexDirection: 'row',
@@ -133,7 +136,6 @@ const styles = StyleSheet.create({
   },
   imageVN: {
     width: 16,
-    
     height: 16,
   },
   TextVN: {
@@ -155,23 +157,23 @@ const styles = StyleSheet.create({
   buttonLogin: {
     backgroundColor: Colors.blue,
     height: 44,
-    marginTop: 60,
-    borderRadius: 10,
+    marginTop: 62,
+    borderRadius: 8,
+    padding:12,
     justifyContent: 'center',
     alignItems: 'center',
     width: 362,
     alignSelf: 'center',
   },
   buttonLoginText: {
-    color: Colors.white,
-    fontWeight: 'bold',
+    ...Fonts.h10,
+   position:"relative"
   },
-
   textForgot: {
-    color: Colors.blue,
+    ...Fonts.h9,
     textAlign: 'right',
     marginRight: 20,
-    marginTop: 20,
+    marginTop: 12,
     textDecorationLine: 'underline',
   },
 });
