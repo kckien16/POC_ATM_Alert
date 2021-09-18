@@ -1,108 +1,110 @@
-
-  
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import {
   Text,
   View,
   StyleSheet,
-  TextInput,
   TouchableOpacity,
   Image,
-  ColorValue,
-  StatusBar,
-  SafeAreaView,
-  ToastAndroid,
-  Alert,
 } from 'react-native';
-import {StackActions, useNavigation} from '@react-navigation/native';
-import SwitchSelector from 'react-native-switch-selector';
+import { StackActions, useNavigation } from '@react-navigation/native';
 
-import Card from '../components/UI/Card';
-import Button from '../components/UI/Button';
 import Colors from '../constants/Colors';
 import Input from '../components/UI/Input';
-import {useTranslation} from 'react-i18next';
+import InputText from '../components/UI/InputText';
+import { useTranslation } from 'react-i18next';
+
+import { Formik } from 'formik';
+import * as yup from 'yup';
 
 import RNPickerSelect from 'react-native-picker-select';
+import Fonts from '../constants/Fonts';
 
-const options = [
-  {label: 'English', value: 'en'},
-  {label: 'VietNamese', value: 'vn'},
-];
+const loginValidSchema = yup.object().shape({
+  email: yup.string().email('Please enter valid email')
+  .required('Email address is required')
+  .matches(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i, 'Email is required!!!'),
+  pass: yup.string().min(8, ({ min }) => `Please musty be at least ${min} character`)
+    .required('Password is required')
+    .matches(/[a-zA-Z]/, 'Password can only contain Latin letters.'),
+});
+
 
 const Login = () => {
-  const [email, setemail] = useState();
-  const [pass, setpass] = useState();
+
+  
   const navigation = useNavigation();
 
-  const {t, i18n} = useTranslation();
+  const { t, i18n } = useTranslation();
 
-  const checkLogin = (email: string, pass: string) => {
-    if (email == '1' && pass == '1') {
-      navigation.navigate('Lookup');
-      ToastAndroid.show('Login success', ToastAndroid.SHORT);
-    } else {
-      ToastAndroid.show('Xem lai email or pass', ToastAndroid.SHORT);
-    }
-  };
+
   return (
-    <SafeAreaView style={styles.container}>
-      <View></View>
-
-      <View style={styles.logocontainer}>
-        <Image style={styles.Logo} source={require('../images/youtube.png')} />
-
-        <View
-          style={{
-            flex: 2,
-            padding: 7,
-            alignItems: 'flex-end',
-          }}>
-          <View style={styles.LanguageVN}>
-            <RNPickerSelect
-              onValueChange={e => i18n.changeLanguage(e)}
-              items={[
-                {label: 'Vietnamese', value: 'vn'},
-                {label: 'English', value: 'en'},
-              ]}>
-              <Image
-                style={styles.imageVN}
-                source={require('../images/vietnam.png')}
-              />
-              <Text style={styles.TextVN}> VNM </Text>
-            </RNPickerSelect>
+    <Formik
+      initialValues={{ email: '', pass: '' }}
+      validateOnMount={true}
+      onSubmit={values => navigation.navigate("Lookup")}
+      validationSchema={loginValidSchema}
+    >
+      {({ handleChange, handleBlur, handleSubmit, values, touched, errors }) => (
+        <View style={styles.container}>
+          
+          <View style={styles.logocontainer}>
+            <Image style={styles.Logo} source={require('../images/youtube.png')} />
+            <View
+              style={{
+                flex: 2,
+                padding: 7,
+                alignItems: 'flex-end',
+              }}>
+              <View style={styles.LanguageVN}>
+                <RNPickerSelect
+                  onValueChange={e => i18n.changeLanguage(e)}
+                  items={[
+                    { label: 'Vietnamese', value: 'vn' },
+                    { label: 'English', value: 'en' },
+                  ]}>
+                  <Image
+                    style={styles.imageVN}
+                    source={require('../images/vietnam.jpg')}
+                  />
+                  <Text style={styles.TextVN}> VNM </Text>
+                </RNPickerSelect>
+              </View>
+            </View>
           </View>
+          <Text style={styles.text}>{t('login')}</Text>
+          
+          <InputText placeholder={t('email')}
+            onChangeText={handleChange('email')}
+            onBlur={handleBlur('email')}
+            value={values.email}
+            error={errors.email}
+            >
+          </InputText>
+          {(errors.email && touched.email)&&<Text style={styles.error}>{errors.email}</Text>}
+
+          <InputText placeholder={t('password')}
+            onChangeText={handleChange('pass')}
+            onBlur={handleBlur('pass')}
+            value={values.pass}
+            secureTextEntry
+            error={errors.pass}
+            >
+          </InputText>
+          {(errors.pass && touched.pass)&&<Text style={styles.error}>{errors.pass}</Text>}
+
+          <TouchableOpacity>
+            <Text style={styles.textForgot}>{t('forgot-password')}</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            style={styles.buttonLogin}
+            onPress={handleSubmit}
+          >
+            <Text style={styles.buttonLoginText}>{t('signup')}</Text>
+          </TouchableOpacity>
         </View>
-      </View>
-      <Text style={styles.text}>{t('login')}</Text>
-      <Input>
-        <TextInput
-          value={email}
-          placeholder={t('email')}
-          onChangeText={text => setemail(text)}></TextInput>
-      </Input>
-
-      <Input>
-        <TextInput
-          value={pass}
-          placeholder={t('password')}
-          keyboardType="numeric"
-          returnKeyType="next"
-          autoFocus={true}
-          onChangeText={text => setpass(text)}></TextInput>
-      </Input>
-
-      <TouchableOpacity>
-        <Text style={styles.textForgot}>{t('forgot-password')}</Text>
-      </TouchableOpacity>
-
-      <TouchableOpacity
-        style={styles.buttonLogin}
-        onPress={() => checkLogin(email, pass)}>
-        <Text style={styles.buttonLoginText}>{t('signup')}</Text>
-      </TouchableOpacity>
-    </SafeAreaView>
-  );
+      )}</Formik>
+    );
 };
 
 const styles = StyleSheet.create({
@@ -166,5 +168,14 @@ const styles = StyleSheet.create({
     marginTop: 20,
     textDecorationLine: 'underline',
   },
+  error:{
+    ...Fonts.h8,
+    marginTop:5,
+    marginLeft:"10%"
+  },
+  errors:{
+    borderWidth:1,
+    borderColor:Colors.red
+  }
 });
 export default Login;

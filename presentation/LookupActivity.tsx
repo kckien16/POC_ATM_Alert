@@ -13,42 +13,36 @@ import {
 
 import Input from '../components/UI/Input';
 import QRCodeScanner from 'react-native-qrcode-scanner';
-import { RNCamera } from 'react-native-camera';
-import { useTranslation } from 'react-i18next';
+import {RNCamera} from 'react-native-camera';
+import {useTranslation} from 'react-i18next';
 import Colors from '../constants/Colors';
 
-const lookup  = ({navigation}) => {
-  const onSuccess = (e: { data: string; }) => {
-    Linking.openURL(e.data).catch(err =>
-      Alert.alert('An error occured', err)
-    );
-    
+const lookup = ({navigation}) => {
+  const onSuccess = (e: {data: string}) => {
+    Linking.openURL(e.data).catch(err => Alert.alert('An error occured', err));
   };
 
-  const{t,i18n} = useTranslation();
+  const {t, i18n} = useTranslation();
 
   const [IMEI, setIMEI] = useState();
   const [Loai, setLoai] = useState();
 
   return (
     <SafeAreaView style={styles.container}>
-      <View style={{width:"100%", height:"30%"}}>
-        <QRCodeScanner
-        containerStyle={{backgroundColor:"#FFF"}}
+      <QRCodeScanner
+        containerStyle={{backgroundColor: '#FFF'}}
         onRead={onSuccess}
         reactivate={true}
         permissionDialogMessage="Need Pre"
         reactivateTimeout={10}
         showMarker={true}
-        markerStyle={{borderColor:"FFF",borderRadius:10}}
+        markerStyle={{borderColor: 'FFF', borderRadius: 10}}
       />
-      </View>
-      <View style={{alignItems:'center',marginTop:"45%"}}>
+
+      <View style={{alignItems: 'center', marginTop: '45%'}}>
         <Text>Hoặc</Text>
       </View>
-      <View 
-        style={styles.inputIMEI}
-        >
+      <View style={styles.inputIMEI}>
         <TextInput
           style={styles.textIMEI}
           placeholder="Nhập IMEI/Seri number"
@@ -60,18 +54,16 @@ const lookup  = ({navigation}) => {
           value={Loai}
           onChangeText={value => setLoai(value)}></TextInput>
       </View>
-      
-      <TouchableOpacity 
-      style={styles.inputTC}
+
+      <TouchableOpacity
+        style={styles.inputTC}
         onPress={() => {
           navigation.navigate('Device', {
             IMEI: IMEI,
             Loai: Loai,
           });
         }}>
-        <Text 
-        style={{
-        }}>{t("device")}</Text>
+        <Text style={{}}>{t('device')}</Text>
       </TouchableOpacity>
     </SafeAreaView>
   );
@@ -79,40 +71,37 @@ const lookup  = ({navigation}) => {
 export default lookup;
 
 const styles = StyleSheet.create({
-
-  container:{
+  container: {
     flex: 1,
-     backgroundColor: Colors.background
-
+    backgroundColor: Colors.background,
+    width: '100%',
   },
   centerText: {
     flex: 1,
     fontSize: 18,
     padding: 32,
-    color: '#777'
+    color: '#777',
   },
   textBold: {
     fontWeight: '500',
-    color: Colors.black
+    color: Colors.black,
   },
   buttonText: {
     fontSize: 21,
     // color: 'rgb(0,122,255)',
-    marginTop:20,
-
+    marginTop: 20,
   },
   buttonTouchable: {
-    padding: 16
+    padding: 16,
   },
-  inputIMEI:{
+  inputIMEI: {
     borderTopLeftRadius: 30,
     borderTopRightRadius: 30,
     paddingVertical: 30,
     paddingHorizontal: 20,
     backgroundColor: Colors.background,
   },
-  textIMEI:{
-          
+  textIMEI: {
     marginTop: 35,
     borderWidth: 1,
     width: '100%',
@@ -120,9 +109,9 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     borderColor: Colors.white,
     backgroundColor: Colors.white,
-    color: Colors.grey
+    color: Colors.grey,
   },
-  textloaiTB:{
+  textloaiTB: {
     padding: 10,
     marginTop: 35,
     borderWidth: 1,
@@ -131,16 +120,15 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     borderColor: Colors.white,
     backgroundColor: Colors.white,
-    color: Colors.grey
+    color: Colors.grey,
   },
-  inputTC:{
-    width:'90%',
-    backgroundColor:Colors.blue,
-    height:50,
-   borderRadius:20,
-   alignItems:'center',
-   marginLeft:20,
-   justifyContent:'center'
-  }
-
-})
+  inputTC: {
+    width: '90%',
+    backgroundColor: Colors.blue,
+    height: 50,
+    borderRadius: 20,
+    alignItems: 'center',
+    marginLeft: 20,
+    justifyContent: 'center',
+  },
+});

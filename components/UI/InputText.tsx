@@ -1,31 +1,52 @@
-import React, { FC } from 'react'
-import { StyleSheet, View } from 'react-native'
-import { TextInput } from 'react-native-gesture-handler';
-import Colors from '../../constants/Colors';
-interface Props {
-    onChangeText:(text:string)=>void;
-}
+import React from 'react'
+import { StyleSheet, Text, TextInput, View } from 'react-native'
+import Colors from '../../constants/Colors'
 
-const Input:FC<Props> = (props) => {
-    return <View style={styles.container}>
-        <TextInput style={styles.input}
-        onChangeText={props.onChangeText}></TextInput>
-    </View>;
+interface Props {
+  onChangeText:(text:string)=>void;
+    placeholder: any;
+    value: any;
+    onBlur: any;
+    secureTextEntry: any;
+  }
+export default function LoginInput({error,...ortherProps}){
+    const validationColor = ()=>{
+        if (error) {
+            return Colors.red
+        }else{
+            return Colors.blue
+        }
+    };
+
+    return(
+        <View style={styles.container}>
+        <TextInput
+          style={{...styles.input, borderWidth:1,borderColor:validationColor()
+          }}
+          {...ortherProps}
+          ></TextInput>
+    </View>
+    )
+
 }
 
 const styles = StyleSheet.create({
-    container:{
-        width:"100%",
-        paddingLeft:10,
-        paddingRight:10
-    },
-    input: {
-        backgroundColor: Colors.whitee,
-        borderRadius:8,
-        height: 40,
-        width: "100%",
-        paddingLeft:10
-    }
+    container: {
+        width: '100%',
+        paddingLeft: 10,
+        paddingRight: 10,
+      },
+      input: {
+        marginTop: 15,
+        backgroundColor: '#FFFF',
+        borderRadius: 8,
+        alignSelf: 'center',
+        height: 44,
+        width: '89%',
+        paddingLeft: 10,
+      },
+      errorInput:{
+        borderWidth:1,
+        borderColor:Colors.red
+      }
 })
-
-export default Input
