@@ -10,12 +10,17 @@ import {
   Linking,
   Alert,
 } from 'react-native';
+import FontAwesome from 'react-native-vector-icons/FontAwesome'
 
 import Input from '../components/UI/Input';
 import QRCodeScanner from 'react-native-qrcode-scanner';
 import {RNCamera} from 'react-native-camera';
 import {useTranslation} from 'react-i18next';
 import Colors from '../constants/Colors';
+import ToolBar from '../components/UI/ToolBar';
+import FONTS  from '../constants/Fonts';
+import RNPickerSelect from 'react-native-picker-select';
+
 
 const lookup = ({navigation}) => {
   const onSuccess = (e: {data: string}) => {
@@ -48,11 +53,20 @@ const lookup = ({navigation}) => {
           placeholder="Nhập IMEI/Seri number"
           value={IMEI}
           onChangeText={value => setIMEI(value)}></TextInput>
-        <TextInput
-          style={styles.textloaiTB}
-          placeholder="Loại thiết bị"
-          value={Loai}
-          onChangeText={value => setLoai(value)}></TextInput>
+         <View style={styles.dropdown}>
+          <RNPickerSelect
+          onValueChange={e => i18n.changeLanguage(e)}
+          items={[
+            {label: 'Thiết bị cảnh báo dành cho máy ATM', value: 'xxx'},
+            {label: 'Thiết bị cảnh báo dành cho phòng giao dịch', value: 'xxx'},
+            
+          ]}
+          
+           >
+          <Text style={styles.Textlookup}>  Loại thiết bị                                                              ▽
+          </Text>
+            </RNPickerSelect>
+            </View>
       </View>
 
       <TouchableOpacity
@@ -75,6 +89,36 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: Colors.background,
     width: '100%',
+  },
+  dropdown:{
+marginTop:10,
+width:'100%',
+height:40,
+borderRadius:8,
+justifyContent:'center',
+
+backgroundColor: Colors.white,
+  },
+  testlookup: {
+    fontSize:16,
+    fontWeight:'800',
+    lineHeight:20,
+    color:'#091F3A'
+    
+  },
+  btnBack:{
+    
+    marginLeft:26
+  },
+  textQR:{
+   fontSize:14,
+   lineHeight:20,
+   
+ 
+  },
+  textor:{
+    marginTop:20,
+    ...FONTS.h2
   },
   centerText: {
     flex: 1,
@@ -105,7 +149,7 @@ const styles = StyleSheet.create({
     marginTop: 35,
     borderWidth: 1,
     width: '100%',
-    height: 50,
+    height: 44,
     borderRadius: 10,
     borderColor: Colors.white,
     backgroundColor: Colors.white,
@@ -113,10 +157,10 @@ const styles = StyleSheet.create({
   },
   textloaiTB: {
     padding: 10,
-    marginTop: 35,
+    marginTop: 20,
     borderWidth: 1,
     width: '100%',
-    height: 50,
+    height: 44,
     borderRadius: 10,
     borderColor: Colors.white,
     backgroundColor: Colors.white,

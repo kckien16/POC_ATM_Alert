@@ -1,6 +1,9 @@
-import React from 'react';
+import React  from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import { useTranslation } from 'react-i18next';
+import FONTS  from '../../constants/Fonts';
+
+
 
 const InformationItem = props => {
   const{t,i18n} = useTranslation();
@@ -8,31 +11,41 @@ const InformationItem = props => {
     <View >
       <View style={styles.viewItem}>
         <View style={{flex: 2}}>
-          <Text style={styles.titles}>{t("imei")}:</Text>
+          <Text style={styles.titles}>{t("imei")}</Text>
         </View>
         <View style={{flex: 3}}>
-          <Text style={styles.title}>{props.imei}:</Text>
+          <Text style={styles.title}>{props.imei}</Text>
         </View>
       </View>
       <View style={styles.viewItem}>
         <View style={{flex: 2}}>
-          <Text style={styles.titles}>{t("sim")}:</Text>
+          <Text style={styles.titles}>{t("sim")}</Text>
         </View>
         <View style={{flex: 3}}>
           <Text style={styles.title}>{props.sim}</Text>
         </View>
-      </View>
-      <View style={styles.viewItem}>
+</View>
+
+       <View style={styles.viewItem}>
         <View style={{flex: 2}}>
-          <Text style={styles.titles}>{t("type-of-device")}:</Text>
+          <Text style={styles.titles}>{t("status")}</Text>
         </View>
         <View style={{flex: 3}}>
-          <Text style={styles.title}>{props.loaiTB}:</Text>
+          <Text style={styles.title}>{props.tinhTrang}</Text>
+        </View>
+      </View>
+
+      <View style={styles.viewItem}>
+        <View style={{flex: 2}}>
+          <Text style={styles.titles}>{t("type-of-device")}</Text>
+        </View>
+        <View style={{flex: 3}}>
+          <Text style={styles.title}>{props.loaiTB}</Text>
         </View>
       </View>
       <View style={styles.viewItem}>
         <View style={{flex: 2}}>
-          <Text style={styles.titles}>{t("device-name")}:</Text>
+          <Text style={styles.titles}>{t("device-name")}</Text>
         </View>
         <View style={{flex: 3}}>
           <Text style={styles.title}>{props.tenTB}</Text>
@@ -40,7 +53,7 @@ const InformationItem = props => {
       </View>
       <View style={styles.viewItem}>
         <View style={{flex: 2}}>
-          <Text style={styles.titles}>{t("place")}:</Text>
+          <Text style={styles.titles}>{t("place")}</Text>
         </View>
         <View style={{flex: 3}}>
           <Text style={styles.title}>{props.diaChi}</Text>
@@ -48,12 +61,22 @@ const InformationItem = props => {
       </View>
       <View style={styles.viewItem}>
         <View style={{flex: 2}}>
-          <Text style={styles.titles}>{t("activation-date")}:</Text>
+          <Text style={styles.titles}>{t("activation-date")}</Text>
         </View>
         <View style={{flex: 3}}>
           <Text style={styles.title}>{props.ngayKH}</Text>
         </View>
       </View>
+
+      <View style={styles.viewItem}>
+        <View style={{flex: 2}}>
+          <Text style={styles.titles}>{t("connection")}</Text>
+        </View>
+        <View style={{flex: 3}}>
+          <Text style={styles.title}>{props.ketnoi}</Text>
+        </View>
+   </View>
+  
     </View>
   );
 };
@@ -65,18 +88,18 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontWeight:'bold',
     fontFamily:"Mulish",
-    color:"#091F3A",
-    opacity:.8,
+    color:"#114A69",
+    opacity:0.8,
+  
     
     
   },
   title: {
-    fontSize: 16,
+    
     width: 179,
-    fontWeight: '400',
     opacity:.5,
     left:"15%",
-    
+    ...FONTS.h4
   },
   viewItem: {
     flexDirection: 'row',

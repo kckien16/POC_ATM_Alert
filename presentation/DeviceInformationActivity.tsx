@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import {
   FlatList,
   ScrollView,
@@ -8,14 +8,14 @@ import {
   TextInput,
   TouchableOpacity,
   View,
-  
+
 } from 'react-native';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
-import {TT, ThongTin} from '../data/ThongTinTB';
-import {SDT, SDT_KC} from '../data/SDT_KC';
-import {Nhan, SDT_Nhan} from '../data/SDT_Nhan';
-import {Gui, SDT_GuiTN} from '../data/SDT_GuiTN';
-import {Warning, Warnings} from '../data/Warning';
+import { TT, ThongTin } from '../data/ThongTinTB';
+import { SDT, SDT_KC } from '../data/SDT_KC';
+import { Nhan, SDT_Nhan } from '../data/SDT_Nhan';
+import { Gui, SDT_GuiTN } from '../data/SDT_GuiTN';
+import { Warning, Warnings } from '../data/Warning';
 
 import Card from '../components/UI/Card';
 import ToolBar from '../components/UI/ToolBar';
@@ -28,12 +28,12 @@ import WarningItem from '../components/atm/WarningItem';
 import Button from '../components/UI/Button';
 import { useTranslation } from 'react-i18next';
 
-import FONTS  from '../constants/Fonts';
+import FONTS from '../constants/Fonts';
 
 
 
-const Information = ({navigation}) => {
-  const{t,i18n}=useTranslation()
+const Information = ({ navigation }) => {
+  const { t, i18n } = useTranslation()
 
   return (
     <View>
@@ -46,11 +46,11 @@ const Information = ({navigation}) => {
           </TouchableOpacity>
           <Text style={styles.textToolBar}>{t('device-information')}</Text>
           <TouchableOpacity
-           onPress={() => navigation.navigate('CaiDat')}
+            onPress={() => navigation.navigate('CaiDat')}
           >
-           
-          <Text style={styles.textRToolBar}>{t('edit')}</Text>
-         
+
+            <Text style={styles.textRToolBar}>{t('edit')}</Text>
+
           </TouchableOpacity>
         </ToolBar>
       </View>
@@ -59,7 +59,7 @@ const Information = ({navigation}) => {
           <Card>
             <FlatList
               data={ThongTin}
-              renderItem={({item}) => (
+              renderItem={({ item }) => (
                 <InformationItem
                   imei={item.imei}
                   sim={item.sim}
@@ -76,47 +76,45 @@ const Information = ({navigation}) => {
 
         <View style={styles.view}>
           <Card>
-            <Text >{t("emergency-number")}</Text>
+            <Text style={styles.settingText}>{t("emergency-number")}</Text>
             <FlatList
               data={SDT_Nhan}
-              renderItem={({item}) => <Receiving phone_receiving={item.sdt} />}
+              renderItem={({ item }) => <Receiving phone_receiving={item.sdt} />}
             />
-            <Text style={styles.br}>
-              ________________________________________________
-            </Text>
-            
-           
+
+
+
           </Card>
         </View>
 
         <View style={styles.view}>
           <Card>
-            <Text >{t("phone-number-to-receive-calls")}</Text>
+            <Text style={styles.settingText} >{t("phone-number-to-receive-calls")}</Text>
             <FlatList
               data={SDT_Nhan}
-              renderItem={({item}) => <Receiving phone_receiving={item.sdt} />}
+              renderItem={({ item }) => <Receiving phone_receiving={item.sdt} />}
             />
-            
+
           </Card>
         </View>
 
         <View style={styles.view}>
           <Card>
-            <Text >{t("phone-number-to-send-the-message")}</Text>
+            <Text style={styles.settingText}>{t("phone-number-to-send-the-message")}</Text>
             <FlatList
               data={SDT_Nhan}
-              renderItem={({item}) => <Receiving phone_receiving={item.sdt} />}
+              renderItem={({ item }) => <Receiving phone_receiving={item.sdt} />}
             />
-            
-            
+
+
           </Card>
         </View>
 
         <Text style={styles.titles}>{t("alarm-threshold-setting")}</Text>
-        <View style={{flex: 1}}>
+        <View style={{ flex: 1 }}>
           <FlatList
             data={Warnings}
-            renderItem={({item}) => (
+            renderItem={({ item }) => (
               <WarningItem
                 rung={item.rung}
                 roDien={item.roDien}
@@ -128,7 +126,7 @@ const Information = ({navigation}) => {
           />
         </View>
         <View style={styles.viewBtnSave}>
-        
+
         </View>
       </ScrollView>
     </View>
@@ -139,22 +137,27 @@ export default Information;
 
 const styles = StyleSheet.create({
   back: {
-    height:32,
-    marginTop:18,
-    marginLeft:26
+    height: 32,
+    marginTop: 18,
+    marginLeft: 26
   },
   textToolBar: {
-    marginTop:25,
-    marginLeft:10,
-    marginBottom:12,
-    alignItems:"center",
+    marginTop: 25,
+    marginLeft: 10,
+    marginBottom: 12,
+    alignItems: "center",
+    ...FONTS.h3,
   },
-  textRToolBar:{
-    marginTop:25,
-    marginLeft:130,
-    marginBottom:12,
-    ...FONTS.h7,
+  settingText: {
+    ...FONTS.h13
   },
+  textRToolBar: {
+    marginTop: '10%',
+    marginLeft: '50%',
+
+    ...FONTS.h9,
+  },
+
   scrollView: {
     backgroundColor: Colors.background,
     width: '100%',
@@ -162,41 +165,33 @@ const styles = StyleSheet.create({
   view: {
     alignItems: 'center',
     justifyContent: 'center',
-    marginTop:20,
-   
-  },
-  viewPhone:{
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginTop:12,
-  },
-  titles: {
-    height:20,
-    marginTop:32,
-    marginLeft:26,
-    fontWeight:'bold',
-    color:'#091F3A'
+    marginTop: 20,
 
   },
- 
-  br: {
-    opacity:0.3,
-    width:"100%",
-  },
-  btnAddView: {
-    marginLeft:2,
-    marginBottom: 10,
-    flexDirection: 'row',
+  viewPhone: {
     alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: 12,
   },
+  titles: {
+    height: 20,
+    marginTop: 32,
+    marginLeft: 26,
+    fontWeight: 'bold',
+    color: '#091F3A'
+
+  },
+
+
+
 
 
   viewBtnSave: {
     marginTop: 24,
-    marginLeft:20,
-    marginRight:20,
-    marginBottom:30,
+    marginLeft: 20,
+    marginRight: 20,
+    marginBottom: 30,
     height: 100,
   },
-  
+
 });

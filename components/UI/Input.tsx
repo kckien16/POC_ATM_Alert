@@ -28,6 +28,7 @@ const Input: FC<Props> = props => {
 };
 
 const styles = StyleSheet.create({
+<<<<<<< HEAD
   container: {
     width: '100%',
     paddingLeft: 10,
@@ -47,5 +48,20 @@ const styles = StyleSheet.create({
     borderColor:Colors.red
   }
 });
+=======
+    input: {
+    
+         marginTop:16,
+        backgroundColor: '#FFFFFF',
+        borderRadius:8,
+        flexDirection: 'row',
+        alignSelf: 'center',
+        width: 362,
+        height: 44,
+        display:"flex"
+    
+    }
+})
+>>>>>>> 58855e8938a6181f9ae40e6751a540dd09e264d7
 
 export default Input;

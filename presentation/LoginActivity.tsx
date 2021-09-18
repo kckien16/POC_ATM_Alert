@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 import React, { useState } from 'react';
+=======
+
+import React, {useState} from 'react';
+>>>>>>> 58855e8938a6181f9ae40e6751a540dd09e264d7
 import {
   Text,
   View,
@@ -114,11 +119,10 @@ const styles = StyleSheet.create({
   },
 
   text: {
-    fontSize: 25,
-    fontWeight: 'bold',
+   ...Fonts.h8,
     textAlign: 'center',
-    paddingTop: 100,
-    paddingBottom: 40,
+  marginTop:103,
+  marginBottom:63,
   },
   logocontainer: {
     flexDirection: 'row',
@@ -129,43 +133,45 @@ const styles = StyleSheet.create({
     height: 40,
   },
   imageVN: {
-    width: 25,
-    height: 25,
+    width: 16,
+    height: 16,
   },
   TextVN: {
-    color: 'blue',
     alignSelf: 'center',
-    fontWeight: 'bold',
-    fontSize: 10,
+    display: 'flex',
+   ...Fonts.h5,
   },
   LanguageVN: {
+   justifyContent:'center',
     width: 68,
-    height: 30,
-    borderColor: '#EAF5FA',
-    borderWidth: 0.6,
+    height: 34,
+    opacity: 0.8,
+    borderColor: Colors.blue,
+    borderWidth:0.6,
+    borderRadius:4,
     flexDirection: 'row',
-    justifyContent: 'center',
+    alignItems:'center',
   },
   buttonLogin: {
     backgroundColor: Colors.blue,
     height: 44,
-    marginTop: 60,
-    borderRadius: 10,
+    marginTop: 62,
+    borderRadius: 8,
+    padding:12,
     justifyContent: 'center',
     alignItems: 'center',
     width: 362,
     alignSelf: 'center',
   },
   buttonLoginText: {
-    color: Colors.white,
-    fontWeight: 'bold',
+    ...Fonts.h10,
+   position:"relative"
   },
-
   textForgot: {
-    color: Colors.blue,
+    ...Fonts.h9,
     textAlign: 'right',
     marginRight: 20,
-    marginTop: 20,
+    marginTop: 12,
     textDecorationLine: 'underline',
   },
   error:{
