@@ -155,7 +155,7 @@ const styles = StyleSheet.create({
     marginTop: '10%',
     marginLeft: '50%',
 
-    ...FONTS.h9,
+    ...FONTS.h7,
   },
 
   scrollView: {

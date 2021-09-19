@@ -16,7 +16,7 @@ import InformationLookupItem from '../components/atm/InformationLookupItem';
 import Colors from '../constants/Colors';
 import { useTranslation } from 'react-i18next';
 import RBSheet from "react-native-raw-bottom-sheet";
-import {  SIZES } from '../constants/theme'
+import { SIZES } from '../constants/theme'
 import FONTS from '../constants/Fonts';
 
 
@@ -153,7 +153,7 @@ const Device = ({ navigation }) => {
 
             <RBSheet
               ref={refRBSheet}
-              height={550}
+              height={600}
               closeOnDragDown={true}
               openDuration={250}
               dragFromTopOnly={false}
@@ -163,6 +163,10 @@ const Device = ({ navigation }) => {
 
                 wrapper: {
                   backgroundColor: 'rgba(0,0,0,0.3)',
+                },
+                draggableIcon: {
+                  backgroundColor: "#000",
+                  marginTop:'10%'
                 },
 
                 container: {
@@ -258,21 +262,22 @@ const Device = ({ navigation }) => {
                   style={{
 
                     width: 362,
-                    height:44,
+                    height: 44,
+                    padding: 8,
 
                     backgroundColor: Colors.white,
                     borderRadius: 8,
-                    
+
 
                     paddingVertical: 8,
                     borderWidth: 2,
                     borderColor: activeInput == "device-name" ? Colors.blue : Colors.white
                   }} />
               </View>
-              <View  style={{
+              <View style={{
                 position: 'relative',
                 justifyContent: 'center',
-                
+
               }}>
                 <Text style={styles.textFrame3}>{t('sim')}</Text>
                 <TextInput
@@ -281,24 +286,25 @@ const Device = ({ navigation }) => {
                   onFocus={() => setActiveInput('sim')}
 
                   style={{
-                  
+
                     width: 362,
-                    height:44,
+                    height: 44,
                     backgroundColor: Colors.white,
                     borderRadius: 8,
+                    padding: 8,
 
                     paddingVertical: 8,
                     borderWidth: 2,
                     borderColor: activeInput == "sim" ? Colors.blue : Colors.white
                   }} />
-               
+
               </View>
-              <View  style={{
+              <View style={{
                 position: 'relative',
                 justifyContent: 'center',
-                alignItems:'center',
+                alignItems: 'center',
               }}>
-                 <Text style={styles.textFrame2}>{t('place-bottomsheet')}:</Text>
+                <Text style={styles.textFrame2}>{t('place-bottomsheet')}</Text>
                 <TextInput
                   placeholder="86/33 Âu Cơ, phường 9, quận Tân Bình, TP.HCM"
 
@@ -306,16 +312,17 @@ const Device = ({ navigation }) => {
 
                   style={{
 
-                 
+
 
                     width: 362,
-                    height:100,
-                            backgroundColor: Colors.white,
-                            borderRadius: 8,
-                            paddingVertical: SIZES.base*2.5,
-                            borderWidth: 2,
+                    height: 100,
+                    padding: 8,
+                    backgroundColor: Colors.white,
+                    borderRadius: 8,
+                    paddingVertical: SIZES.base * 2.5,
+                    borderWidth: 2,
                     borderColor: activeInput == "place-bottomsheet" ? Colors.blue : Colors.white,
-                    marginBottom:'35%'
+                    marginBottom: '35%'
                   }} />
               </View>
             </RBSheet>
@@ -340,15 +347,15 @@ const styles = StyleSheet.create({
   },
   flexDirection: {
     flexDirection: "row",
-    margin: 10,
+    padding: 8
   },
   textFrame1: {
     ...FONTS.h12
   },
 
   textFrame2: {
-    
-    marginRight: '56%',
+
+    marginRight: '76%',
     padding: 8,
     ...FONTS.h13
 
@@ -394,7 +401,7 @@ const styles = StyleSheet.create({
   },
   viewItem: {
     flexDirection: 'row',
-    
+
     width: "100%"
   },
   viewDc: {
@@ -406,8 +413,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#EAF5FA',
     borderWidth: 1,
     borderColor: '#ACBCD1',
-    
-    
+
+
 
   },
   card2: {

@@ -1,9 +1,4 @@
-<<<<<<< HEAD
 import React, { useState } from 'react';
-=======
-
-import React, {useState} from 'react';
->>>>>>> 58855e8938a6181f9ae40e6751a540dd09e264d7
 import {
   Text,
   View,
@@ -17,12 +12,14 @@ import Colors from '../constants/Colors';
 import Input from '../components/UI/Input';
 import InputText from '../components/UI/InputText';
 import { useTranslation } from 'react-i18next';
+import RNPickerSelect from 'react-native-picker-select';
+import Fonts from '../constants/Fonts';
+
 
 import { Formik } from 'formik';
 import * as yup from 'yup';
 
-import RNPickerSelect from 'react-native-picker-select';
-import Fonts from '../constants/Fonts';
+
 
 const loginValidSchema = yup.object().shape({
   email: yup.string().email('Please enter valid email')
@@ -98,7 +95,9 @@ const Login = () => {
           {(errors.pass && touched.pass)&&<Text style={styles.error}>{errors.pass}</Text>}
 
           <TouchableOpacity>
-            <Text style={styles.textForgot}>{t('forgot-password')}</Text>
+            <Text
+             onPress={() => navigation.navigate('Forgot')}
+            style={styles.textForgot}>{t('forgot-password')}</Text>
           </TouchableOpacity>
 
           <TouchableOpacity
@@ -119,7 +118,7 @@ const styles = StyleSheet.create({
   },
 
   text: {
-   ...Fonts.h8,
+   ...Fonts.h9,
     textAlign: 'center',
   marginTop:103,
   marginBottom:63,
@@ -164,11 +163,11 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
   },
   buttonLoginText: {
-    ...Fonts.h10,
+    ...Fonts.h1,
    position:"relative"
   },
   textForgot: {
-    ...Fonts.h9,
+    ...Fonts.h7,
     textAlign: 'right',
     marginRight: 20,
     marginTop: 12,
