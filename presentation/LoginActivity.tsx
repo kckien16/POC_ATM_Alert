@@ -37,7 +37,7 @@ const Login = () => {
   const navigation = useNavigation();
 
   const { t, i18n } = useTranslation();
-
+  const [activeInput, setActiveInput] = useState(null);
 
   return (
     <Formik
@@ -86,7 +86,9 @@ const Login = () => {
 
           <InputText placeholder={t('password')}
             onChangeText={handleChange('pass')}
+            onFocus={() => setActiveInput('device-name')}
             onBlur={handleBlur('pass')}
+            
             value={values.pass}
             secureTextEntry
             error={errors.pass}

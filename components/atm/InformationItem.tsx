@@ -8,15 +8,15 @@ const InformationItem = props => {
     <View >
       <View style={styles.viewItem}>
         <View style={{flex: 2}}>
-          <Text style={styles.titles}>{t("imei")}:</Text>
+          <Text style={styles.titles}>{t("imei")}</Text>
         </View>
         <View style={{flex: 3}}>
-          <Text style={styles.title}>{props.imei}:</Text>
+          <Text style={styles.title}>{props.imei}</Text>
         </View>
       </View>
       <View style={styles.viewItem}>
         <View style={{flex: 2}}>
-          <Text style={styles.titles}>{t("sim")}:</Text>
+          <Text style={styles.titles}>{t("sim")}</Text>
         </View>
         <View style={{flex: 3}}>
           <Text style={styles.title}>{props.sim}</Text>
@@ -24,15 +24,15 @@ const InformationItem = props => {
       </View>
       <View style={styles.viewItem}>
         <View style={{flex: 2}}>
-          <Text style={styles.titles}>{t("type-of-device")}:</Text>
+          <Text style={styles.titles}>{t("type-of-device")}</Text>
         </View>
         <View style={{flex: 3}}>
-          <Text style={styles.title}>{props.loaiTB}:</Text>
+          <Text style={styles.title}>{props.loaiTB}</Text>
         </View>
       </View>
       <View style={styles.viewItem}>
         <View style={{flex: 2}}>
-          <Text style={styles.titles}>{t("device-name")}:</Text>
+          <Text style={styles.titles}>{t("device-name")}</Text>
         </View>
         <View style={{flex: 3}}>
           <Text style={styles.title}>{props.tenTB}</Text>
@@ -40,7 +40,7 @@ const InformationItem = props => {
       </View>
       <View style={styles.viewItem}>
         <View style={{flex: 2}}>
-          <Text style={styles.titles}>{t("place")}:</Text>
+          <Text style={styles.titles}>{t("place")}</Text>
         </View>
         <View style={{flex: 3}}>
           <Text style={styles.title}>{props.diaChi}</Text>
@@ -48,7 +48,7 @@ const InformationItem = props => {
       </View>
       <View style={styles.viewItem}>
         <View style={{flex: 2}}>
-          <Text style={styles.titles}>{t("activation-date")}:</Text>
+          <Text style={styles.titles}>{t("activation-date")}</Text>
         </View>
         <View style={{flex: 3}}>
           <Text style={styles.title}>{props.ngayKH}</Text>
