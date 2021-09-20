@@ -350,28 +350,28 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontWeight: '400',
     opacity: 0.5,
-    marginLeft: '37%',
+    marginLeft: '40%',
   },
   textContentLTB: {
     fontSize: 14,
     width: 150,
     fontWeight: '400',
     opacity: 0.5,
-    marginLeft: '14%',
+    marginLeft: '25%',
   },
   textContentNKH: {
     fontSize: 14,
     width: 179,
     fontWeight: '400',
     opacity: 0.5,
-    marginLeft: '14%',
+    marginLeft: '19%',
   },
   textContent: {
     ...FONTS.h2,
   },
   viewItem: {
     flexDirection: 'row',
-    width: '95%',
+    width: '101%',
   },
   card: {
     marginTop:110,

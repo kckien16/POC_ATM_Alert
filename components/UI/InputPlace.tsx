@@ -35,14 +35,14 @@ const styles = StyleSheet.create({
         width: '100%',
         paddingLeft: 10,
         paddingRight: 10,
-        marginLeft:"5%"
+        alignItems:"center"
       },
       input: {
         marginTop:10,
         backgroundColor: '#FFFF',
         borderRadius: 8,
         height:"50%",
-        width: '89%',
+        width: '95%',
         paddingLeft: 10,
       },
       errorInput:{
