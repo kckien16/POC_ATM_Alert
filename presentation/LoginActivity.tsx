@@ -1,9 +1,4 @@
-<<<<<<< HEAD
 import React, { useState } from 'react';
-=======
-
-import React, {useState} from 'react';
->>>>>>> 58855e8938a6181f9ae40e6751a540dd09e264d7
 import {
   Text,
   View,
@@ -98,7 +93,7 @@ const Login = () => {
           {(errors.pass && touched.pass)&&<Text style={styles.error}>{errors.pass}</Text>}
 
           <TouchableOpacity>
-            <Text style={styles.textForgot}>{t('forgot-password')}</Text>
+            <Text style={styles.textForgot} onPress={() => navigation.navigate('Forgot')}>{t('forgot-password')}</Text>
           </TouchableOpacity>
 
           <TouchableOpacity

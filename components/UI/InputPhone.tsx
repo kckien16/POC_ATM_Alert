@@ -3,7 +3,7 @@ import { StyleSheet, View } from 'react-native'
 import { TextInput } from 'react-native-gesture-handler';
 import Colors from '../../constants/Colors';
 interface Props {
-    onChangeTextInput:(text:string)=>void;
+    onChangeText:(text:string)=>void;
 }
 
 export default function InputPhone({error,...ortherProps}){
@@ -21,6 +21,7 @@ export default function InputPhone({error,...ortherProps}){
           style={{...styles.input, borderWidth:1,borderColor:validationColor()
           }}
           {...ortherProps}
+          
           ></TextInput>
     </View>
     )

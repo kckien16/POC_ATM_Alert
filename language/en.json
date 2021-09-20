@@ -56,7 +56,8 @@
     "battery-warning": "Battery warning (%)",
     "save": "Save",
     "exit" :"Exit",
-    "place-bottomsheet":"Place"
+    "place-bottomsheet":"Place",
+    "enter-name":"Name"
 
     }
     

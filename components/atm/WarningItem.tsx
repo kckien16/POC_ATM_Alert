@@ -22,8 +22,6 @@ const WarningItem = props => {
         <View style={styles.viewInput}>
           <TextInput
           placeholder='1500'
-          editable={false} selectTextOnFocus={false}
-          
           style={styles.input}></TextInput>
         </View>
       </View>
@@ -33,10 +31,7 @@ const WarningItem = props => {
         </View>
         <View style={styles.viewInput}>
           <TextInput
-          placeholder='1500'
-          editable={false}
-          selectTextOnFocus={false}
-          
+          placeholder='1500'   
            style={styles.input }
           
            />
@@ -49,7 +44,6 @@ const WarningItem = props => {
         <View style={styles.viewInput}>
           <TextInput
           placeholder='70'
-          editable={false} selectTextOnFocus={false}
            style={styles.input}></TextInput>
         </View>
       </View>
@@ -60,7 +54,6 @@ const WarningItem = props => {
         <View style={styles.viewInput}>
           <TextInput
           placeholder='70'
-          editable={false} selectTextOnFocus={false}
            style={styles.input}></TextInput>
         </View>
       </View>
@@ -71,7 +64,6 @@ const WarningItem = props => {
         <View style={styles.viewInput}>
           <TextInput 
           placeholder='70'
-          editable={false} selectTextOnFocus={false}
           style={styles.input}></TextInput>
         </View>
       </View>
@@ -99,19 +91,16 @@ const styles = StyleSheet.create({
     
   },
   titles: {
-    fontWeight:'400',
-    color:'#091F3A'
+    ...FONTS.h6
     
   },
   input: {
     width: 116,
     height: 44,
-    backgroundColor: '#DBE8F5',
+    backgroundColor:Colors.white,
     borderRadius: 8,
     textAlign: 'right',
     paddingRight:16,
-    
-    
     ...FONTS.h6
   },
 });

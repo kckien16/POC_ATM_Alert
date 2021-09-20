@@ -8,7 +8,8 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import FontAwesome from 'react-native-vector-icons/Feather';
+import FontAwesome2 from 'react-native-vector-icons/FontAwesome';
 import { TT, ThongTin } from '../data/ThongTinTB';
 import { SDT, SDT_KC } from '../data/SDT_KC';
 import { Nhan, SDT_Nhan } from '../data/SDT_Nhan';
@@ -31,13 +32,14 @@ import InputPhone from '../components/UI/InputPhone';
 import { Formik } from 'formik';
 import * as yup from 'yup';
 import { useNavigation } from '@react-navigation/native';
+import Fonts from '../constants/Fonts';
 
 const phoneRegExp = /^((\+[1-9]{1,4}[ -]?)|(\([0-9]{2,3}\)[ -]?)|([0-9]{2,4})[ -]?)*?[0-9]{3,4}[ -]?[0-9]{3,4}$/i
 
 const phoneValidSchema = yup.object().shape({
-  phone_E: yup.string().length(11).required().matches(phoneRegExp, "Phone number is required"),
-  phone_S: yup.string().length(11).required().matches(phoneRegExp, "Phone number is required"),
-  phone_R: yup.string().length(11).required().matches(phoneRegExp, "Phone number is required"),
+  PhoneEmergency: yup.string().length(10).required('Phone number is required').matches(phoneRegExp),
+  PhoneReceiving: yup.string().length(10).required('Phone number is required').matches(phoneRegExp),
+  PhoneSend: yup.string().length(10).required('Phone number is required').matches(phoneRegExp),
 });
 
 const CaiDat = () => {
@@ -103,7 +105,7 @@ const CaiDat = () => {
           style={styles.btnDel}>
           <FontAwesome name="minus-circle" size={24} color="#FF5B5B" />
         </TouchableOpacity>
-        <Text style={styles.title}>{item.sdt}</Text>
+        <Text style={styles.titlez}>{item.sdt}</Text>
       </View>
     );
   };
@@ -122,7 +124,7 @@ const CaiDat = () => {
           style={styles.btnDel}>
           <FontAwesome name="minus-circle" size={24} color="#FF5B5B" />
         </TouchableOpacity>
-        <Text style={styles.title}>{item.sdt}</Text>
+        <Text style={styles.titlez}>{item.sdt}</Text>
       </View>
     );
   };
@@ -141,7 +143,7 @@ const CaiDat = () => {
           style={styles.btnDel}>
           <FontAwesome name="minus-circle" size={24} color="#FF5B5B" />
         </TouchableOpacity>
-        <Text style={styles.title}>{item.sdt}</Text>
+        <Text style={styles.titlez}>{item.sdt}</Text>
       </View>
     );
   };
@@ -155,18 +157,18 @@ const CaiDat = () => {
   }
   return (
     <Formik
-      initialValues={{ phone_E: input, phone_R: '', phone_S: '' }}
+      initialValues={{ PhoneEmergency:'', PhoneReceiving: '', PhoneSend: '' }}
       validateOnMount={true}
       onSubmit={values => navigation.navigate('Thong tin thiet bi')}
       validationSchema={phoneValidSchema}>
-      {({ handleChange, handleBlur, handleSubmit, values, errors }) => (
+      {({ handleChange, handleBlur, handleSubmit, values, errors,touched }) => (
         <View>
           <View>
             <ToolBar>
               <TouchableOpacity
                 style={styles.back}
                 onPress={() => navigation.goBack()}>
-                <FontAwesome name="angle-left" size={32} color={Colors.blue} />
+                <FontAwesome2 name="angle-left" size={32} color={Colors.blue} />
               </TouchableOpacity>
               <Text style={styles.textToolBar}>{t('setting')}</Text>
             </ToolBar>
@@ -238,10 +240,10 @@ const CaiDat = () => {
                         />
                       </TouchableOpacity>
                       <InputPhone
-                        onBlur={handleBlur('phone_E')}
-                        value={values.phone_E}
-                        error={errors.phone_E}
-                        onChangeText={handleChange('phone_E')}
+                        onBlur={handleBlur('PhoneEmergency')}
+                        value={values.PhoneEmergency}
+                        error={errors.PhoneEmergency}
+                        onChangeText={handleChange('PhoneEmergency')}
                         // onChangeText ={(text: any)=>{
                         //     if (newSdtKC !== null) {
                         //             setNewSdtKC({ ...newSdtKC, sdt: text });
@@ -250,7 +252,9 @@ const CaiDat = () => {
                         //           }
                         // }}
                       />
+                      
                     </View>
+                    {(errors.PhoneEmergency && touched.PhoneEmergency)&&<Text style={styles.error}>{errors.PhoneEmergency}</Text>}
                   </View>
                 </View>
               </Card>
@@ -304,21 +308,22 @@ const CaiDat = () => {
                         />
                       </TouchableOpacity>
                       <InputPhone
-                        onBlur={handleBlur('phone_R')}
-                        value={values.phone_R}
-                        error={errors.phone_R}
-                        onChangeText={handleChange('phone_R')}
-                        onChangeTextInput={
-                          (text: any) => {
-                            if (newSdtNhan !== null) {
-                              setNewSdtNhan({ ...newSdtNhan, sdt: text });
-                            } else {
-                              setNewSdtNhan({ id: Date.now(), sdt: text });
-                            }
-                          }
-                        }
+                        onBlur={handleBlur('PhoneReceiving')}
+                        value={values.PhoneReceiving}
+                        error={errors.PhoneReceiving}
+                        onChangeText={handleChange('PhoneReceiving')}
+                        // onChangeTextInput={
+                        //   (text: any) => {
+                        //     if (newSdtNhan !== null) {
+                        //       setNewSdtNhan({ ...newSdtNhan, sdt: text });
+                        //     } else {
+                        //       setNewSdtNhan({ id: Date.now(), sdt: text });
+                        //     }
+                        //   }
+                        // }
                       />
                     </View>
+                    {(errors.PhoneReceiving && touched.PhoneReceiving)&&<Text style={styles.error}>{errors.PhoneReceiving}</Text>}
                   </View>
                 </View>
               </Card>
@@ -372,19 +377,20 @@ const CaiDat = () => {
                         />
                       </TouchableOpacity>
                       <InputPhone
-                        onBlur={handleBlur('phone_S')}
-                        value={values.phone_S}
-                        error={errors.phone_S}
-                        onChangeText={handleChange('phone_S')}
-                        onChangeTextInput={(text: any) => {
-                          if (newSdtGuiTN !== null) {
-                            setNewSdtGuiTN({ ...newSdtGuiTN, sdt: text });
-                          } else {
-                            setNewSdtGuiTN({ id: Date.now(), sdt: text });
-                          }
-                        }}
+                        onBlur={handleBlur('PhoneSend')}
+                        value={values.PhoneSend}
+                        error={errors.PhoneSend}
+                        onChangeText={handleChange('PhoneSend')}
+                        // onChangeText={(text: any) => {
+                        //   if (newSdtGuiTN !== null) {
+                        //     setNewSdtGuiTN({ ...newSdtGuiTN, sdt: text });
+                        //   } else {
+                        //     setNewSdtGuiTN({ id: Date.now(), sdt: text });
+                        //   }
+                        // }}
                       />
                     </View>
+                    {(errors.PhoneSend && touched.PhoneSend)&&<Text style={styles.error}>{errors.PhoneSend}</Text>}
                   </View>
                 </View>
               </Card>
@@ -406,7 +412,7 @@ const CaiDat = () => {
               />
             </View>
             <View style={styles.viewBtnSave}>
-              <TouchableOpacity style={styles.btnSave} onPress={handleSubmit}>
+              <TouchableOpacity style={styles.btnSave} onPress={()=>navigation.navigate('ThongTinThietBi')}>
                 <Text style={styles.titleSave}>{t('save')}</Text>
               </TouchableOpacity>
             </View>
@@ -454,8 +460,8 @@ const styles = StyleSheet.create({
     marginLeft: 26,
     ...FONTS.h2,
   },
-  title: {
-    ...FONTS.h4,
+  title:{
+    ...FONTS.h2
   },
 
   btnAddView: {
@@ -508,8 +514,13 @@ const styles = StyleSheet.create({
     marginLeft: 2,
     marginTop: 2,
   },
-  title: {
+  titlez: {
     marginLeft: 10,
     ...FONTS.h3,
+  },
+  error:{
+    ...Fonts.h8,
+    marginTop:5,
+    marginLeft:"10%"
   },
 });

@@ -9,7 +9,7 @@ interface Props {
     onBlur: any;
     secureTextEntry: any;
   }
-export default function LoginInput({error,...ortherProps}){
+export default function InputPlace({error,...ortherProps}){
     const validationColor = ()=>{
         if (error) {
             return Colors.red
@@ -35,13 +35,13 @@ const styles = StyleSheet.create({
         width: '100%',
         paddingLeft: 10,
         paddingRight: 10,
+        marginLeft:"5%"
       },
       input: {
-        marginTop: 10,
+        marginTop:10,
         backgroundColor: '#FFFF',
         borderRadius: 8,
-        alignSelf: 'center',
-        height: 44,
+        height:"50%",
         width: '89%',
         paddingLeft: 10,
       },

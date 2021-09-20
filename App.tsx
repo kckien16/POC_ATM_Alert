@@ -14,6 +14,8 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 import HomeScreen from './screens/HomeScreen';
 import SettingScreen from './screens/SettingScreen';
 import DrawerContent from './presentation/DrawerContent'
+import { StyleSheet, Text } from 'react-native';
+import Fonts from './constants/Fonts';
 const font = {
   ...DefaultTheme
 }
@@ -22,11 +24,11 @@ const Drawer =() =>{
   return(
 
          <Draw.Navigator 
-         initialRouteName="Lookup" screenOptions={{headerShown: false}}
+         initialRouteName="Lookup" 
         drawerContent={props => <DrawerContent {...props} /> }
          >
          
-           <Draw.Screen name ="Lookup" component={Lookup}  />
+           <Draw.Screen name ="Lookup" component={Lookup}></Draw.Screen>
            
         </Draw.Navigator>
   );
@@ -55,5 +57,11 @@ const App =()=>{
 
   );
 }
+
+const styles = StyleSheet.create({
+  text:{
+    ...Fonts.h2
+  }
+})
 
 export default App;

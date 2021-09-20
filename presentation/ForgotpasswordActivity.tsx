@@ -7,43 +7,62 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import InformationItem from '../components/atm/InformationItem';
 import Fonts from '../constants/Fonts';
 
+import { Formik } from 'formik';
+import * as yup from 'yup';
+
 import { useTranslation } from 'react-i18next';
+import InputText from '../components/UI/InputText';
+import { useNavigation } from '@react-navigation/core';
+
+const loginValidSchema = yup.object().shape({
+  email: yup.string().email('Please enter valid email')
+  .required('Email address is required')
+  .matches(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i, 'Email is required!!!'),
+});
 
 
- const Forgot = ({navigation}) => {
+ const Forgot = () => {
+  const navigation = useNavigation();
     const{t,i18n}=useTranslation()
     const [text, setText] = React.useState('');
 return(
+  <Formik
+      initialValues={{ email: ''}}
+      validateOnMount={true}
+      onSubmit={values => navigation.navigate("Login")}
+      validationSchema={loginValidSchema}
+    >
+      {({ handleChange, handleBlur, handleSubmit, values, touched, errors }) => (
     <SafeAreaView style = {styles.container}>
 
         <ToolBar>
           <TouchableOpacity
             style={styles.back}
-            onPress={() => navigation.goBack()}>
+            onPress={()=> navigation.goBack()}>
             <FontAwesome name="angle-left" size={32} color={Colors.blue} />
           </TouchableOpacity>
           <Text style={styles.textToolBar}>{t('Forgot Password')}</Text>
         </ToolBar>
       <View>
           <Text style={styles.TextInfo}>{t('Enter the email address link to the account so I can resend the password')}</Text>
-          <Input>
-        <TextInput
-         label="Email"
-         value={text}
-         onChangeText={text => setText(text)}
-          placeholder={t('  Text@gmail.com')}
-         />
-         
-      </Input>
+          <InputText placeholder={t('email')}
+            onChangeText={handleChange('email')}
+            onBlur={handleBlur('email')}
+            value={values.email}
+            error={errors.email}
+            >
+          </InputText>
+          {(errors.email && touched.email)&&<Text style={styles.error}>{errors.email}</Text>}
       
       <TouchableOpacity
-      onPress={() => navigation.navigate('Login')}
+      onPress={handleSubmit}
         style={styles.buttonLogin}>
         <Text style={styles.buttonLoginText}>{t('SEND')}</Text>
       </TouchableOpacity>
       </View>
 
  </SafeAreaView>
+ )}</Formik>
 )
 }
  const styles = StyleSheet.create({
@@ -81,6 +100,11 @@ backgroundColor:Colors.whitee
         marginLeft:10,
         marginBottom:12,
         alignItems:"center",
+      },
+      error:{
+        ...Fonts.h8,
+        marginTop:5,
+        marginLeft:"10%"
       },
  })
  export default Forgot;

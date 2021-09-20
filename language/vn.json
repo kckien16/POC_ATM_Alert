@@ -11,15 +11,15 @@
         "setting": "Cài đặt",
         "device-lookup": "Tra cứu thiết bị",
         "atm-information": "Thông tin ATM",
-        "imei": "IMEI:",
-        "sim": "SIM:",
+        "imei": "IMEI",
+        "sim": "SIM",
         "query-time":"Thời gian truy vấn",
         "connection":"Kết nối nguồn",
         "status":"Tình trạng thiết bị",
-        "type-of-device": "Loai thiết bị:",
-        "device-name": "Tên thiết bị:",
-        "place": "Địa chỉ lắp đặt:",
-        "activation-date": "Ngày kích hoạt:",
+        "type-of-device": "Loai thiết bị",
+        "device-name": "Tên thiết bị",
+        "place": "Địa chỉ lắp đặt",
+        "activation-date": "Ngày kích hoạt",
         "sensor-status": "Trạng thái cảm biến",
         "heat": "Nhiệt",
         "vibrate": "Rung",
@@ -57,7 +57,8 @@
         "battery-warning": "Cảnh báo pin(%)",
         "save": "Lưu",
         "exit" :"Hủy",
-        "place-bottomsheet":"Địa chỉ"
+        "place-bottomsheet":"Địa chỉ",
+        "enter-name":"Mời nhập tên"
     }
     
 }
