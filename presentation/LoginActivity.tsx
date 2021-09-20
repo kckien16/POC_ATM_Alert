@@ -58,16 +58,17 @@ const Login = () => {
                 alignItems: 'flex-end',
               }}>
               <View style={styles.LanguageVN}>
-                <RNPickerSelect
+               
+                  <Image
+                    style={styles.imageVN}
+                    source={require('../images/vietnam.jpg')}
+                  />
+                   <RNPickerSelect
                   onValueChange={e => i18n.changeLanguage(e)}
                   items={[
                     { label: 'Vietnamese', value: 'vn' },
                     { label: 'English', value: 'en' },
                   ]}>
-                  <Image
-                    style={styles.imageVN}
-                    source={require('../images/vietnam.jpg')}
-                  />
                   <Text style={styles.TextVN}> VNM </Text>
                 </RNPickerSelect>
               </View>
