@@ -34,18 +34,36 @@ const lookup = ({navigation}) => {
 
   return (
     <SafeAreaView style={styles.container}>
+        <ToolBar>
+         <View style={{flex:1,marginVertical:20,flexDirection:'row',}}> 
+          <TouchableOpacity style={styles.btnBack} >
+            <FontAwesome name="bars" size={20} color={Colors.blue} />
+
+            
+          </TouchableOpacity>
+          
+
+          <View style={{flex:1,justifyContent:'center',alignItems:'center'}}>
+          <Text style={styles.testlookup}>{t('device-lookup')}</Text>
+          </View>
+          </View>
+        </ToolBar>
       <QRCodeScanner
+       cameraStyle={{width:250,height:100,marginLeft:20, padding:50}}
         containerStyle={{backgroundColor: '#FFF'}}
         onRead={onSuccess}
         reactivate={true}
         permissionDialogMessage="Need Pre"
         reactivateTimeout={10}
         showMarker={true}
-        markerStyle={{borderColor: 'FFF', borderRadius: 10}}
+        markerStyle={{borderColor:"FFF",borderRadius:10,width:150,height:150}}
       />
 
-      <View style={{alignItems: 'center', marginTop: '45%'}}>
-        <Text>Hoặc</Text>
+<View style={{alignItems:'center',marginTop:'45%',justifyContent:'center',}}>
+        <Text style={styles.textQR}>Di chuyển camera đến vùng chứa mã QR để quét</Text>
+        
+        <Text style={styles.textor}>Hoặc</Text>
+       
       </View>
       <View style={styles.inputIMEI}>
         <TextInput
