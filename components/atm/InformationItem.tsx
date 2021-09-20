@@ -27,7 +27,7 @@ const InformationItem = props => {
           <Text style={styles.titles}>{t("type-of-device")}</Text>
         </View>
         <View style={{flex: 3}}>
-          <Text style={styles.title}>{props.loaiTB}:</Text>
+          <Text style={styles.title}>{props.loaiTB}</Text>
         </View>
       </View>
       <View style={styles.viewItem}>
@@ -72,7 +72,7 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 16,
-    width: 179,
+    width: 160,
     fontWeight: '400',
     opacity:.5,
     left:"15%",

@@ -12,12 +12,14 @@ import Colors from '../constants/Colors';
 import Input from '../components/UI/Input';
 import InputText from '../components/UI/InputText';
 import { useTranslation } from 'react-i18next';
+import RNPickerSelect from 'react-native-picker-select';
+import Fonts from '../constants/Fonts';
+
 
 import { Formik } from 'formik';
 import * as yup from 'yup';
 
-import RNPickerSelect from 'react-native-picker-select';
-import Fonts from '../constants/Fonts';
+
 
 const loginValidSchema = yup.object().shape({
   email: yup.string().email('Please enter valid email')
@@ -35,7 +37,7 @@ const Login = () => {
   const navigation = useNavigation();
 
   const { t, i18n } = useTranslation();
-
+  const [activeInput, setActiveInput] = useState(null);
 
   return (
     <Formik
@@ -56,16 +58,17 @@ const Login = () => {
                 alignItems: 'flex-end',
               }}>
               <View style={styles.LanguageVN}>
-                <RNPickerSelect
+               
+                  <Image
+                    style={styles.imageVN}
+                    source={require('../images/vietnam.jpg')}
+                  />
+                   <RNPickerSelect
                   onValueChange={e => i18n.changeLanguage(e)}
                   items={[
                     { label: 'Vietnamese', value: 'vn' },
                     { label: 'English', value: 'en' },
                   ]}>
-                  <Image
-                    style={styles.imageVN}
-                    source={require('../images/vietnam.jpg')}
-                  />
                   <Text style={styles.TextVN}> VNM </Text>
                 </RNPickerSelect>
               </View>
@@ -114,7 +117,7 @@ const styles = StyleSheet.create({
   },
 
   text: {
-   ...Fonts.h8,
+   ...Fonts.h9,
     textAlign: 'center',
   marginTop:103,
   marginBottom:63,
@@ -159,11 +162,11 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
   },
   buttonLoginText: {
-    ...Fonts.h10,
+    ...Fonts.h1,
    position:"relative"
   },
   textForgot: {
-    ...Fonts.h9,
+    ...Fonts.h7,
     textAlign: 'right',
     marginRight: 20,
     marginTop: 12,
