@@ -6,7 +6,7 @@ interface Props {
     onChangeText:(text:string)=>void;
 }
 
-export default function InputPhone({error,...ortherProps}){
+export default function InputPhone({error,...ortherProps}) {
     const validationColor = ()=>{
         if (error) {
             return Colors.red
@@ -18,10 +18,9 @@ export default function InputPhone({error,...ortherProps}){
     return(
         <View style={styles.container}>
         <TextInput
-          style={{...styles.input, borderWidth:1,borderColor:validationColor()
+          style={{...styles.input, borderWidth:1, borderColor:validationColor()
           }}
           {...ortherProps}
-          
           ></TextInput>
     </View>
     )

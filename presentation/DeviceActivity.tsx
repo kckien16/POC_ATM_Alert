@@ -1,5 +1,5 @@
-import {NavigationContainer, useNavigation} from '@react-navigation/native';
-import React, {useState, FC, useRef, createRef, useEffect} from 'react';
+import { NavigationContainer, useNavigation } from '@react-navigation/native';
+import React, { useState, FC, useRef, createRef, useEffect } from 'react';
 import {
   View,
   Alert,
@@ -17,25 +17,27 @@ import {
 } from 'react-native';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
-import {TT, ThongTin} from '../data/ThongTinTB';
+import { TT, ThongTin } from '../data/ThongTinTB';
 import Card from '../components/UI/Card';
 import ToolBar from '../components/UI/ToolBar';
 import Button from '../components/UI/Button';
 import SensorStatus from '../components/atm/SensorStatus';
-import {Sensor, status} from '../data/Sensor_status';
+import { Sensor, status } from '../data/Sensor_status';
 import InformationLookupItem from '../components/atm/InformationLookupItem';
 import Colors from '../constants/Colors';
-import {useTranslation} from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 import RBSheet from 'react-native-raw-bottom-sheet';
-import {SIZES} from '../constants/theme';
+import { SIZES } from '../constants/theme';
 import FONTS from '../constants/Fonts';
 import InputText from '../components/UI/InputText';
 import InputPlace from '../components/UI/InputPlace';
 
-import {Formik} from 'formik';
+import { Formik } from 'formik';
 import * as yup from 'yup';
 import Fonts from '../constants/Fonts';
 import lookup from './LookupActivity';
+import { StackNavigationProp } from '@react-navigation/stack';
+import { RootStackParamList } from './RootStackPrams';
 
 const actionSheetRef = createRef();
 
@@ -47,9 +49,9 @@ const loginValidSchema = yup.object().shape({
   sim: yup.string().length(11).required('Number is required').matches(number, 'Number is required'),
   place: yup.string().required('Place is required'),
 });
-
+type authScreenProp = StackNavigationProp<RootStackParamList, 'ThongTinThietBi'>;
 const Device = () => {
-  const navigation = useNavigation();
+  const navigation = useNavigation<authScreenProp>();
   const [currentDate, setCurrentDate] = useState('');
 
   useEffect(() => {
@@ -63,7 +65,7 @@ const Device = () => {
       date + '/' + month + '/' + year + ' ' + hours + ':' + min + ':' + sec,
     );
   }, []);
-  const {t, i18n} = useTranslation();
+  const { t, i18n } = useTranslation();
   const [IMEI, setIMEI] = useState();
   const [Loai, setLoai] = useState();
 
@@ -71,11 +73,11 @@ const Device = () => {
   const [activeInput, setActiveInput] = useState(null);
   return (
     <Formik
-      initialValues={{name: '', sim: '', place: ''}}
+      initialValues={{ name: '', sim: '', place: '' }}
       validateOnMount={true}
       onSubmit={values => navigation.navigate('Device')}
       validationSchema={loginValidSchema}>
-      {({handleChange, handleBlur, handleSubmit, values, touched, errors}) => (
+      {({ handleChange, handleBlur, handleSubmit, values, touched, errors }) => (
         <View style={styles.container}>
           <ScrollView>
             <ToolBar style={styles.Toolbar}>
@@ -86,7 +88,7 @@ const Device = () => {
               </TouchableOpacity>
               <Text style={styles.testlookup}>{t('device-lookup')}</Text>
               <TouchableOpacity
-                style={{flex: 3, alignItems: 'flex-end', marginRight: 20}}
+                style={{ flex: 3, alignItems: 'flex-end', marginRight: 20 }}
                 onPress={() => navigation.navigate('ThongTinThietBi')}>
                 <FontAwesome name="cog" size={26} color={Colors.blue} />
               </TouchableOpacity>
@@ -105,7 +107,7 @@ const Device = () => {
               <Card>
                 <FlatList
                   data={ThongTin}
-                  renderItem={({item}) => (
+                  renderItem={({ item }) => (
                     <InformationLookupItem
                       imei={item.imei}
                       sim={item.sim}
@@ -118,7 +120,7 @@ const Device = () => {
                     />
                   )}
                 />
-                <View style={{flexDirection: 'row'}}>
+                <View style={{ flexDirection: 'row' }}>
                   <Text
                     style={{
                       color: '#347AFF',
@@ -128,23 +130,23 @@ const Device = () => {
                     {t('query-time')}:
                   </Text>
                   <Text
-                    style={{marginLeft: '15%', color: '#2190CD', fontSize: 16}}>
+                    style={{ marginLeft: '15%', color: '#2190CD', fontSize: 16 }}>
                     {currentDate}
                   </Text>
                 </View>
               </Card>
             </View>
 
-            <View style={{flex: 1, marginTop: 20, marginLeft: 22}}>
-              <Text style={{fontSize: 16, fontWeight: '600'}}>
+            <View style={{ flex: 1, marginTop: 20, marginLeft: 22 }}>
+              <Text style={{ fontSize: 16, fontWeight: '600' }}>
                 {t('sensor-status')}
               </Text>
             </View>
-            <View style={{flex: 1, alignItems: 'center'}}>
+            <View style={{ flex: 1, alignItems: 'center' }}>
               <Card>
                 <FlatList
                   data={Sensor}
-                  renderItem={({item}) => (
+                  renderItem={({ item }) => (
                     <SensorStatus
                       nhiet={item.nhiet}
                       rung={item.rung}
@@ -177,134 +179,133 @@ const Device = () => {
                   style={styles.inputupdate}>
                   <Text style={styles.textupdate}>{t('update')}</Text>
                 </TouchableOpacity>
+                  <RBSheet
+                    ref={refRBSheet}
+                    height={550}
+                    closeOnDragDown={true}
+                    openDuration={250}
+                    dragFromTopOnly={false}
+                    closeOnPressMask={false}
+                    customStyles={{
+                      wrapper: {
+                        backgroundColor: 'rgba(0,0,0,0.3)',
+                      },
 
-                <RBSheet
-                  ref={refRBSheet}
-                  height={470}
-                  closeOnDragDown={true}
-                  openDuration={250}
-                  dragFromTopOnly={false}
-                  closeOnPressMask={false}
-                  customStyles={{
-                    wrapper: {
-                      backgroundColor: 'rgba(0,0,0,0.3)',
-                    },
+                      container: {
+                        justifyContent: 'center',
+                        backgroundColor: Colors.white,
+                        borderTopLeftRadius: 16,
+                        borderTopRightRadius: 16,
 
-                    container: {
-                      justifyContent: 'center',
-                      backgroundColor: Colors.white,
-                      borderTopLeftRadius: 16,
-                      borderTopRightRadius: 16,
+                        alignItems: 'center',
+                      },
+                    }}>
+                    <View style={styles.containerBottomSheet}>
+                      <View style={styles.bottomSheet}>
+                        <TouchableOpacity
+                          onPress={() => refRBSheet.current.close()}
+                          style={styles.bottomSheetExit}>
+                          <Text style={styles.textbottomSheetExit}>
+                            {t('exit')}
+                          </Text>
+                        </TouchableOpacity>
+                      </View>
 
-                      alignItems: 'center',
-                    },
-                  }}>
-                  <View style={styles.containerBottomSheet}>
-                    <View style={styles.bottomSheet}>
-                      <TouchableOpacity
-                        onPress={() => refRBSheet.current.close()}
-                        style={styles.bottomSheetExit}>
-                        <Text style={styles.textbottomSheetExit}>
-                          {t('exit')}
-                        </Text>
-                      </TouchableOpacity>
+                      <View style={styles.updateBottomSheet}>
+                        <TouchableOpacity style={styles.bottomSheetSave}
+                        >
+                          <Text style={styles.textbottomSheetSave}>
+                            {t('save')}
+                          </Text>
+                        </TouchableOpacity>
+                      </View>
+                    </View>
+                    <View>
+                      <View style={styles.viewItem}>
+                        <Card style={styles.card}>
+                          <FlatList
+                            data={ThongTin}
+                            renderItem={({ item }) => (
+                              <View>
+                                <View style={styles.flexDirection}>
+                                  <Text style={styles.textFrame1}>
+                                    {t('imei')}
+                                  </Text>
+                                  <Text style={styles.textContentIMEI}>
+                                    {item.imei}
+                                  </Text>
+                                </View>
+                                <View style={styles.flexDirection}>
+                                  <Text style={styles.textFrame1}>
+                                    {t('type-of-device')}
+                                  </Text>
+                                  <Text style={styles.textContentLTB}>
+                                    {item.loaiTB}
+                                  </Text>
+                                </View>
+
+                                <View style={styles.flexDirection}>
+                                  <Text style={styles.textFrame1}>
+                                    {t('activation-date')}
+                                  </Text>
+                                  <Text style={styles.textContentNKH}>
+                                    {item.ngayKH}
+                                  </Text>
+                                </View>
+                              </View>
+                            )}></FlatList>
+                        </Card>
+                      </View>
                     </View>
 
-                    <View style={styles.updateBottomSheet}>
-                      <TouchableOpacity style={styles.bottomSheetSave}
-                      >
-                        <Text style={styles.textbottomSheetSave}>
-                          {t('save')}
-                        </Text>
-                      </TouchableOpacity>
+                    <View
+                      style={{
+                        position: 'relative',
+                        justifyContent: 'center',
+                        width: "100%"
+                      }}>
+                      <Text style={styles.textFrame4}>{t('device-name')}</Text>
+
+                      <InputText
+                        placeholder={t('enter-name')}
+                        onChangeText={handleChange('name')}
+                        onBlur={handleBlur('name')}
+                        value={values.name}
+                        error={errors.name}
+                      />
                     </View>
-                  </View>
-                  <View>
-                    <View style={styles.viewItem}>
-                      <Card style={styles.card}>
-                        <FlatList
-                          data={ThongTin}
-                          renderItem={({item}) => (
-                            <View>
-                              <View style={styles.flexDirection}>
-                                <Text style={styles.textFrame1}>
-                                  {t('imei')}
-                                </Text>
-                                <Text style={styles.textContentIMEI}>
-                                  {item.imei}
-                                </Text>
-                              </View>
-                              <View style={styles.flexDirection}>
-                                <Text style={styles.textFrame1}>
-                                  {t('type-of-device')}
-                                </Text>
-                                <Text style={styles.textContentLTB}>
-                                  {item.loaiTB}
-                                </Text>
-                              </View>
-
-                              <View style={styles.flexDirection}>
-                                <Text style={styles.textFrame1}>
-                                  {t('activation-date')}
-                                </Text>
-                                <Text style={styles.textContentNKH}>
-                                  {item.ngayKH}
-                                </Text>
-                              </View>
-                            </View>
-                          )}></FlatList>
-                      </Card>
+                    <View
+                      style={{
+                        position: 'relative',
+                        justifyContent: 'center',
+                        width: "100%"
+                      }}>
+                      <Text style={styles.textFrame3}>{t('sim')}</Text>
+                      <InputText
+                        placeholder={t('sim')}
+                        onChangeText={handleChange('sim')}
+                        onBlur={handleBlur('sim')}
+                        value={values.sim}
+                        error={errors.sim}
+                      />
                     </View>
-                  </View>
-
-                  <View
-                    style={{
-                      position: 'relative',
-                      justifyContent: 'center',
-                      width:"100%"
-                    }}>
-                    <Text style={styles.textFrame4}>{t('device-name')}</Text>
-
-                    <InputText
-                      placeholder={t('enter-name')}
-                      onChangeText={handleChange('name')}
-                      onBlur={handleBlur('name')}
-                      value={values.name}
-                      error={errors.name}
-                    />
-                  </View>
-                  <View
-                    style={{
-                      position: 'relative',
-                      justifyContent: 'center',
-                      width:"100%"
-                    }}>
-                    <Text style={styles.textFrame3}>{t('sim')}</Text>
-                    <InputText
-                      placeholder={t('sim')}
-                      onChangeText={handleChange('sim')}
-                      onBlur={handleBlur('sim')}
-                      value={values.sim}
-                      error={errors.sim}
-                    />
-                  </View>
-                  <View
-                    style={{
-                      position: 'relative',
-                      width:"100%"
-                    }}>
-                    <Text style={styles.textFrame2}>
-                      {t('place-bottomsheet')}:
-                    </Text>
-                    <InputPlace
-                      placeholder={t('place-bottomsheet')}
-                      onChangeText={handleChange('place')}
-                      onBlur={handleBlur('place')}
-                      value={values.place}
-                      error={errors.place}
-                    /> 
-                  </View>
-                </RBSheet>
+                    <View
+                      style={{
+                        position: 'relative',
+                        width: "100%"
+                      }}>
+                      <Text style={styles.textFrame2}>
+                        {t('place-bottomsheet')}:
+                      </Text>
+                      <InputPlace
+                        placeholder={t('place-bottomsheet')}
+                        onChangeText={handleChange('place')}
+                        onBlur={handleBlur('place')}
+                        value={values.place}
+                        error={errors.place}
+                      />
+                    </View>
+                  </RBSheet>
               </View>
             </View>
           </ScrollView>
@@ -322,29 +323,29 @@ const styles = StyleSheet.create({
   },
   flexDirection: {
     flexDirection: 'row',
-    marginTop:5
+    marginTop: 5
   },
   textFrame1: {
     ...FONTS.h12,
   },
 
   textFrame2: {
-    marginLeft:"8%",
+    marginLeft: "8%",
     ...FONTS.h13,
-    marginTop:10,
-    marginBottom:-8
+    marginTop: 10,
+    marginBottom: -8
   },
   textFrame3: {
-    marginLeft:"8%",
+    marginLeft: "8%",
     ...FONTS.h13,
-    marginTop:10,
-    marginBottom:-8
+    marginTop: 10,
+    marginBottom: -8
   },
   textFrame4: {
-  marginLeft:"8%",
+    marginLeft: "8%",
     ...FONTS.h13,
-    marginTop:15,
-    marginBottom:-8
+    marginTop: 15,
+    marginBottom: -8
   },
   textContentIMEI: {
     fontSize: 14,
@@ -374,7 +375,7 @@ const styles = StyleSheet.create({
     width: '101%',
   },
   card: {
-    marginTop:110,
+    marginTop: 110,
     backgroundColor: '#EAF5FA',
     borderWidth: 1,
     borderColor: '#ACBCD1',
@@ -446,7 +447,7 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
     padding: 16,
-    marginBottom:-40
+    marginBottom: -40
   },
   fontwarning: {
     width: '50%',
@@ -541,9 +542,9 @@ const styles = StyleSheet.create({
     borderColor: Colors.blue,
     fontWeight: '500',
   },
-  error:{
+  error: {
     ...Fonts.h8,
-    marginTop:5,
-    marginLeft:"10%"
+    marginTop: 5,
+    marginLeft: "10%"
   },
 });

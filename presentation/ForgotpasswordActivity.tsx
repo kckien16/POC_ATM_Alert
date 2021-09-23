@@ -16,7 +16,6 @@ import { useNavigation } from '@react-navigation/core';
 
 const loginValidSchema = yup.object().shape({
   email: yup.string().email('Please enter valid email')
-  .required('Email address is required')
   .matches(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i, 'Email is required!!!'),
 });
 
