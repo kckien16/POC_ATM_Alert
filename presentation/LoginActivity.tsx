@@ -18,23 +18,22 @@ import Fonts from '../constants/Fonts';
 
 import { Formik } from 'formik';
 import * as yup from 'yup';
+import { StackNavigationProp } from '@react-navigation/stack';
+import { RootStackParamList } from './RootStackPrams';
 
 
 
 const loginValidSchema = yup.object().shape({
   email: yup.string().email('Please enter valid email')
-  .required('Email address is required')
   .matches(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i, 'Email is required!!!'),
   pass: yup.string().min(8, ({ min }) => `Please musty be at least ${min} character`)
-    .required('Password is required')
     .matches(/[a-zA-Z]/, 'Password can only contain Latin letters.'),
 });
 
-
+type authScreenProp = StackNavigationProp<RootStackParamList, 'Lookup'>;
 const Login = () => {
 
-  
-  const navigation = useNavigation();
+  const navigation = useNavigation<authScreenProp>();
 
   const { t, i18n } = useTranslation();
   const [activeInput, setActiveInput] = useState(null);

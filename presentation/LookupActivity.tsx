@@ -26,16 +26,19 @@ import InputText from '../components/UI/InputText';
 import { Formik } from 'formik';
 import * as yup from 'yup';
 import Fonts from '../constants/Fonts';
+import { useNavigation } from '@react-navigation/core';
+import { StackNavigationProp } from '@react-navigation/stack';
+import { RootStackParamList } from './RootStackPrams';
 
 const loginValidSchema = yup.object().shape({
   Imei: yup.string()
   .length(13)
-  .required('Imei is required')
   
 });
+type authScreenProp = StackNavigationProp<RootStackParamList, 'Device'>;
 
-
-const lookup = ({ navigation }) => {
+const lookup = () => {
+  const navigation = useNavigation<authScreenProp>();
   const onSuccess = (e: { data: string }) => {
     Linking.openURL(e.data).catch(err => Alert.alert('An error occured', err));
   };
@@ -121,12 +124,8 @@ const lookup = ({ navigation }) => {
       <View style={{flex:1, alignItems:"center"}}>
         <TouchableOpacity
         style={styles.inputTC}
-        onPress={() => {
-          navigation.navigate('Device', {
-            IMEI: IMEI,
-            Loai: Loai,
-          });
-        }}>
+        onPress={() => 
+          navigation.navigate('Device')}>
         <Text style={{}}>{t('device')}</Text>
       </TouchableOpacity>
       </View>
