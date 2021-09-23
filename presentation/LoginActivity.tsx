@@ -117,7 +117,7 @@ const styles = StyleSheet.create({
   },
 
   text: {
-   ...Fonts.h9,
+   ...Fonts.h15,
     textAlign: 'center',
   marginTop:103,
   marginBottom:63,
