@@ -22,6 +22,7 @@ import FONTS from '../constants/Fonts';
 import RNPickerSelect from 'react-native-picker-select';
 import InputText from '../components/UI/InputText';
 
+// import { RNCamera } from 'react-native-camera';
 import { Formik } from 'formik';
 import * as yup from 'yup';
 import Fonts from '../constants/Fonts';
@@ -53,18 +54,7 @@ const lookup = ({ navigation }) => {
     >
       {({ handleChange, handleBlur, handleSubmit, values, touched, errors }) => (
     <SafeAreaView style={styles.container}>
-
-      <QRCodeScanner
-        cameraStyle={{ width: 200, height: 150, marginLeft: 50, marginTop: 20, marginBottom:20}}
-        // containerStyle={{backgroundColor: '#FFF'}}
-        onRead={onSuccess}
-        reactivate={true}
-        permissionDialogMessage="Need Pre"
-        reactivateTimeout={10}
-        showMarker={true}
-        markerStyle={{ borderColor: "#FFF", borderRadius: 10, width: 100, height: 100 }}
-      />
-      {/* <ToolBar>
+  <ToolBar>
          <View style={{flex:1,marginVertical:20,flexDirection:'row',}}> 
           <TouchableOpacity style={styles.btnBack} >
             <FontAwesome name="bars" size={20} color={Colors.blue} />
@@ -77,12 +67,34 @@ const lookup = ({ navigation }) => {
           <Text style={styles.testlookup}>{t('device-lookup')}</Text>
           </View>
           </View>
-        </ToolBar> */}
-
-      <View style={{ alignItems: 'center',marginTop:150, flexDirection:"column" }}>
-        <Text style={styles.textQR}>Di chuyển camera đến vùng chứa mã QR để quét</Text>
-        <Text style={styles.textor}>Hoặc</Text>
+        </ToolBar>
+       <View style={{overflow:'hidden',width:'90%',backgroundColor:'#000',height:219,borderRadius:15,marginLeft:22,marginVertical:25}}> 
+      <QRCodeScanner
+        cameraStyle={{    flex:1,marginBottom:20,justifyContent:'center',alignItems:'center'}}
+        // containerStyle={{backgroundColor: '#000F',width:'90%',height:}}
+        onRead={onSuccess}
+        // flashMode={RNCamera.Constants.FlashMode.torch}
+        // topViewStyle={{  marginBottom:20}}
+        reactivate={true}
+        // cameraProps={{}}
+        fadeIn={true}
+        permissionDialogMessage="Need Pre"
+        reactivateTimeout={10}
+        showMarker={true}
+        markerStyle={{ borderColor: "#FFF", borderRadius: 10, width: 100, height: 100,marginTop:30 }}
+     > 
+{/* <BarcodeMask width={300} height={100} edgeBorderWidth={1} /> */}
+      </QRCodeScanner>
+    
       </View>
+      <View style={{ alignItems: 'center',marginTop:30 }}>
+        <Text style={styles.textQR}>Di chuyển camera đến vùng chứa mã QR để quét</Text>        
+        </View>
+        <View style={{ alignItems: 'center'}}>
+        <Text style={styles.textor}>Hoặc</Text>
+        </View>
+      
+     
       <View style={styles.inputIMEI}>
         <InputText
           placeholder="Nhập IMEI/Seri number"
@@ -106,7 +118,7 @@ const lookup = ({ navigation }) => {
           </RNPickerSelect>
         </View>
       </View>
-      <View style={{flex:1, alignItems:"center", width:"100%"}}>
+      <View style={{flex:1, alignItems:"center"}}>
         <TouchableOpacity
         style={styles.inputTC}
         onPress={() => {
@@ -130,6 +142,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: Colors.background,
     width: '100%',
+    
   },
   dropdown: {
     marginTop: 10,
@@ -160,7 +173,8 @@ const styles = StyleSheet.create({
   },
   textor: {
     marginTop: 20,
-    ...FONTS.h2
+   ...FONTS.h3
+  
   },
   centerText: {
     flex: 1,
@@ -181,13 +195,10 @@ const styles = StyleSheet.create({
     padding: 16,
   },
   inputIMEI: {
-    flex:1,
     backgroundColor: Colors.background,
-    width: '100%',
     alignItems:"center"
   },
   textIMEI: {
-    marginTop: 35,
     borderWidth: 1,
     width: '100%',
     height: 44,
@@ -198,7 +209,6 @@ const styles = StyleSheet.create({
   },
   textloaiTB: {
     padding: 10,
-    marginTop: 20,
     borderWidth: 1,
     width: '100%',
     height: 44,
@@ -214,6 +224,7 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     alignItems: 'center',
     justifyContent: 'center',
+    marginTop:40,
   },
   error:{
     ...Fonts.h8,

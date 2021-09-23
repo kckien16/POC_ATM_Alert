@@ -121,14 +121,14 @@ const Device = () => {
                 <View style={{flexDirection: 'row'}}>
                   <Text
                     style={{
-                      color: '#347AFF',
+                      color: '#2190CD',
                       fontSize: 16,
                       fontWeight: 'bold',
                     }}>
                     {t('query-time')}:
                   </Text>
                   <Text
-                    style={{marginLeft: '15%', color: '#2190CD', fontSize: 16}}>
+                    style={{marginLeft: '20%', color: '#2190CD', fontSize: 16}}>
                     {currentDate}
                   </Text>
                 </View>

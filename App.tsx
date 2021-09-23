@@ -24,7 +24,7 @@ const Drawer =() =>{
   return(
 
          <Draw.Navigator 
-         initialRouteName="Lookup" 
+         initialRouteName="Lookup" screenOptions={{headerShown: false}}
         drawerContent={props => <DrawerContent {...props} /> }
          >
          
