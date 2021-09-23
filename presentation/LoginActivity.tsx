@@ -166,7 +166,7 @@ const styles = StyleSheet.create({
    position:"relative"
   },
   textForgot: {
-    ...Fonts.h7,
+    ...Fonts.h13,
     textAlign: 'right',
     marginRight: 20,
     marginTop: 12,
