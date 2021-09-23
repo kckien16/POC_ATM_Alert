@@ -91,7 +91,8 @@ const styles = StyleSheet.create({
     
   },
   titles: {
-    ...FONTS.h6
+    ...FONTS.h6,
+    opacity:0.8
     
   },
   input: {
@@ -101,6 +102,7 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     textAlign: 'right',
     paddingRight:16,
-    ...FONTS.h6
+    ...FONTS.h6,
+    opacity:0.8
   },
 });

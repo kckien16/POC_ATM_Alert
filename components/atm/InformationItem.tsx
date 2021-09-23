@@ -1,8 +1,9 @@
 import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import { useTranslation } from 'react-i18next';
+import Fonts from '../../constants/Fonts';
 
-const InformationItem = props => {
+const InformationItem = (props: { imei: boolean | React.ReactChild | React.ReactFragment | React.ReactPortal; sim: boolean | React.ReactChild | React.ReactFragment | React.ReactPortal; loaiTB: boolean | React.ReactChild | React.ReactFragment | React.ReactPortal; tenTB: boolean | React.ReactChild | React.ReactFragment | React.ReactPortal; diaChi: boolean | React.ReactChild | React.ReactFragment | React.ReactPortal; ngayKH: boolean | React.ReactChild | React.ReactFragment | React.ReactPortal; }) => {
   const{t,i18n} = useTranslation();
   return (
     <View >
@@ -62,20 +63,13 @@ export default InformationItem;
 
 const styles = StyleSheet.create({
   titles: {
-    fontSize: 14,
-    fontWeight:'bold',
-    fontFamily:"Mulish",
-    color:"#091F3A",
-    opacity:.8,
-    
+    opacity: .8,
+    ...Fonts.h2,  
     
   },
   title: {
-    fontSize: 16,
-    width: 160,
-    fontWeight: '400',
-    opacity:.5,
-    left:"15%",
+    ...Fonts.h3,
+    opacity:0.5
     
   },
   viewItem: {
