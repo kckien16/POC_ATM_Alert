@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 
 import FONTS  from '../../constants/Fonts';
 
-const WarningItem = props => {
+const WarningItem = (props:any) => {
   const{t,i18n}=useTranslation()
 
   const [isEdittable ,setisEdittable ] = useState(false);
