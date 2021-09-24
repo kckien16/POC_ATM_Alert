@@ -8,7 +8,7 @@ const ToolBar = props => {
 const styles = StyleSheet.create({
     toolbar: {
       
-        backgroundColor: Colors.white, 
+        backgroundColor: '#fff', 
         height: 68,
         flexDirection:"row",
     }

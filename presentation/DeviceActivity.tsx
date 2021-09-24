@@ -94,7 +94,7 @@ const Device = ({ navigation }) => {
           </Card>
         </View>
 
-        <View style={{ flex: 1, marginTop: 20, marginLeft: 22 }}>
+        <View style={{ flex: 1, marginTop: 20, marginLeft: 22 ,padding:12}}>
           <Text style={{ fontSize: 16, fontWeight: '600' }}>
             {t("sensor-status")}
           </Text>
@@ -347,6 +347,7 @@ const styles = StyleSheet.create({
   },
   textFrame1: {
     padding: 1,
+    opacity:.8,
     ...FONTS.h12
   },
 
@@ -354,18 +355,21 @@ const styles = StyleSheet.create({
 
     marginRight: '76%',
     padding: 8,
-    ...FONTS.h14
+    opacity:.7,
+    ...FONTS.h11,
 
   },
   textFrame3: {
     marginRight: '55%',
     padding: 8,
-    ...FONTS.h14,
+    opacity:.7,
+    ...FONTS.h11,
   },
   textFrame4: {
     marginRight: '60%',
     padding: 8,
-    ...FONTS.h14,
+    opacity:.7,
+    ...FONTS.h11,
   },
   textContentIMEI: {
     fontSize: 14,
@@ -381,7 +385,7 @@ const styles = StyleSheet.create({
     width: 179,
     fontWeight: '400',
     opacity: .5,
-    marginLeft: '14%'
+    marginLeft: '18%'
 
   },
   textContentNKH: {
@@ -406,7 +410,6 @@ const styles = StyleSheet.create({
 
   },
   card: {
-
     backgroundColor: '#EAF5FA',
     borderWidth: 1,
     borderColor: '#ACBCD1',
