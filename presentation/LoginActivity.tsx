@@ -120,14 +120,15 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   marginTop:103,
   marginBottom:63,
+  opacity:0.8
   },
   logocontainer: {
     flexDirection: 'row',
-    padding: 10,
+    padding: 16,
   },
   Logo: {
-    width: 40,
-    height: 40,
+    width: 38,
+    height: 38,
   },
   imageVN: {
     width: 16,
@@ -161,7 +162,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
   },
   buttonLoginText: {
-    ...Fonts.h16,
+    ...Fonts.h1,
    position:"relative"
   },
   textForgot: {

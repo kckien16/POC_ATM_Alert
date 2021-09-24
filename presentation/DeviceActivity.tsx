@@ -16,6 +16,7 @@ import { useTranslation } from 'react-i18next';
 import RBSheet from "react-native-raw-bottom-sheet";
 import { SIZES } from '../constants/theme'
 import FONTS from '../constants/Fonts';
+import Fonts from '../constants/Fonts';
 
 
 const actionSheetRef = createRef();
@@ -86,8 +87,8 @@ const Device = ({ navigation }) => {
               )}
             />
             <View style={{ flexDirection: 'row', }}>
-              <Text style={{ color: '#347AFF', fontSize: 16, fontWeight: '400' }}>{t('query-time')}:</Text>
-              <Text style={{ marginLeft: '25%', color: '#2190CD', fontSize: 16, }}>
+              <Text style={{...FONTS.h13}}>{t('query-time')}:</Text>
+              <Text style={{ marginLeft: '27%', ...FONTS.h13 }}>
                 {currentDate}
               </Text>
             </View>
@@ -95,7 +96,7 @@ const Device = ({ navigation }) => {
         </View>
 
         <View style={{ flex: 1, marginTop: 20, marginLeft: 22 ,padding:12}}>
-          <Text style={{ fontSize: 16, fontWeight: '600' }}>
+          <Text style={{ ...Fonts.h2 }}>
             {t("sensor-status")}
           </Text>
         </View>
@@ -455,8 +456,7 @@ const styles = StyleSheet.create({
     marginLeft: 20
   },
   testinformation: {
-
-    ...FONTS.h4
+    ...FONTS.h2
   },
   status: {
     flex: 1,

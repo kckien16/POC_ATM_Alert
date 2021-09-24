@@ -2,6 +2,7 @@ import React from 'react';
 import {Image, StyleSheet, Text, View} from 'react-native';
 import { useTranslation } from 'react-i18next';
 import Colors from '../../constants/Colors';
+import Fonts from '../../constants/Fonts';
 const SensorStatus = props => {
   const { t, i18n } = useTranslation()
   return (
@@ -139,10 +140,7 @@ export default SensorStatus;
 
 const styles = StyleSheet.create({
   titles: {
-    fontSize: 13,
-    fontWeight:'500',
-    color:'#114A69',
-     
+    ...Fonts.h2
   },
   title: {
     fontSize: 14,

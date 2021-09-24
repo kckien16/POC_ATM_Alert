@@ -146,11 +146,11 @@ const styles = StyleSheet.create({
     marginLeft: 10,
     marginBottom: 12,
     alignItems: "center",
-    ...FONTS.h11,
+    ...FONTS.h2,
   },
   settingText: {
-    padding:2,
-    ...FONTS.h10
+    ...FONTS.h2,
+    opacity:0.8
   },
   textRToolBar: {
     marginTop: '10%',
@@ -178,8 +178,8 @@ const styles = StyleSheet.create({
     height: 20,
     marginTop: 32,
     marginLeft: 26,
-    fontWeight: 'bold',
-    color: '#091F3A'
+    ...FONTS.h2,
+    opacity:0.8
 
   },
 

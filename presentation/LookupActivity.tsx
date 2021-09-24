@@ -126,7 +126,7 @@ const lookup = () => {
               style={styles.inputTC}
               onPress={() =>
                 navigation.navigate('Device')}>
-              <Text style={{}}>{t('device')}</Text>
+              <Text style={styles.fontBtn}>{t('device')}</Text>
             </TouchableOpacity>
           </View>
 
@@ -172,7 +172,7 @@ const styles = StyleSheet.create({
   },
   textor: {
     marginTop: 20,
-    ...FONTS.h3
+    ...FONTS.h4
 
   },
   centerText: {
@@ -224,6 +224,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     marginTop: 40,
+  },
+  fontBtn:{
+    ...FONTS.h1
   },
   error: {
     ...Fonts.h8,

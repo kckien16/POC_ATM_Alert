@@ -68,12 +68,10 @@ const styles = StyleSheet.create({
     
   },
   title: {
-    fontSize: 14,
-    width: 160,
-    fontWeight: '400',
+    ...Fonts.h3,
     opacity:.5,
     left:"15%",
-    
+    width:170
   },
   viewItem: {
     flexDirection: 'row',
