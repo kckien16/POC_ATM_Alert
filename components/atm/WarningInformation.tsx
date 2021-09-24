@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 
 import FONTS  from '../../constants/Fonts';
 
-const WarningItem = (props:any) => {
+const WarningInformation = props => {
   const{t,i18n}=useTranslation()
 
   const [isEdittable ,setisEdittable ] = useState(false);
@@ -67,7 +67,7 @@ const WarningItem = (props:any) => {
         </View>
         <View style={styles.viewInput}>
           <TextInput
-        
+         editable={false} selectTextOnFocus={false} 
           placeholder='70'
           style={styles.input}></TextInput>
         </View>
@@ -76,14 +76,14 @@ const WarningItem = (props:any) => {
   );
 };
 
-export default WarningItem;
+export default WarningInformation;
 
 const styles = StyleSheet.create({
   viewItem: {
     flexDirection: 'row',
     alignItems: 'center',
-    width: '100%',
-    marginTop:15,
+    width: '120%',
+    marginTop:8,
   
   },
   viewTitle: {
@@ -92,22 +92,22 @@ const styles = StyleSheet.create({
   },
   viewInput: {
     flex: 1,
-    alignItems:"flex-end"
+    alignItems:"center",
+    marginRight:'5%'
+
     
   },
   titles: {
-    ...FONTS.h6,
-    opacity:0.8
+    ...FONTS.h6
     
   },
   input: {
     width: 116,
     height: 44,
-    backgroundColor: Colors.white,
+    backgroundColor:'#DBE8F5',
     borderRadius: 8,
     textAlign: 'right',
     paddingRight:16,
-    ...FONTS.h6,
-    opacity:0.8
+    ...FONTS.h6
   },
 });

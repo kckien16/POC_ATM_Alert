@@ -15,7 +15,7 @@ import { TT, ThongTin } from '../data/ThongTinTB';
 import { SDT, SDT_KC } from '../data/SDT_KC';
 import { Nhan, SDT_Nhan } from '../data/SDT_Nhan';
 import { Gui, SDT_GuiTN } from '../data/SDT_GuiTN';
-import { Warning, Warnings } from '../data/Warning';
+import { WarningInformation , WarningsInformation } from '../data/WarningInformation';
 
 import Card from '../components/UI/Card';
 import ToolBar from '../components/UI/ToolBar';
@@ -24,7 +24,7 @@ import EmergencyNumberItem from '../components/atm/EmergencyNumberItem';
 import Colors from '../constants/Colors';
 import Receiving from '../components/atm/ReceivingPhoneNumber';
 import Send from '../components/atm/SendPhoneNumberItem';
-import WarningItem from '../components/atm/WarningItem';
+import WarningInfor from '../components/atm/WarningInformation';
 import Button from '../components/UI/Button';
 import { useTranslation } from 'react-i18next';
 
@@ -113,9 +113,9 @@ const Information = ({ navigation }) => {
         <Text style={styles.titles}>{t("alarm-threshold-setting")}</Text>
         <View style={{ flex: 1 }}>
           <FlatList
-            data={Warnings}
+            data={WarningsInformation}
             renderItem={({ item }) => (
-              <WarningItem
+              <WarningInfor
                 rung={item.rung}
                 roDien={item.roDien}
                 khoi={item.khoi}
@@ -146,10 +146,11 @@ const styles = StyleSheet.create({
     marginLeft: 10,
     marginBottom: 12,
     alignItems: "center",
-    ...FONTS.h3,
+    ...FONTS.h11,
   },
   settingText: {
-    ...FONTS.h13
+    padding:2,
+    ...FONTS.h10
   },
   textRToolBar: {
     marginTop: '10%',

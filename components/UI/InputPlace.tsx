@@ -44,6 +44,8 @@ const styles = StyleSheet.create({
         height:"50%",
         width: '95%',
         paddingLeft: 10,
+       
+        
       },
       errorInput:{
         borderWidth:1,

@@ -38,13 +38,13 @@ const styles = StyleSheet.create({
     
     
     
+    
+    
   },
   br: {
     opacity: 0.1,
     width: '100%',
   },
 });
-function e(e: any) {
-  throw new Error('Function not implemented.');
-}
+
 

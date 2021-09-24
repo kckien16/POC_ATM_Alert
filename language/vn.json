@@ -13,7 +13,7 @@
         "atm-information": "Thông tin ATM",
         "imei": "IMEI",
         "sim": "SIM",
-        "query-time":"Thời gian truy vấn",
+        "query-time":"Thời gian ",
         "connection":"Kết nối nguồn",
         "status":"Tình trạng thiết bị",
         "type-of-device": "Loai thiết bị",
@@ -51,13 +51,13 @@
         "add-phone-number-to-send-messages": "Thêm số điện thoại gửi tin nhắn",
         "alarm-threshold-setting": "Cài đặt ngưỡng cảnh báo",
         "vibration-warning-threshold": "Ngưỡng cảnh báo rung",
-        "leakage-alarm-threshold": "Ngưỡng cảnh báo rò điên (dòng)",
+        "leakage-alarm-threshold": "Ngưỡng cảnh  rò điên (dòng)",
         "smoke-alarm-threshold": "Ngưỡng cảnh báo khói(mật độ)",
-        "temperature-warning-threshold": "Ngưỡng cảnh báo nhiệt độ (độ C)",
+        "temperature-warning-threshold": "Ngưỡng cảnh  nhiệt độ (độ C)",
         "battery-warning": "Cảnh báo pin(%)",
         "save": "Lưu",
         "exit" :"Hủy",
-        "place-bottomsheet":"Địa chỉ",
+        "place-bottomsheet":"Địa chỉ ",
         "enter-name":"Mời nhập tên"
     }
     

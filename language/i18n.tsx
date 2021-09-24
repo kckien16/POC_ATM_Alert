@@ -4,7 +4,7 @@ import english from "./en.json";
 import vietnamese from "./vn.json";
 
 i18next.use(initReactI18next).init({
-    lng: 'en',
+    lng: 'vn',
     resources: {
         en: english,
         vn: vietnamese

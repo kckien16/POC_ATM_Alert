@@ -23,7 +23,7 @@ const SensorStatus = props => {
           <Text style={styles.titles}>{t('vibrate')}(>1700):</Text>
         </View>
         <View style={{flex: 2}}>
-          <Text style={styles.title}>{props.rung}</Text>
+          <Text style={styles.titleRung}>{props.rung}</Text>
         </View>
       </View>
       <View style={styles.viewItem}>
@@ -40,7 +40,7 @@ const SensorStatus = props => {
         <View style={{flex: 1,flexDirection:'row'}}>
         <Image style={{ width: 20, height: 20,marginRight:10}}
            source={require('../../images/door.png')} />
-          <Text style={styles.titles}>{t('ATM-safes')}>36.5:</Text>
+          <Text style={styles.titles}>{t('ATM-safes')}</Text>
         </View>
         <View style={{flex: 2}}>
           <Text style={styles.title}>{props.cuaketATM}</Text>
@@ -48,9 +48,9 @@ const SensorStatus = props => {
       </View>
       <View style={styles.viewItem}>
         <View style={{flex: 1,flexDirection:'row'}}>
-        <Image style={{ width: 20, height: 20,marginRight:10 }}
+        <Image style={{ width: 20, height: 20,marginRight:10, }}
               source={require('../../images/windows.png')} />
-          <Text style={styles.titles}>{t('out-side-the-ATM')}>36.5:</Text>
+          <Text style={styles.titles}>{t('out-side-the-ATM')}:</Text>
         </View>
         <View style={{flex: 2}}>
           <Text style={styles.title}>{props.cuangoaiATM}</Text>
@@ -117,7 +117,7 @@ const SensorStatus = props => {
           <Text style={styles.titles}>{t('AC-supply-voltage')}:</Text>
         </View>
         <View style={{flex: 2}}>
-          <Text style={styles.title}>{props.dienAp}</Text>
+          <Text style={styles.titleDien}>{props.dienAp}</Text>
         </View>
       </View>
 
@@ -128,7 +128,7 @@ const SensorStatus = props => {
           <Text style={styles.titles}>{t('signaling')}:</Text>
         </View>
         <View style={{flex: 2}}>
-          <Text style={styles.title}>{props.baoHieu}</Text>
+          <Text style={styles.titleBao}>{props.baoHieu}</Text>
         </View>
       </View>
     </View>
@@ -139,32 +139,41 @@ export default SensorStatus;
 
 const styles = StyleSheet.create({
   titles: {
-    fontSize: 14,
+    fontSize: 13,
     fontWeight:'500',
     color:'#114A69',
-    
-
-    
-
-    
+     
   },
   title: {
-    fontSize: 16,
-    fontWeight: '300',
-    marginLeft:"45%",
-    
-    
+    fontSize: 14,
+    fontWeight: '400',
+    marginLeft:"65%",
+  },
+  titleRung:{
+    fontSize: 14,
+    fontWeight: '400',
+    marginLeft:"44%",
+  },
+  titleDien:{
+    fontSize: 14,
+    fontWeight: '400',
+    marginLeft:"12%",
+  },
+  titleBao:{
+    fontSize: 14,
+    fontWeight: '400',
+    marginLeft:"58%",
   },
   title1:{
-    fontSize: 16,
+    fontSize: 14,
     color:'#FF5B5B',
-    fontWeight: '300',
-    marginLeft:"45%",
+    fontWeight: '400',
+    marginLeft:"65%",
   },
   viewItem: {
     flexDirection: 'row',
-    marginLeft: 20,
+    marginLeft: 5,
     marginBottom: 20,
-    width:"100%",
+    width:"117%",
   },
 });

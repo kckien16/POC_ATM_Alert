@@ -116,7 +116,7 @@ const styles = StyleSheet.create({
   },
 
   text: {
-   ...Fonts.h9,
+   ...Fonts.h15,
     textAlign: 'center',
   marginTop:103,
   marginBottom:63,
@@ -161,11 +161,11 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
   },
   buttonLoginText: {
-    ...Fonts.h1,
+    ...Fonts.h16,
    position:"relative"
   },
   textForgot: {
-    ...Fonts.h7,
+    ...Fonts.h13,
     textAlign: 'right',
     marginRight: 20,
     marginTop: 12,
