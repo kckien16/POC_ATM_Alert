@@ -1,25 +1,39 @@
-import React, {Component} from 'react';
-import { Text, View, StyleSheet } from 'react-native';
+import React, { Component } from 'react';
+import { Dropdown } from 'react-native-material-dropdown-v2';
+import {View,Animated,Text,StyleSheet} from 'react-native'
+const data = [{
+  value: 'Banana',
+}, {
+  value: 'Mango',
+}, {
+  value: 'Pear',
+}];
+const Demo =()=> {
+ 
+    
 
-
-
-export default class HomeScreen extends Component{
-    render(){
-        return(
-            <View style={styles.container}>
-                <Text>Homescreen</Text>
-            </View>
-        )
-    }
-
-}
-
-
-const styles = StyleSheet.create({
-  container: {
-      flex:1,
-      justifyContent:'center',
-      alignItems:'center',
-      backgroundColor:'#fff'
+    return (
+      <View style={{ flex:1,alignItems:'center',marginTop:100,}}>
+      <Dropdown
+     style={styles.text}
+    
+        data={data}
+      />
+      </View>
+    );
   }
-});
+export default Demo;
+const styles = StyleSheet.create({
+    text: {
+      backgroundColor:'#ffff',
+      width: 362,
+      height: 40,
+      borderWidth:1,
+      borderColor:'#2190CD',
+      fontSize:10,
+     
+      
+     
+    },
+    
+})

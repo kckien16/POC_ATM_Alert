@@ -11,7 +11,7 @@ import {
   Alert,
 } from 'react-native';
 import FontAwesome from 'react-native-vector-icons/FontAwesome'
-
+import { Dropdown } from 'react-native-material-dropdown-v2';
 import Input from '../components/UI/Input';
 import QRCodeScanner from 'react-native-qrcode-scanner';
 import { RNCamera } from 'react-native-camera';
@@ -30,6 +30,8 @@ import { useNavigation } from '@react-navigation/core';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { RootStackParamList } from './RootStackPrams';
 
+
+
 const loginValidSchema = yup.object().shape({
   Imei: yup.string()
     .length(13)
@@ -38,6 +40,7 @@ const loginValidSchema = yup.object().shape({
 type authScreenProp = StackNavigationProp<RootStackParamList, 'Device'>;
 
 const lookup = () => {
+  
   const navigation = useNavigation<authScreenProp>();
   const onSuccess = (e: { data: string }) => {
     Linking.openURL(e.data).catch(err => Alert.alert('An error occured', err));
@@ -106,19 +109,24 @@ const lookup = () => {
               value={values.Imei}
               error={errors.Imei} />
             {(errors.Imei && touched.Imei) && <Text style={styles.error}>{errors.Imei}</Text>}
-            <View style={styles.dropdown}>
-              <RNPickerSelect
-                onValueChange={e => i18n.changeLanguage(e)}
-                items={[
-                  { label: 'Thiết bị cảnh báo dành cho máy ATM', value: 'xxx' },
-                  { label: 'Thiết bị cảnh báo dành cho phòng giao dịch', value: 'xxx' },
 
-                ]}
-
-              >
-                <Text style={styles.Textlookup}>  Loại thiết bị                                                              ▽
-                </Text>
-              </RNPickerSelect>
+            <View style={{ marginTop:10,flexDirection:'row'}}>
+          
+             <Dropdown
+     
+            style={styles.textdrop}
+              value='Loại Thiết bị                                                               ▽'
+              data= {[{
+                value: 'Thiết bị cảnh báo dành cho ATM                            ▽',
+              }, {
+                value: 'Thiết bị cảnh báo dành cho phòng giao dịch        ▽',
+              },
+              ]}
+              
+                 >
+                
+                 </Dropdown>
+       
             </View>
           </View>
           <View style={{ flex: 1, alignItems: "center" }}>
@@ -148,10 +156,10 @@ const styles = StyleSheet.create({
     width: '90%',
     height: 40,
     borderRadius: 8,
-    justifyContent: 'center',
-    alignContent: "center",
-
+   borderColor:Colors.blue,
+   borderWidth:1,
     backgroundColor: Colors.white,
+    flexDirection:'row'
   },
   testlookup: {
     fontSize: 16,
@@ -160,6 +168,22 @@ const styles = StyleSheet.create({
     color: '#091F3A'
 
   },
+ 
+  textdrop:{
+    backgroundColor:'#ffff',
+    width: 390,
+    height: 44,
+    borderWidth:1,
+    borderColor:'#2190CD',
+    fontSize:16,
+    borderRadius:10,
+ 
+    marginLeft:3,
+    flexDirection:'row'
+  },
+  
+ 
+  
   btnBack: {
 
     marginLeft: 26
