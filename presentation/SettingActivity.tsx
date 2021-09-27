@@ -97,7 +97,9 @@ const CaiDat  = () => {
   const [newSdtNhan, setNewSdtNhan] = useState<Nhan | null>(null);
   const [newSdtGuiTN, setNewSdtGuiTN] = useState<Gui | null>(null);
 
-  const [inputShown, setInputShown] = useState<boolean>(false);
+  const [addPhoneEShown, setAddPhoneEShown] = useState<boolean>(false);
+  const [addPhoneRShown, setAddPhoneRShown] = useState<boolean>(false);
+  const [addPhoneSShown, setAddPhoneSShown] = useState<boolean>(false);
 
   useEffect(() => {
     (() => {
@@ -251,13 +253,13 @@ const CaiDat  = () => {
             <View style={styles.btnAddView}>
               <View
                 style={{
-                  display: inputShown == false ? 'flex' : 'none',
+                  display: addPhoneEShown == false ? 'flex' : 'none',
                   width: '100%',
                 }}>
                 <TouchableOpacity
                   style={styles.btnAddShown}
                   onPress={() => {
-                    setInputShown(true);
+                    setAddPhoneEShown(true);
                   }}>
                   <FontAwesome
                     name="plus-circle"
@@ -271,7 +273,7 @@ const CaiDat  = () => {
               </View>
               <View
                 style={{
-                  display: inputShown == true ? 'flex' : 'none',
+                  display: addPhoneEShown == true ? 'flex' : 'none',
                   width: '100%',
                 }}>
                 <View style={{alignItems: 'center', flexDirection: 'row'}}>
@@ -317,13 +319,13 @@ const CaiDat  = () => {
             <View style={styles.btnAddView}>
               <View
                 style={{
-                  display: inputShown == false ? 'flex' : 'none',
+                  display: addPhoneRShown == false ? 'flex' : 'none',
                   width: '100%',
                 }}>
                 <TouchableOpacity
                   style={styles.btnAddShown}
                   onPress={() => {
-                    setInputShown(true);
+                    setAddPhoneRShown(true);
                   }}>
                   <FontAwesome
                     name="plus-circle"
@@ -337,7 +339,7 @@ const CaiDat  = () => {
               </View>
               <View
                 style={{
-                  display: inputShown == true ? 'flex' : 'none',
+                  display: addPhoneRShown == true ? 'flex' : 'none',
                   width: '100%',
                 }}>
                 <View style={{alignItems: 'center', flexDirection: 'row'}}>
@@ -383,13 +385,13 @@ const CaiDat  = () => {
             <View style={styles.btnAddView}>
               <View
                 style={{
-                  display: inputShown == false ? 'flex' : 'none',
+                  display: addPhoneSShown == false ? 'flex' : 'none',
                   width: '100%',
                 }}>
                 <TouchableOpacity
                   style={styles.btnAddShown}
                   onPress={() => {
-                    setInputShown(true);
+                    setAddPhoneSShown(true);
                   }}>
                   <FontAwesome
                     name="plus-circle"
@@ -403,7 +405,7 @@ const CaiDat  = () => {
               </View>
               <View
                 style={{
-                  display: inputShown == true ? 'flex' : 'none',
+                  display: addPhoneSShown == true ? 'flex' : 'none',
                   width: '100%',
                 }}>
                 <View style={{alignItems: 'center', flexDirection: 'row'}}>
